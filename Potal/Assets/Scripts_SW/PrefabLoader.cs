@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,20 +8,20 @@ namespace SW
     {
         public Dictionary<string, GameObject> LoadAllPrefabs(string path)
         {
-            Dictionary<string, GameObject> dict = new();
+            Dictionary<string, GameObject> prefabs = new();
 
-            GameObject[] prefabs = Resources.LoadAll<GameObject>(path);
+            GameObject[] prefabArr = Resources.LoadAll<GameObject>(path);
 
-            foreach (GameObject prefab in prefabs)
+            foreach (GameObject prefab in prefabArr)
             {
                 if (prefab != null)
                 {
                     string key = prefab.name;
-                    dict[key] = prefab;
+                    prefabs[key] = prefab;
                 }
             }
 
-            return dict;
+            return prefabs;
         }
     }
 }
