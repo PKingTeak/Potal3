@@ -57,12 +57,28 @@ public class StageManager : MonoBehaviour
     }
 
 
-
-    
-
-    public void OnSelectedClicked()
+    public void SettingMap(StageData data)
     {
-       // LoadSceneManager.Instance.LoadSceneAsync("TestStageScene", () => { SettingMap(); }); //이름 넣어주기
+        foreach (var map in data.PrefabEntries)
+        {
+            for (int i = 0; i < data.PrefabEntries.Count; i++)
+            {
+                GameObject entryGO = Instantiate(data.PrefabEntries[i].Prefab);
+
+            }
+        }
+    }
+
+
+
+
+
+
+
+    public void OnSelectedClicked(int stage)
+    {
+
+       LoadSceneManager.Instance.LoadSceneAsync("TestStageScene", () => { SettingMap(stageDict[stage]); }); //이름 넣어주기
 
 
 

@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class LoadSceneManager : MonoBehaviour
 {
     private static LoadSceneManager instance;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
     public static LoadSceneManager Instance
     {
         get 
@@ -43,7 +48,7 @@ public class LoadSceneManager : MonoBehaviour
 
 
 
-    
+  
     
 
 }

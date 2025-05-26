@@ -18,8 +18,13 @@ public class StageButton : MonoBehaviour
     {
         if (TryGetComponent<Button>(out button))
         {
-           // button.onClick.AddListener(); //T씬로드
+           button.onClick.AddListener(OnClickStageButton); //T씬로드
         } //이런식으로 안전하게
+    }
+
+    public void OnClickStageButton()
+    {
+        stageManger.OnSelectedClicked(index);
     }
 
 

@@ -219,7 +219,7 @@ RectTransform:
   m_Children:
   - {fileID: 1364485819}
   - {fileID: 1126350472}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1853175854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -529,6 +529,14 @@ PrefabInstance:
     - target: {fileID: 6011649143271812554, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
       propertyPath: m_Interactable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011649143271812554, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011649143271812554, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7557159669527712520, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1157,7 +1165,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 221441981}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2019654787 stripped
@@ -1177,6 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b77d2f1fa5c7464aba96ac37d4403f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curStage: 0
   stageList:
   - {fileID: 11400000, guid: 1135852408c2c2b449552fd75a3d7486, type: 2}
   - {fileID: 11400000, guid: 90a51088fa5f0214e9fd5aa355b178b3, type: 2}
@@ -1186,7 +1196,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1263948138}
   - {fileID: 826399374}
-  - {fileID: 221441981}
   - {fileID: 565842786}
   - {fileID: 728337390}
   - {fileID: 1853175854}
