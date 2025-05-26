@@ -20,9 +20,6 @@ namespace SW
 
         private void Awake()
         {
-        }
-        private void Start()
-        {
             camera = Camera.main;
             camera.transform.position = new Vector3(0, 140, 0);
             cameraOriginPosition = camera.transform.position;
@@ -30,6 +27,9 @@ namespace SW
             cameraOriginRotation = euler;
             pitch = euler.x;
             yaw = euler.y;
+        }
+        private void Start()
+        {
         }
 
         private void Update()
@@ -63,7 +63,8 @@ namespace SW
             right.Normalize();
 
             Vector3 moveDir = up * inputDir.z + right * inputDir.x;
-            Vector3 verticalMove = forward * scroll * scrollSpeed;
+            Vector3 verticalMove = 
+                forward * scroll * scrollSpeed;
 
             Vector3 move = (moveDir * moveSpeed + verticalMove) * Time.deltaTime;
             camera.transform.position += move;
