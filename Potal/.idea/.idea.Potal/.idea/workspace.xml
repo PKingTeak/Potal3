@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/JumpPadController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/JumpPadController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/ButtonDoor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/Prefab/ButtonDoor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/JumpPad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/Prefab/JumpPad.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/TestScene_YS.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/TestScene_YS.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GGM.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GGM.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script_GGM/PlayerJump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script_GGM/PlayerJump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/ZeroGravityZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/ZeroGravityZone.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1748243848544</updated>
       <workItem from="1748243850872" duration="9235000" />
-      <workItem from="1748261699863" duration="437000" />
+      <workItem from="1748261699863" duration="825000" />
     </task>
     <servers />
   </component>

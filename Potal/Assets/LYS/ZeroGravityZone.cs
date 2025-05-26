@@ -30,9 +30,9 @@ public class ZeroGravityZone : MonoBehaviour
     void AddRandomForce(Rigidbody rb)
     {
         Vector3 randomForce = new Vector3(
-            UnityEngine.Random.Range(-2f, 10f),
-            UnityEngine.Random.Range(-2f, 10f),
-            UnityEngine.Random.Range(-2f, 10f)
+            UnityEngine.Random.Range(-2f, 2f),
+            UnityEngine.Random.Range(10f, 15f),
+            UnityEngine.Random.Range(-2f, 2f)
         );
         rb.AddForce(randomForce, ForceMode.VelocityChange);
     }
