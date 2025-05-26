@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcede1a86aa34f34087f90e73caedc67, type: 3}
-  m_Name: MakeStage
+  m_Name: Stage0
   m_EditorClassIdentifier: 
   PrefabEntries:
   - Prefab: {fileID: 8458280219784028802, guid: 8872e4cdf1e980f4c88a58bac0ee43ba, type: 3}
