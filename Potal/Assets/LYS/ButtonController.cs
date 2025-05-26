@@ -5,29 +5,26 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    private Rigidbody currentRigidbody;
-    public GameObject door;
+    public event Action OnPressed;
+    public event Action OnReleased;
+
+    private Rigidbody current;
     
     private void OnCollisionEnter(Collision other)
     {
-        if (currentRigidbody == null && other.transform.TryGetComponent<Rigidbody>(out Rigidbody rigid))
+        if (current == null && other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
-            currentRigidbody = rigid;
-            Debug.Log($"Button Click: {rigid.name}");
-            door.GetComponent<Animator>().SetBool("IsOpen", true);
+            current = rb;
+            OnPressed?.Invoke();
         }
     }
     
     private void OnCollisionExit(Collision other)
     {
-        Rigidbody _what;
-        if (other.transform.TryGetComponent<Rigidbody>(out Rigidbody exitingRigid) && exitingRigid == currentRigidbody)
+        if (other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb) && rb == current)
         {
-            Debug.Log($"Button Released by: {exitingRigid.name}");
-            door.GetComponent<Animator>().SetBool("IsOpen", false);
-            currentRigidbody = null;
+            OnReleased?.Invoke();
+            current = null;
         }
     }
-    
-    
 }
