@@ -9,13 +9,12 @@ public class MapSelecter : MonoBehaviour
     private List<StageData> maps;
     [SerializeField]
     private List<GameObject> mapEntryPrefabs; //맵에 설치할 오브젝트들이  
-    [SerializeField]
-    private Transform contentParent;
+
 
 
     private void Start()
     {
-       
+        SettingMap();
     }
 
 
@@ -25,18 +24,8 @@ public class MapSelecter : MonoBehaviour
         {
             for (int i = 0; i < mapEntryPrefabs.Count; i++)
             {
-                GameObject entryGO = Instantiate(mapEntryPrefabs[i], contentParent);
-                MapEntryUI entryUI = entryGO.GetComponent<MapEntryUI>();
-                //UI등록해주기 
-
-                if (entryUI != null)
-                {
-                    entryUI.Initialize(map);
-                }
-                else
-                {
-                    Debug.LogWarning("mapEntryPrefab에 MapEntryUI 컴포넌트가 없습니다.");
-                }
+                GameObject entryGO = Instantiate(mapEntryPrefabs[i]);
+             
             }
         }
     }
