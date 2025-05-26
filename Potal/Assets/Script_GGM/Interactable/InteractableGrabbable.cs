@@ -1,14 +1,11 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class InteractableGrabbable : MonoBehaviour
+public class InteractableGrabbable : MonoBehaviour, IInteractable
 {
     private bool _isHeld = false;
     private Rigidbody _rb;
     private Transform _holder;
-
-    [Header("Auto Release Settings")]
-    [SerializeField] private float maxGrabDistance = 3.5f;
 
     private void Awake()
     {
@@ -32,21 +29,16 @@ public class InteractableGrabbable : MonoBehaviour
     {
         if (_isHeld && _holder != null)
         {
-            // 거리 검사 (자동 놓기)
-            float distance = Vector3.Distance(transform.position, _holder.position);
-            if (distance > maxGrabDistance)
-            {
-                StopGrab();
-                return;
-            }
-
-            // 부드럽게 따라오기
             Vector3 dir = (_holder.position - transform.position);
             _rb.velocity = dir * 20f;
-
             _rb.angularVelocity = Vector3.zero;
         }
     }
 
     public bool IsHeld => _isHeld;
+
+    public void Interact()
+    {
+        Debug.Log("잡을 수 있는 오브젝트와 상호작용 시도됨");
+    }
 }

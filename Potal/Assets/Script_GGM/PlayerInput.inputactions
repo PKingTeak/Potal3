@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Portal1",
+                    "name": "Fire_Left",
                     "type": "Button",
                     "id": "af83a51b-a5bc-4866-9adb-7093d5b1e82b",
                     "expectedControlType": "Button",
@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Portal2",
+                    "name": "Fire_Right",
                     "type": "Button",
                     "id": "578371bb-b852-4bca-9ac1-74c16ef52918",
                     "expectedControlType": "Button",
@@ -185,7 +185,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Portal1",
+                    "action": "Fire_Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -196,7 +196,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Portal2",
+                    "action": "Fire_Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -8,6 +8,7 @@ public class PlayerGrabber : MonoBehaviour
     [SerializeField] private Transform grabPoint;
     [SerializeField] private float grabRange = 3f;
     [SerializeField] private LayerMask grabLayer;
+    [SerializeField] private float maxGrabDistance = 3.5f;
 
     private InteractableGrabbable _held;
 
@@ -20,6 +21,18 @@ public class PlayerGrabber : MonoBehaviour
         else if (context.canceled)
         {
             Release();
+        }
+    }
+
+    private void Update()
+    {
+        if (_held != null)
+        {
+            float distance = Vector3.Distance(_held.transform.position, grabPoint.position);
+            if (distance > maxGrabDistance)
+            {
+                Release();
+            }
         }
     }
 
