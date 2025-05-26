@@ -27,8 +27,8 @@ public class StartSceneUI : MonoBehaviour
 	{
 		SetActivePanel(currentState);
 		startButton.onClick.AddListener(() => SceneManager.LoadScene("MapSelectScene"));
-		mapBuildButton.onClick.AddListener(() =>SetActivePanel(UIState.MapBuild));
 		settingButton.onClick.AddListener(() => SetActivePanel(UIState.Setting));
+		mapBuildButton.onClick.AddListener(() => SceneManager.LoadScene("MapSelectScene"));
 	}
 
 	public void SetActivePanel(UIState setState)
@@ -36,6 +36,6 @@ public class StartSceneUI : MonoBehaviour
 		currentState = setState;
 		mainPanel.SetActive(setState == UIState.Main);
 		settingPanel.SetActive(setState == UIState.Setting);
-		mapBuildPanel.SetActive(setState == UIState.MapBuild);
+		//mapBuildPanel.SetActive(setState == UIState.MapBuild);
 	}
 }
