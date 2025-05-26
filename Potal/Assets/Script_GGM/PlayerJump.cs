@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerJump : MonoBehaviour
 {
+    [Header("Jump")]
     [SerializeField] private float jumpPower = 7f;
 
     private Rigidbody _rigidbody;
