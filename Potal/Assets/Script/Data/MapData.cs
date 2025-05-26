@@ -40,8 +40,4 @@ public class MapData
     //프리팹으로 오브젝트들을 가져온다?
 }
 
-[System.Serializable]
-public class MapDataList
-{
-    public List<MapData> maps = new List<MapData>();
-}
+

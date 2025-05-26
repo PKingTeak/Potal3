@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine;
 namespace SW
 {
     [CreateAssetMenu(fileName = "Stage", menuName = "New Stage")]
-    public class SceneData : ScriptableObject
+    public class StageData : ScriptableObject
     {
         [Header("Info")]
         public List<PrefabEntry> PrefabEntries;
