@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameSceneUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("잡담 표시")]
+    [SerializeField] private TextMeshProUGUI promptText;
+    
+    [Header("상호작용 시 표시")]
+    [SerializeField] private GameObject interactPanel;
+    [SerializeField] private TextMeshProUGUI keyText;
+	[SerializeField] private TextMeshProUGUI actionNameText;
 
-    // Update is called once per frame
-    void Update()
+    public void GetInteractData(string tag = "None")
     {
-        
+        switch (tag)
+        {
+            case "None":
+				interactPanel.SetActive(false);
+                break;
+
+			case "Interactable":
+				interactPanel.SetActive(true);
+				keyText.text = "E";
+				actionNameText.text = "상호작용";
+				break;
+		}
     }
 }
