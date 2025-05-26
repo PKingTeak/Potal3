@@ -1,33 +1,72 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SW
 {
     public class PrefabListViewUI : MonoBehaviour
     {
-        PrefabLoader prefabLoader;
-        Dictionary<string, GameObject> prefabs;
+        private PrefabLoader prefabLoader;
+        private Dictionary<string, GameObject> prefabs;
+        private (string, GameObject)? selectedPrefab;
+        [SerializeField]
+        private GameObject buttonPrefab;
+        [SerializeField]
+        private Transform contentRoot;
         [SerializeField]
         private string prefabPath;
+        [SerializeField]
+        private SelectedListViewUI selectedListViewUI;
         void Awake()
         {
             prefabLoader = new PrefabLoader();
             prefabs = prefabLoader.LoadAllPrefabs(prefabPath);
-            foreach (var pair in prefabs)
-            {
-                Debug.Log(pair.Key);
-            }
+            selectedPrefab = null;
+            BuildList();
         }
-        // Start is called before the first frame update
+
         void Start()
         {
         }
 
-        // Update is called once per frame
         void Update()
         {
 
+        }
+
+        public void BuildList()
+        {
+            selectedPrefab = null;
+            foreach (Transform child in contentRoot)
+            {
+                Destroy(child.gameObject);
+            }
+
+            foreach (var pair in prefabs)
+            {
+                GameObject buttonGameObject = Instantiate(buttonPrefab, contentRoot);
+                TextMeshProUGUI label = buttonGameObject.GetComponentInChildren<TextMeshProUGUI>();
+                label.SetText(pair.Key);
+
+                buttonGameObject.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    OnButtonClicked(pair.Key);
+                });
+            }
+        }
+
+        private void OnButtonClicked(string prefabName)
+        { 
+            selectedPrefab = (prefabName, prefabs[prefabName]);
+            Debug.Log($"Button clicked: {prefabName}");
+            if (prefabs[prefabName] == null)
+            {
+                return;
+            }
+            selectedListViewUI.AddPrefab(prefabs[prefabName], prefabName);
+            selectedListViewUI.BuildList();
         }
     }
 }
