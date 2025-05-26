@@ -48,7 +48,7 @@ public class YS_PlayerController : MonoBehaviour
         
         moveDirection = new Vector3(horizontal, 0, vertical);
         
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        _rigid.velocity = moveDirection * moveSpeed;
     }
 
     [Header("Interaction")] 
