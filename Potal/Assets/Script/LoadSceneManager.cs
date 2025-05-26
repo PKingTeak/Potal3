@@ -5,12 +5,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LoadSceneManager : MonoBehaviour
 {
-
-    private string scneName;
-
-    public void LoadSceneAsync(string sceneName)
+    private static LoadSceneManager instance;
+    public static LoadSceneManager Instance
     {
-        StartCoroutine(sceneName);
+        get 
+        {
+            if (instance == null)
+            {
+                instance = new GameObject("LoadSceneManger").AddComponent<LoadSceneManager>();
+            }
+            return instance;
+        }
+
+    }
+
+   
+    public void LoadSceneAsync(string sceneName , Action onCompleted)
+    {
+        StartCoroutine(loadSceneAsync(sceneName, () =>  onCompleted?.Invoke()));
+        
     }
 
 
@@ -19,12 +32,13 @@ public class LoadSceneManager : MonoBehaviour
     public IEnumerator loadSceneAsync(string sceneName , Action onCompleted)
     {
 
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scneName);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
 
         yield return new WaitUntil(() => asyncOperation.isDone); //끝날때 까지 기다림
-    
-        
-    
+        onCompleted?.Invoke();
+
+
+
     }
 
 

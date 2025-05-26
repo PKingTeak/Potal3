@@ -50,8 +50,8 @@ public class MapEntryUI : MonoBehaviour
 
     public void OnSelectedClicked()
     {
-
-        curMap.SettingMap();
+        LoadSceneManager.Instance.LoadSceneAsync("TestStageScene", () => { curMap.SettingMap(); }); //이름 넣어주기
+       
 
         
     }
