@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/ButtonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/ButtonController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Close.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Close.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/DoorAnimController.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/DoorAnimController.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Idle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Idle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Open.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Open.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/TestScene_YS.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/TestScene_YS.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748243848544</updated>
-      <workItem from="1748243850872" duration="7440000" />
+      <workItem from="1748243850872" duration="7785000" />
     </task>
     <servers />
   </component>

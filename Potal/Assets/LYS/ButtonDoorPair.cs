@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ButtonDoorPair : MonoBehaviour
 {
-    public ButtonController button;
-    public DoorController door;
+    [SerializeField] private ButtonController button;
+    [SerializeField] public DoorController door;
 
     private void Awake()
     {

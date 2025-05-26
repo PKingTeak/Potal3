@@ -5,10 +5,10 @@ using DG.Tweening;
 
 public class DoorController : MonoBehaviour
 {
-    Vector3 openPosition;
-    Vector3 closeTargetPosition;
-    
     private Tween moveTween;
+    
+    private Vector3 openPosition;
+    private Vector3 closeTargetPosition;
     
     private void Start()
     {
