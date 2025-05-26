@@ -1,0 +1,13 @@
+{
+    "mapName": "stage1",
+    "playerStartPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "clearPos": {
+        "x": 10.0,
+        "y": 1.0,
+        "z": 10.0
+    }
+}
