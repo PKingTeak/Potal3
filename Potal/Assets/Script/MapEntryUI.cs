@@ -14,13 +14,16 @@ public class MapEntryUI : MonoBehaviour
     public TextMeshProUGUI clearPointText;
     public Button selectButton;
 
-    [SerializeField]
-    private StageData mapData;
+   // [SerializeField]
+    //private StageData mapData;
 
+    [SerializeField]
+    private MapSelecter curMap;
+    
 
     public void Initialize(StageData data)
     {
-       mapData =  data;
+       //mapData =  data;
 
         mapNameText.text = data.name;
         if (data.PrefabEntries != null && data.PrefabEntries.Count >= 2)
@@ -31,7 +34,7 @@ public class MapEntryUI : MonoBehaviour
             //화면에 표시 일단 어디가 시작지점인지 끝점인지
             startPointText.text = string.Format("시작: {0:F1}, {1:F1}, {2:F1}", startPos.x, startPos.y, startPos.z);
             clearPointText.text = string.Format("클리어: {0:F1}, {1:F1}, {2:F1}", clearPos.x, clearPos.y, clearPos.z);
-
+            //테스트용
         }
         else
         {
@@ -47,9 +50,10 @@ public class MapEntryUI : MonoBehaviour
 
     public void OnSelectedClicked()
     {
-        Initialize(mapData);
+
+        curMap.SettingMap();
+
         
-        Debug.Log($"맵 : {mapData.name}");
     }
    
 }
