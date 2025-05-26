@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/CubeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/ButtonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/CubeController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/ButtonController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/TestScene_YS.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/TestScene_YS.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748243848544</updated>
-      <workItem from="1748243850872" duration="3054000" />
+      <workItem from="1748243850872" duration="6085000" />
     </task>
     <servers />
   </component>
