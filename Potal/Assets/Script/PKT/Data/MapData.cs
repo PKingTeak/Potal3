@@ -36,8 +36,6 @@ public class MapData
         clearPos = new Vector3Data(EndPos);
     }
 
-    //List<Object> objectList;
-    //프리팹으로 오브젝트들을 가져온다?
 }
 
 

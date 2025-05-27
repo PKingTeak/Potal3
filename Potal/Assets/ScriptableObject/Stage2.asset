@@ -18,6 +18,6 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
   - Prefab: {fileID: 8792099443661528248, guid: 469ff8ceb7167b04797fa582c0cef055, type: 3}
-    position: {x: 30, y: 0, z: 20}
+    position: {x: 50, y: 0, z: 20}
     rotation: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}

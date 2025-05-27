@@ -31,7 +31,7 @@ public class StageManager : MonoBehaviour
         stageDict = new Dictionary<int, StageData>();
         for (int i = 0; i < stageList.Count; i++)
         {
-            stageDict.Add(i + 1, stageList[i]);
+            stageDict.Add(i+1, stageList[i]);
         }
         //실험 데이터를 받아오면 넣어줄것이다. 
 
@@ -63,8 +63,11 @@ public class StageManager : MonoBehaviour
         {
             for (int i = 0; i < data.PrefabEntries.Count; i++)
             {
-                GameObject entryGO = Instantiate(data.PrefabEntries[i].Prefab);
+               // Debug.Log(data.PrefabEntries[i].Prefab.position);
 
+
+                GameObject entryGO = Instantiate(data.PrefabEntries[i].Prefab);
+                entryGO.transform.position = data.PrefabEntries[i].position; //위치넣어주기
             }
         }
     }

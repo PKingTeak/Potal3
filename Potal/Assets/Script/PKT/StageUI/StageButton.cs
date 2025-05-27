@@ -24,7 +24,9 @@ public class StageButton : MonoBehaviour
 
     public void OnClickStageButton()
     {
+
         stageManger.OnSelectedClicked(index);
+        stageManger.gameObject.SetActive(false); //임시로 끄기 
     }
 
 
@@ -34,7 +36,7 @@ public class StageButton : MonoBehaviour
         stageManger = _manager;
 
         this.button.interactable =  index <= _manager.CurStage ? true : false; //나는 바보야~~
-
+   
     }
 
 
