@@ -26,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponent<GroundChecker>();
+
+        if (SettingManager.Instance != null)
+        {
+            lookSensitivity = SettingManager.Instance.Current.mouseSensitivity;
+        }
     }
 
     private void FixedUpdate()
