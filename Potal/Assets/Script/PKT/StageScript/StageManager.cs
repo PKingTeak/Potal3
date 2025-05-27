@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
@@ -11,8 +12,22 @@ public class StageManager : MonoBehaviour
             if (instance == null)
             {
                 instance = new GameObject("StageManager").AddComponent<StageManager>();
+
             }
-            return instance;
+            
+                return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
     public Vector3 RespawnPos { get { return respawnPos; } }
@@ -21,8 +36,12 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private Vector3 respawnPos;
     [SerializeField]
-    private float respawnTime = 3f;
+    private float respawnTime = 1f;
     GameObject player;
+    [Header("ClearUI")]
+    public GameObject clearPanel;
+
+  
 
     public void Start()
     {
@@ -67,6 +86,7 @@ public class StageManager : MonoBehaviour
 
     public void OnClearStage()
     {
+        clearPanel.GetComponent<ClearPanel>().Show();
         Debug.Log("클리어");
         //유민님이 만드신 클리어 UI와 연동
     }

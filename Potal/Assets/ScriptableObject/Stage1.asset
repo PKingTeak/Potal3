@@ -21,3 +21,7 @@ MonoBehaviour:
     position: {x: 20, y: 0, z: 20}
     rotation: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
+  - Prefab: {fileID: 8667782677553949027, guid: 4b0dc4994d5d3a24991a64d3c1451120, type: 3}
+    position: {x: -40, y: 0, z: -30}
+    rotation: {x: 0, y: 0, z: 0}
+    scale: {x: 0, y: 0, z: 0}

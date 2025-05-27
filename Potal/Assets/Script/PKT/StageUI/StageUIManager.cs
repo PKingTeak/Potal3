@@ -51,6 +51,15 @@ public class StageUIManager : MonoBehaviour
         for (int i = 0; i < Buttons.Count; i++)
         {
             Buttons[i].InitButton(i+1, this);
+            if (i < stageList.Count)
+            {
+                Buttons[i].InitStageName(stageList[i].name);
+
+            }
+            else 
+            {
+                Buttons[i].InitStageName(string.Empty);
+            }
             //버튼 인덱스 넣어주기 
         }
         
@@ -60,20 +69,21 @@ public class StageUIManager : MonoBehaviour
     public void SettingMap(StageData data)
     {
         StageManager.Instance.InitRespawnPos(data.PrefabEntries[0].position);
-        foreach (var map in data.PrefabEntries)
-        {
-            for (int i = 0; i < data.PrefabEntries.Count; i++)
-            {
+       foreach (var map in data.PrefabEntries)
+       {
+           
               
 
-                GameObject entryGO = Instantiate(data.PrefabEntries[i].Prefab);
+                GameObject entryGO = Instantiate(map.Prefab);
+                
                 //일단 0번째는 start라고 생각하고있음
-                entryGO.transform.position = data.PrefabEntries[i].position; //위치넣어주기
-            }
-        }
+                entryGO.transform.position = map.position; //위치넣어주기
+           
+       }
     }
 
-
+  
+        
 
 
 

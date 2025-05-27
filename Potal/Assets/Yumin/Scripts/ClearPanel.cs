@@ -27,8 +27,19 @@ public class ClearPanel : MonoBehaviour
 
 	private void Awake()
 	{
-		exitButton.onClick.AddListener(() => ExitButton());
-		MissionCheck();
+	
+		
+        exitButton.onClick.AddListener(() => ExitButton());
+	
+		//MissionCheck();
+	}
+
+	//경택 추가함
+	public void Show()
+	{
+		//MissionCheck();
+		gameObject.SetActive(true);
+
 	}
 
 	private void MissionCheck()
