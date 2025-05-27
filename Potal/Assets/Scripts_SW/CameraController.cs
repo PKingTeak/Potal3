@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -90,6 +90,8 @@ namespace SW
             {
                 camera.transform.position = cameraOriginPosition;
                 camera.transform.rotation = Quaternion.Euler(cameraOriginRotation);
+                pitch = cameraOriginRotation.x;
+                yaw = cameraOriginRotation.y;
             }
         }
     }

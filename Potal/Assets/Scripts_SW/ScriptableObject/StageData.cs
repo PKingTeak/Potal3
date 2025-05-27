@@ -15,11 +15,10 @@ namespace SW
     [Serializable]
     public class PrefabEntry
     {
-        public GameObject Prefab;
+        public string prefabPath;
         public Vector3 position;
         public Vector3 rotation;
         public Vector3 scale;
 
-        
     }
 }
