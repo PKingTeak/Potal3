@@ -8,12 +8,15 @@ public class JumpPadController : MonoBehaviour
     [SerializeField] private float _jumpPower;
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.TryGetComponent(out PlayerJump player))
+        if (other.transform.TryGetComponent(out Rigidbody rigid))
         {
-            //Rigidbody를 써서 cube도 보낼 수 있게 할 것인지?
-            //아니면 PlayerController를 써서 플레이어만 뛸 수 있게 할 것인지?
-            //Jump 로직~
-            player.Jump(_jumpPower);
+            Jump(rigid,  _jumpPower);
         }
+    }
+    
+    private void Jump(Rigidbody rigid, float jumpPower)
+    {
+        rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
+        rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
     }
 }
