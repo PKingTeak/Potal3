@@ -32,7 +32,6 @@ public class SettingPanel : MonoBehaviour
 		soundSlider.value = settingData.soundVolume;
 		SFXSlider.value = settingData.SFXVolume;
 		mouseSensitivitySlider.value = settingData.lookSensitivity;
-		
 
 		OnSoundSliderChanged(settingData.soundVolume);
 		OnSFXSliderChanged(settingData.SFXVolume);
