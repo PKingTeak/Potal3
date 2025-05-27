@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec93f311b827174488a8550e6fc9dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSensitivity: 1
+  lookSensitivity: 0.1
   soundVolume: 1
   SFXVolume: 1
 --- !u!1 &464878934
