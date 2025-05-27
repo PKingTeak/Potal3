@@ -43,7 +43,7 @@ public class SaveUI : MonoBehaviour
             return;
         }
 
-        string dirPath = Path.Combine(Application.persistentDataPath, "StageData");
+        string dirPath = Path.Combine(savePath, "StageData");
         Directory.CreateDirectory(dirPath);
 
         string jsonPath = Path.Combine(dirPath, $"{fileName}.json");
