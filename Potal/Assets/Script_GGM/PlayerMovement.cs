@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform cameraContainer;
     [SerializeField] private float minXLook = -80f;
     [SerializeField] private float maxXLook = 80f;
-    [SerializeField] private float lookSensitivity = 1f;
-    private float _camCurXRot;
+    //[SerializeField] private float lookSensitivity = 1f;
+    [SerializeField] private SettingData settingData;
+	private float _camCurXRot;
     private Vector2 _mouseDelta;
     [SerializeField] private bool canLook = true;
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        settingData = SettingManager.Instance.Current;
         Cursor.lockState = CursorLockMode.Locked;
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponent<GroundChecker>();
@@ -41,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        // 이동 방향 계산 (카메라 기준)
         Vector3 camForward = cameraContainer.forward;
         Vector3 camRight = cameraContainer.right;
         camForward.y = 0f;
@@ -51,30 +52,28 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDir = (camForward * _curMovementInput.y + camRight * _curMovementInput.x).normalized;
 
-        // 공중 제어력 보정
         float jumpMultiplier = _groundChecker != null && _groundChecker.IsGrounded ? 1f : airControlMultiplier;
 
-        // 앉기 속도 보정
         float crouchMultiplier = 1f;
         var crouch = GetComponent<PlayerCrouch>();
         if (crouch != null)
             crouchMultiplier = crouch.SpeedMultiplier;
 
-        // 최종 속도 계산
-        Vector3 targetVelocity = moveDir * maxSpeed * jumpMultiplier * crouchMultiplier;
+        Vector3 desiredVelocity = moveDir * maxSpeed * jumpMultiplier * crouchMultiplier;
+        Vector3 velocityChange = desiredVelocity - new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
 
-        // 적용
-        _rigidbody.velocity = new Vector3(targetVelocity.x, _rigidbody.velocity.y, targetVelocity.z);
+        _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
+
 
 
     private void CameraLook()
     {
-        _camCurXRot += _mouseDelta.y * lookSensitivity;
+        _camCurXRot += _mouseDelta.y * settingData.lookSensitivity;
         _camCurXRot = Mathf.Clamp(_camCurXRot, minXLook, maxXLook);
         cameraContainer.localEulerAngles = new Vector3(-_camCurXRot, 0f, 0f);
 
-        transform.eulerAngles += new Vector3(0f, _mouseDelta.x * lookSensitivity, 0f);
+        transform.eulerAngles += new Vector3(0f, _mouseDelta.x * settingData.lookSensitivity, 0f);
     }
 
     public void OnMove(InputAction.CallbackContext context)
