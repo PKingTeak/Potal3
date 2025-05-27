@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stage0
   m_EditorClassIdentifier: 
   PrefabEntries:
-  - Prefab: {fileID: 8458280219784028802, guid: 8872e4cdf1e980f4c88a58bac0ee43ba, type: 3}
+  - prefabPath: Floor
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     scale: {x: 1, y: 1, z: 1}
