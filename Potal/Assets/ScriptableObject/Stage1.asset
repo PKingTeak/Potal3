@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabEntries:
   - Prefab: {fileID: 1812256910486351533, guid: d0520d6e83eaa8f4782bc27877ea9d7d, type: 3}
-    position: {x: 0, y: 0, z: 0}
+    position: {x: 10, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     scale: {x: 0, y: 0, z: 0}
   - Prefab: {fileID: 8792099443661528248, guid: 469ff8ceb7167b04797fa582c0cef055, type: 3}
