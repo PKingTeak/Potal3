@@ -32,7 +32,7 @@ public class PlayerInteractor : MonoBehaviour
         }
         else
         {
-            gameSceneUI.GetInteractData();
+           // gameSceneUI.GetInteractData();
         }
     }
 
