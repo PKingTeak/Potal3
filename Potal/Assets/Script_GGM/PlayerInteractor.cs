@@ -12,16 +12,29 @@ public class PlayerInteractor : MonoBehaviour
 
     private void Update()
     {
-		Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
         {
-            gameSceneUI.GetInteractData(LayerMask.LayerToName(hit.collider.gameObject.layer));
+            if (hit.collider.TryGetComponent(out IInteractable interactable))
+            {
+                if (!interactable.CanShowUI())
+                {
+                    gameSceneUI.GetInteractData();
+                    return;
+                }
+
+                gameSceneUI.GetInteractData(LayerMask.LayerToName(hit.collider.gameObject.layer));
+            }
+            else
+            {
+                gameSceneUI.GetInteractData();
+            }
         }
         else
         {
-			//gameSceneUI.GetInteractData();
-		}
-	}
+            gameSceneUI.GetInteractData();
+        }
+    }
 
     public void OnUse(InputAction.CallbackContext context)
     {
