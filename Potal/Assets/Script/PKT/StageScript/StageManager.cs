@@ -15,7 +15,7 @@ public class StageManager : MonoBehaviour
             return instance;
         }
     }
-    public Vector3 RespawnPos { get => respawnPos; set => respawnPos = value; }
+    public Vector3 RespawnPos { get { return respawnPos; } }
 
     private static StageManager instance;
     [SerializeField]
@@ -24,11 +24,18 @@ public class StageManager : MonoBehaviour
     private float respawnTime = 3f;
     GameObject player;
 
-    private void Start()
+    public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+       
+        SpawnPlayer();
     }
-
+    public void InitRespawnPos(Vector3 pos)
+    {
+        //이걸 사용해서 넣어주는중
+        //startpos가 0번째에 있다고 생각중 StageUIManger에서 
+        respawnPos = pos;
+    }
 
     private void SpawnPlayer()
     {

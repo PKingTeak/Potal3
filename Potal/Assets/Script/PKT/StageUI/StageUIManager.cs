@@ -59,7 +59,7 @@ public class StageUIManager : MonoBehaviour
 
     public void SettingMap(StageData data)
     {
-        StageManager.Instance.RespawnPos = data.PrefabEntries[0].position;
+        StageManager.Instance.InitRespawnPos(data.PrefabEntries[0].position);
         foreach (var map in data.PrefabEntries)
         {
             for (int i = 0; i < data.PrefabEntries.Count; i++)

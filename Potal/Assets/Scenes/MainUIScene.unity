@@ -640,6 +640,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5110895144260030120, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
+      propertyPath: m_Name
+      value: StageUIManger
+      objectReference: {fileID: 0}
     - target: {fileID: 5149573057871933126, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1129,7 +1133,7 @@ GameObject:
   - component: {fileID: 1853175854}
   - component: {fileID: 1853175853}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: SceneUIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
