@@ -27,8 +27,16 @@ public class ClearPanel : MonoBehaviour
 
 	private void Awake()
 	{
-		Utility.ButtonBind(exitButton,() => ExitButton());
+		Utility.ButtonBind(exitButton, () => ExitButton());
 		MissionCheck();
+	}
+
+	//경택 추가함
+	public void Show()
+	{
+		//MissionCheck();
+		gameObject.SetActive(true);
+
 	}
 
 	private void MissionCheck()
