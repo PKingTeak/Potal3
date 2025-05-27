@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using DG.Tweening;
 
-public class DoorController : MonoBehaviour, IIdentifiable
+public class Door : MonoBehaviour, IIdentifiable
 {
     [SerializeField] private string id;
     public string Id => id;

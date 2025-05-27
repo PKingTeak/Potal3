@@ -9,7 +9,7 @@ public class SettingPanel : MonoBehaviour
 
 	[SerializeField] private Slider soundSlider;
 	[SerializeField] private Slider SFXSlider;
-	[SerializeField] private Button closeButton;
+	[SerializeField] private UnityEngine.UI.Button closeButton;
 	//필요 : 배경음악
 	//필요 : 효과음
 

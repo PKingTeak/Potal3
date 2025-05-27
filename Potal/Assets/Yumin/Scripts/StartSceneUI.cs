@@ -19,9 +19,9 @@ public class StartSceneUI : MonoBehaviour
 	[SerializeField] private GameObject settingPanel;
 	[SerializeField] private GameObject mapBuildPanel;
 
-	[SerializeField] private Button startButton;
-	[SerializeField] private Button mapBuildButton;
-	[SerializeField] private Button settingButton;
+	[SerializeField] private UnityEngine.UI.Button startButton;
+	[SerializeField] private UnityEngine.UI.Button mapBuildButton;
+	[SerializeField] private UnityEngine.UI.Button settingButton;
 
 	private void Awake()
 	{

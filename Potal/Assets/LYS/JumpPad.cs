@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpPadController : MonoBehaviour
+public class JumpPad : MonoBehaviour
 {
     [SerializeField] private float _jumpPower;
     private void OnCollisionEnter(Collision other)

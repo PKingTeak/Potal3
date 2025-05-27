@@ -12,11 +12,11 @@ public class StageButton : MonoBehaviour
 
    
     private int index;
-    private Button button;
+    private UnityEngine.UI.Button button;
 
     private void Start()
     {
-        if (TryGetComponent<Button>(out button))
+        if (TryGetComponent<UnityEngine.UI.Button>(out button))
         {
            button.onClick.AddListener(OnClickStageButton); //T씬로드
         } //이런식으로 안전하게
