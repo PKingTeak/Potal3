@@ -37,7 +37,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") && !other.CompareTag("test"))
             return;
 
         hasTeleported = true; // 이동 중 상태
