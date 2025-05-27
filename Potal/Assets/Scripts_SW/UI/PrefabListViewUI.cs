@@ -9,7 +9,7 @@ namespace SW
 {
     public class PrefabListViewUI : MonoBehaviour
     {
-
+        public string prefabPath;
         private PrefabLoader prefabLoader;
         private Dictionary<string, GameObject> prefabs;
         private (string, GameObject)? selectedPrefab;
@@ -18,8 +18,6 @@ namespace SW
         private GameObject buttonPrefab;
         [SerializeField]
         private Transform contentRoot;
-        [SerializeField]
-        private string prefabPath;
         [SerializeField]
         private SelectedListViewUI selectedListViewUI;
         [SerializeField]
