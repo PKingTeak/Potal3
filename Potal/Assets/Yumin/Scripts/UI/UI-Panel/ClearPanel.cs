@@ -27,7 +27,7 @@ public class ClearPanel : MonoBehaviour
 
 	private void Awake()
 	{
-		exitButton.onClick.AddListener(() => ExitButton());
+		Utility.ButtonBind(exitButton,() => ExitButton());
 		MissionCheck();
 	}
 
