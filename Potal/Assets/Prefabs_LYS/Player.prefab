@@ -209,13 +209,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7701603139726123737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b961aa416e14694682dcdd3d9d0f590, type: 3}
+  m_Script: {fileID: 11500000, guid: 62c85ebe7f3d595468f3e8a7314fe8a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  cubeCheckDistance: 5
-  cubeLayerMask:
-    serializedVersion: 2
-    m_Bits: 67108864
-  isGrapCube: 0
-  cubePivot: {fileID: 2793615743337109399}
+  maxSpeed: 5
+  airControlMultiplier: 0.3
+  cameraContainer: {fileID: 0}
+  minXLook: -80
+  maxXLook: 80
+  settingData:
+    lookSensitivity: 0.1
+    soundVolume: 0.5
+    SFXVolume: 0.5
+  canLook: 1
+  isJumping: 0
