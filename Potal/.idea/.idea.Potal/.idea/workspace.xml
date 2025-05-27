@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="" />
+    <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/ButtonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/ButtonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/ButtonDoorPair.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/ButtonDoorConnector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/ButtonDoorPair.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/ButtonDoorConnector.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LYS/DoorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LYS/DoorController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +22,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../BeyondInfinity/BeyondInfinity/Assets/Scripts/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LYS/ButtonController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LYS/IIdentifiable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LYS/ZeroGravityZone.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -32,7 +39,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Develop",
+    "git-widget-placeholder": "LYS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -102,6 +109,7 @@
       <updated>1748243848544</updated>
       <workItem from="1748243850872" duration="9235000" />
       <workItem from="1748261699863" duration="825000" />
+      <workItem from="1748317572251" duration="1870000" />
     </task>
     <servers />
   </component>

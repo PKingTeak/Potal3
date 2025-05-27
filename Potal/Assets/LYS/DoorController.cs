@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class DoorController : MonoBehaviour
+public class DoorController : MonoBehaviour, IIdentifiable
 {
+    [SerializeField] private string id;
+    public string Id => id;
+    
     private Tween moveTween;
     
     private Vector3 openPosition;
@@ -16,15 +19,13 @@ public class DoorController : MonoBehaviour
         closeTargetPosition = transform.position;
     }
     public void Open()
-    {
-        Debug.Log("Open Tween");
+    { ;
         moveTween?.Kill();
         moveTween = transform.DOMoveX(openPosition.x, 1f).SetEase(Ease.InOutSine);
     }
 
     public void Close()
     {
-        Debug.Log("Close Tween");
         moveTween?.Kill();
         moveTween = transform.DOMoveX(closeTargetPosition.x, 1f).SetEase(Ease.InOutSine);
     }

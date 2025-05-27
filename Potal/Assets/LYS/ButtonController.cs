@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+public class ButtonController : MonoBehaviour, IIdentifiable
 {
+    [SerializeField] private string id;
+    public string Id => id;
     public event Action OnPressed;
     public event Action OnReleased;
 
