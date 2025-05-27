@@ -29,10 +29,10 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponent<GroundChecker>();
 
-        if (SettingManager.Instance != null)
-        {
-            lookSensitivity = SettingManager.Instance.Current.mouseSensitivity;
-        }
+        // if (SettingManager.Instance != null)
+        // {
+        //     lookSensitivity = SettingManager.Instance.Current.mouseSensitivity;
+        // }
     }
 
     private void FixedUpdate()
