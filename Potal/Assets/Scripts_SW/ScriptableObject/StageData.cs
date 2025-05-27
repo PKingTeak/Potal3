@@ -10,8 +10,6 @@ namespace SW
     {
         [Header("Info")]
         public List<PrefabEntry> PrefabEntries;
-        [Header("Start")]
-        public Vector3 startPosition;
     }
 
     [Serializable]
