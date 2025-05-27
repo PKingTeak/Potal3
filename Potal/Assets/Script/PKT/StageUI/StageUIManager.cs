@@ -71,10 +71,10 @@ public class StageUIManager : MonoBehaviour
         StageManager.Instance.InitRespawnPos(data.PrefabEntries[0].position);
        foreach (var map in data.PrefabEntries)
        {
-           
-              
 
-                GameObject entryGO = Instantiate(map.Prefab);
+
+                GameObject gameObject = Resources.Load<GameObject>(map.prefabPath);
+                GameObject entryGO = Instantiate(gameObject);
                 
                 //일단 0번째는 start라고 생각하고있음
                 entryGO.transform.position = map.position; //위치넣어주기
