@@ -25,17 +25,8 @@ public class StartSceneUI : MonoBehaviour
 
 	private void Awake()
 	{
-		SetActivePanel(currentState);
 		startButton.onClick.AddListener(() => SceneManager.LoadScene("MapSelectScene"));
-		settingButton.onClick.AddListener(() => SetActivePanel(UIState.Setting));
-		mapBuildButton.onClick.AddListener(() => SceneManager.LoadScene("MapSelectScene"));
-	}
-
-	public void SetActivePanel(UIState setState)
-	{
-		currentState = setState;
-		mainPanel.SetActive(setState == UIState.Main);
-		settingPanel.SetActive(setState == UIState.Setting);
-		//mapBuildPanel.SetActive(setState == UIState.MapBuild);
+		settingButton.onClick.AddListener(() => settingPanel.SetActive(true));
+		mapBuildButton.onClick.AddListener(() => SceneManager.LoadScene("MapBuildScene"));
 	}
 }

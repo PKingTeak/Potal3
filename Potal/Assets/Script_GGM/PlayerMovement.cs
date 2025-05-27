@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform cameraContainer;
     [SerializeField] private float minXLook = -80f;
     [SerializeField] private float maxXLook = 80f;
-    [SerializeField] private float lookSensitivity = 1f;
-    private float _camCurXRot;
+    //[SerializeField] private float lookSensitivity = 1f;
+    [SerializeField] private SettingData settingData;
+	private float _camCurXRot;
     private Vector2 _mouseDelta;
     [SerializeField] private bool canLook = true;
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        settingData = SettingData.Instance;
         Cursor.lockState = CursorLockMode.Locked;
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponent<GroundChecker>();
@@ -70,11 +72,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void CameraLook()
     {
-        _camCurXRot += _mouseDelta.y * lookSensitivity;
+        _camCurXRot += _mouseDelta.y * settingData.lookSensitivity;
         _camCurXRot = Mathf.Clamp(_camCurXRot, minXLook, maxXLook);
         cameraContainer.localEulerAngles = new Vector3(-_camCurXRot, 0f, 0f);
 
-        transform.eulerAngles += new Vector3(0f, _mouseDelta.x * lookSensitivity, 0f);
+        transform.eulerAngles += new Vector3(0f, _mouseDelta.x * settingData.lookSensitivity, 0f);
     }
 
     public void OnMove(InputAction.CallbackContext context)
