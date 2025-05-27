@@ -1,15 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SettingData : MonoSingleton<SettingData>
+[System.Serializable]
+public class SettingData
 {
-	public float lookSensitivity = 0.1f;
-	public float soundVolume = 0.5f;
-	public float SFXVolume = 0.5f;
-
-	private void Awake()
-	{
-		DontDestroyOnLoad(gameObject);
-	}
+    public float lookSensitivity = 0.1f;
+    public float soundVolume = 0.5f;
+    public float SFXVolume = 0.5f;
 }

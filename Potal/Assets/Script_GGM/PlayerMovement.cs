@@ -24,15 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        settingData = SettingData.Instance;
+        settingData = SettingManager.Instance.Current;
         Cursor.lockState = CursorLockMode.Locked;
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponent<GroundChecker>();
-
-        // if (SettingManager.Instance != null)
-        // {
-        //     lookSensitivity = SettingManager.Instance.Current.mouseSensitivity;
-        // }
     }
 
     private void FixedUpdate()
