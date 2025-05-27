@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,11 +37,5 @@ public class PlayerJump : MonoBehaviour
 
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
         _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
-    }
-
-    public void Jump(float padJumpPower)
-    {
-        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
-        _rigidbody.AddForce(Vector3.up * (jumpPower + padJumpPower), ForceMode.Impulse);
     }
 }

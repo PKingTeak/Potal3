@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="" />
+    <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GGM.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GGM.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_GGM/PlayerJump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script_GGM/PlayerJump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_GGM/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script_GGM/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/Button.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/Button.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/Cube.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/Cube.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/Door.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/Door.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/JumpPad.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/JumpPad.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/RedMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/RedMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/ZeroGravityZone.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/Prefab/ZeroGravityZone.prefab.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +53,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "GGM",
+    "git-widget-placeholder": "LYS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

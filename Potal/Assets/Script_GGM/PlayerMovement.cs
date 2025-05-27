@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rigidbody;
     private GroundChecker _groundChecker;
 
+    [SerializeField] private bool isJumping = false;
+    
     private void Start()
     {
         settingData = SettingData.Instance;
@@ -37,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isJumping)
+            return;
         Move();
     }
 
@@ -92,5 +97,17 @@ public class PlayerMovement : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         _mouseDelta = context.ReadValue<Vector2>();
+    }
+
+    public void SetJumping(float duration)
+    {
+        StartCoroutine(JumpDuration(duration));
+    }
+
+    private IEnumerator JumpDuration(float duration)
+    {
+        isJumping = true;
+        yield return new WaitForSeconds(duration);
+        isJumping = false;
     }
 }
