@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DiagonalJumpPad : MonoBehaviour
 {
-    [SerializeField] private float launchAngle = 45f;
-    [SerializeField] private float launchSpeed = 10f;
+    [SerializeField] private float jumpAngle = 45f;
+    [SerializeField] private float jumpSpeed = 10f;
     
     private void OnCollisionEnter(Collision other)
     {
@@ -17,16 +17,19 @@ public class DiagonalJumpPad : MonoBehaviour
     
     private void DiagonalJump(Rigidbody rigid)
     {
-        Vector3 launchVelocity = GetJumpVelocity(launchAngle, launchSpeed);
-        rigid.velocity = launchVelocity;
-
+        Vector3 jumpVelocity = GetJumpVelocity(jumpAngle, jumpSpeed);
+        rigid.velocity = jumpVelocity;
+        
+        //플레이어 move()의 rigid 연결 때문에 예외 처리 수행
         if (rigid.TryGetComponent(out PlayerMovement movement))
         {
-            float flightTime = CalculateFlightTime(launchVelocity.y);
+            //체공 시간 만큼 player의 move() 중단
+            float flightTime = CalculateFlightTime(jumpVelocity.y);
             movement.SetJumping(flightTime);
         }
     }
 
+    //포물선 위치/방향을 고려한 속도 계산 (포물선 공식 이용)
     private Vector3 GetJumpVelocity(float angleDegree, float speed)
     {
         float angleRad = angleDegree * Mathf.Deg2Rad;
@@ -45,6 +48,7 @@ public class DiagonalJumpPad : MonoBehaviour
         return velocity;
     }
 
+    //체공 시간 계산
     private float CalculateFlightTime(float verticalSpeed)
     {
         float gravity = Mathf.Abs(Physics.gravity.y);
@@ -56,7 +60,7 @@ public class DiagonalJumpPad : MonoBehaviour
     // private void OnDrawGizmos()
     // {
     //     Vector3 pos = transform.position;
-    //     Vector3 velocity = GetJumpVelocity(launchAngle, launchSpeed);
+    //     Vector3 velocity = GetJumpVelocity(jumpAngle, jumpSpeed);
     //
     //     Gizmos.color = Color.green;
     //     for (int i = 0; i < 100; i++)
