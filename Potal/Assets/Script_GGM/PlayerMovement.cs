@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        // 이동 방향 계산 (카메라 기준)
         Vector3 camForward = cameraContainer.forward;
         Vector3 camRight = cameraContainer.right;
         camForward.y = 0f;
@@ -51,21 +50,19 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDir = (camForward * _curMovementInput.y + camRight * _curMovementInput.x).normalized;
 
-        // 공중 제어력 보정
         float jumpMultiplier = _groundChecker != null && _groundChecker.IsGrounded ? 1f : airControlMultiplier;
 
-        // 앉기 속도 보정
         float crouchMultiplier = 1f;
         var crouch = GetComponent<PlayerCrouch>();
         if (crouch != null)
             crouchMultiplier = crouch.SpeedMultiplier;
 
-        // 최종 속도 계산
-        Vector3 targetVelocity = moveDir * maxSpeed * jumpMultiplier * crouchMultiplier;
+        Vector3 desiredVelocity = moveDir * maxSpeed * jumpMultiplier * crouchMultiplier;
+        Vector3 velocityChange = desiredVelocity - new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
 
-        // 적용
-        _rigidbody.velocity = new Vector3(targetVelocity.x, _rigidbody.velocity.y, targetVelocity.z);
+        _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
+
 
 
     private void CameraLook()
