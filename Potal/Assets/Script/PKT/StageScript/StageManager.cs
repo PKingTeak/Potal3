@@ -21,7 +21,7 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private Vector3 respawnPos;
     [SerializeField]
-    private float respawnTime = 3f;
+    private float respawnTime = 1f;
     GameObject player;
 
     public void Start()
