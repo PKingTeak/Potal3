@@ -53,7 +53,7 @@ public class Portal : MonoBehaviour
             // 반대쪽 포탈 공간으로 위치로 이동, 0.6정도 더 이동
             Vector3 newPos =
                 linkedPortal.transform.TransformPoint(relativePos)
-                + linkedPortal.transform.forward * 0.6f;
+                + linkedPortal.transform.forward * 0.4f;
 
             // 현재 포탈 기준으로 플레이어의 회전값 계산 
             Quaternion relativeRot = Quaternion.Inverse(transform.rotation) * player.rotation;
