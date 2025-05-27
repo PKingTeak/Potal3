@@ -723,7 +723,8 @@ MonoBehaviour:
   interactRange: 3
   interactLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
+  gameSceneUI: {fileID: 0}
 --- !u!114 &159342695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,7 +742,7 @@ MonoBehaviour:
   grabRange: 3
   grabLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   maxGrabDistance: 3.5
 --- !u!114 &159342696
 MonoBehaviour:

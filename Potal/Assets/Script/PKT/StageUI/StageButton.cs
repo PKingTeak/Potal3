@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class StageButton : MonoBehaviour
 {
     public bool isClear;
-    private StageManager stageManger;
+    private StageUIManager stageManger;
 
    
     private int index;
@@ -30,7 +30,7 @@ public class StageButton : MonoBehaviour
     }
 
 
-    public void InitButton(int _index , StageManager _manager)
+    public void InitButton(int _index , StageUIManager _manager)
     {
         index = _index;
         stageManger = _manager;

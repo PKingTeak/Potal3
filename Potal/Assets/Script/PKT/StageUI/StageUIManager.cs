@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
  
-public class StageManager : MonoBehaviour
+public class StageUIManager : MonoBehaviour
 {
     private List<StageButton> Buttons = new List<StageButton>();
 
@@ -59,14 +59,15 @@ public class StageManager : MonoBehaviour
 
     public void SettingMap(StageData data)
     {
+        StageManager.Instance.RespawnPos = data.PrefabEntries[0].position;
         foreach (var map in data.PrefabEntries)
         {
             for (int i = 0; i < data.PrefabEntries.Count; i++)
             {
-               // Debug.Log(data.PrefabEntries[i].Prefab.position);
-
+              
 
                 GameObject entryGO = Instantiate(data.PrefabEntries[i].Prefab);
+                //일단 0번째는 start라고 생각하고있음
                 entryGO.transform.position = data.PrefabEntries[i].position; //위치넣어주기
             }
         }
