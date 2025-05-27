@@ -28,21 +28,23 @@ public class SettingPanel : MonoBehaviour
 	private void Awake()
 	{
 		settingData = SettingManager.Instance.Current;
-		
-		soundSlider.value = settingData.soundVolume;
-		SFXSlider.value = settingData.SFXVolume;
-		mouseSensitivitySlider.value = settingData.lookSensitivity;
+	}
 
+	private void Start()
+	{
 		OnSoundSliderChanged(settingData.soundVolume);
 		OnSFXSliderChanged(settingData.SFXVolume);
 		OnMouseSensitivitySliderChanged(settingData.lookSensitivity);
+		soundSlider.value = settingData.soundVolume;
+		SFXSlider.value = settingData.SFXVolume;
+		mouseSensitivitySlider.value = settingData.lookSensitivity;
 
 		soundSlider.onValueChanged.AddListener(OnSoundSliderChanged);
 		SFXSlider.onValueChanged.AddListener(OnSFXSliderChanged);
 		mouseSensitivitySlider.onValueChanged.AddListener(OnMouseSensitivitySliderChanged);
 
 		closeButton.onClick.AddListener(() => ExitButton());
-		
+
 		if (selectSceneButton != null)
 		{
 			selectSceneButton.onClick.AddListener(() => SceneManager.LoadScene("StartScene"));
@@ -53,6 +55,7 @@ public class SettingPanel : MonoBehaviour
 	{
 		// 필요 : 배경음악.볼륨
 		Debug.Log($"Sound volume changed to: {value}");
+		AudioManager.Instance.SetBGMVolume(value);
 		settingData.soundVolume = value;
 		soundValueText.text = $"음악 볼륨: {value*100:F0}%"; 
 	}
@@ -60,6 +63,7 @@ public class SettingPanel : MonoBehaviour
 	{
 		// 필요 : 효과음. 볼륨
 		Debug.Log($"SFX volume changed to: {value}");
+		AudioManager.Instance.SetSFXVolume(value);
 		settingData.SFXVolume = value;
 		SFXValueText.text = $"효과음 볼륨: {value*100:F0}%";
 	}

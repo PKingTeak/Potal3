@@ -21,6 +21,8 @@ public class AudioManager : MonoSingleton<AudioManager>
 	private void Start()
     {
 		BGMSourceMain.Play();
+        SetBGMVolume(SettingManager.Instance.Current.soundVolume);
+		SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
 	}
 
     public void SetBGMVolume(float volume)
@@ -28,6 +30,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         foreach(var BGMSource in BGMSourceArray)
 		{
 			BGMSource.volume = volume;
+            Debug.Log("볼륨 조절 완료");
 		}
 	}
 
@@ -36,6 +39,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 		foreach (var SFXSource in SFXSourceArray)
 		{
 			SFXSource.volume = volume;
+			Debug.Log("볼륨 조절 완료");
 		}
 	}
 

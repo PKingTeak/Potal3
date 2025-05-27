@@ -134,6 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11125508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4950194813300190487, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+  m_PrefabInstance: {fileID: 1141885376530160511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &20569910
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,8 +487,12 @@ MonoBehaviour:
   cameraContainer: {fileID: 1013700976}
   minXLook: -85
   maxXLook: 85
-  settingData: {fileID: 0}
+  settingData:
+    lookSensitivity: 0.1
+    soundVolume: 0.5
+    SFXVolume: 0.5
   canLook: 1
+  isJumping: 0
 --- !u!114 &159342690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,6 +1470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f2f9e967e12cc4288a9cefc0dce4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followSpeed: 20
+  releasePushStrength: 0.5
 --- !u!54 &1092148123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2378,6 +2395,54 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2591732055127049016, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591732055127049016, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591732055127049016, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591732055127049016, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591732055127049016, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591732055127049016, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944864312417492941, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944864312417492941, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944864312417492941, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944864312417492941, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944864312417492941, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944864312417492941, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -70
+      objectReference: {fileID: 0}
     - target: {fileID: 3283435436151209892, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2429,7 +2494,7 @@ PrefabInstance:
     - target: {fileID: 3878949426078949088, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
       propertyPath: playerInput
       value: 
-      objectReference: {fileID: 159342689}
+      objectReference: {fileID: 159342690}
     - target: {fileID: 4645792837931460704, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
       propertyPath: m_SizeDelta.x
       value: 500
@@ -2470,6 +2535,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6195964326608652941, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824130417212441522, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: mission1Text
+      value: 
+      objectReference: {fileID: 11125508}
     - target: {fileID: 7735820170158802537, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2518,6 +2591,30 @@ PrefabInstance:
       propertyPath: mouseSensitivityValueText
       value: 
       objectReference: {fileID: 7662850}
+    - target: {fileID: 8088715340168076864, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088715340168076864, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088715340168076864, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088715340168076864, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088715340168076864, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088715340168076864, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
+      objectReference: {fileID: 0}
     - target: {fileID: 8483969534095828737, guid: a882d66e810f2e2489f9b81adb424f62, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

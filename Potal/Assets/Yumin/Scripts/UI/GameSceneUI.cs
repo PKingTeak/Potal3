@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class GameSceneUI : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement playerInput; 
+    [SerializeField] private PlayerInput playerInput; 
 												//플레이어 isMove 값 필요. 
 	[Header("잡담 표시")]
     [SerializeField] private TextMeshProUGUI promptText;
