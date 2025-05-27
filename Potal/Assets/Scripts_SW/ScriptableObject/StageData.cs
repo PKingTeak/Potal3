@@ -10,6 +10,8 @@ namespace SW
     {
         [Header("Info")]
         public List<PrefabEntry> PrefabEntries;
+        [Header("Start")]
+        public Vector3 startPosition;
     }
 
     [Serializable]
@@ -20,6 +22,5 @@ namespace SW
         public Vector3 rotation;
         public Vector3 scale;
 
-        
     }
 }
