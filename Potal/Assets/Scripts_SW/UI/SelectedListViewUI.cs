@@ -163,7 +163,26 @@ namespace SW
 
         public StageData getStageData()
         {
-            return null;
+            StageData stageData = new StageData();
+            stageData.PrefabEntries = new List<PrefabEntry>();
+
+            foreach (var pair in prefabs)
+            {
+                GameObject gameObject = pair.Key;
+                string prefabPath = pair.Value;
+
+                Transform transform = gameObject.transform;
+
+                stageData.PrefabEntries.Add(new PrefabEntry
+                {
+                    prefabPath = prefabPath,
+                    position = transform.position,
+                    rotation = transform.rotation.eulerAngles,
+                    scale = transform.localScale
+                });
+            }
+
+            return stageData;
         }
     }
 }

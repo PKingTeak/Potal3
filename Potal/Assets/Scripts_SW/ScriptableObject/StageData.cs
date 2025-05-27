@@ -5,10 +5,9 @@ using UnityEngine;
 
 namespace SW
 {
-    [CreateAssetMenu(fileName = "Stage", menuName = "New Stage")]
-    public class StageData : ScriptableObject
+    [Serializable]
+    public class StageData
     {
-        [Header("Info")]
         public List<PrefabEntry> PrefabEntries;
     }
 
