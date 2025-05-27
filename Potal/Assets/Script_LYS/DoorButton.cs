@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class Button : MonoBehaviour, IIdentifiable
+public class DoorButton : MonoBehaviour, IIdentifiable
 {
     [SerializeField] private string id;
     public string Id => id;

@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/LYS.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Button.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Button.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/ButtonDoorConnector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/ButtonDoorConnector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Door.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Door.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/IIdentifiable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/IIdentifiable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/JumpPad.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/JumpPad.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/Button.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/Button.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/ButtonDoor.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/ButtonDoor.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/Door.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/Door.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/JumpPad.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/JumpPad.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/RedMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/RedMaterial.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/ZeroGravityZone.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/Prefab/ZeroGravityZone.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/YS_PlayerController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/YS_PlayerController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/ZeroGravityZone.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LYS/ZeroGravityZone.cs.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +33,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "LYS",
+    "git-widget-placeholder": "Develop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

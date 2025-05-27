@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ButtonDoorConnector : MonoBehaviour
 {
-    private readonly Dictionary<string, Button> _buttonMap = new Dictionary<string, Button>();
+    private readonly Dictionary<string, DoorButton> _buttonMap = new Dictionary<string, DoorButton>();
     private readonly Dictionary<string, Door> _doorMap = new Dictionary<string, Door>();
-    private readonly Dictionary<string, (Button, Door)> _activeLinks = new Dictionary<string, (Button, Door)>();
+    private readonly Dictionary<string, (DoorButton, Door)> _activeLinks = new Dictionary<string, (DoorButton, Door)>();
     
     private void Start()
     {
@@ -15,7 +15,7 @@ public class ButtonDoorConnector : MonoBehaviour
     }
     private void MatchButtonDoor()
     {
-        Button[] buttons = FindObjectsOfType<Button>();
+        DoorButton[] buttons = FindObjectsOfType<DoorButton>();
         Door[] doors  = FindObjectsOfType<Door>();
         
         //Button 캐싱
