@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,10 +24,10 @@ public class StartSceneUI : MonoBehaviour
 	[SerializeField] private UnityEngine.UI.Button mapBuildButton;
 	[SerializeField] private UnityEngine.UI.Button settingButton;
 
-	private void Awake()
+	private void Start()
 	{
-		startButton.onClick.AddListener(() => SceneManager.LoadScene("MapSelectScene"));
-		settingButton.onClick.AddListener(() => settingPanel.SetActive(true));
-		mapBuildButton.onClick.AddListener(() => SceneManager.LoadScene("MapBuildScene"));
+		Utility.ButtonBind(startButton, () => SceneManager.LoadScene("MapSelectScene"));
+		Utility.ButtonBind(settingButton, () => settingPanel.SetActive(true));
+		Utility.ButtonBind(mapBuildButton, () => SceneManager.LoadScene("MapBuildScene"));
 	}
 }

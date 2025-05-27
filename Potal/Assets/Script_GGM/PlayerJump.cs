@@ -23,7 +23,7 @@ public class PlayerJump : MonoBehaviour
         if (context.phase == InputActionPhase.Started)
         {
             TryJump();
-        }
+		}
     }
 
     private void TryJump()
@@ -36,7 +36,8 @@ public class PlayerJump : MonoBehaviour
 
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
         _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
-    }
+		AudioManager.Instance.SFXSourceJump.Play();
+	}
 
     public void Jump(float padJumpPower)
     {

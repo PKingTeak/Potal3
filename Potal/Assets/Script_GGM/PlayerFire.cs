@@ -11,13 +11,20 @@ public class PlayerFire : MonoBehaviour
 
     private GameObject _currentRedPortal;
     private GameObject _currentBluePortal;
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = AudioManager.Instance;
+	}
 
     public void OnLeftClick(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             PlacePortal(redPortalPrefab, ref _currentRedPortal);
-        }
+            audioManager.SFXSourcePortalShoot.Play();
+		}
     }
 
     public void OnRightClick(InputAction.CallbackContext context)
@@ -25,7 +32,8 @@ public class PlayerFire : MonoBehaviour
         if (context.started)
         {
             PlacePortal(bluePortalPrefab, ref _currentBluePortal);
-        }
+			audioManager.SFXSourcePortalShoot.Play();
+		}
     }
 
     private void PlacePortal(GameObject portalPrefab, ref GameObject currentPortal)
@@ -34,6 +42,7 @@ public class PlayerFire : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, 1000f, wallLayer))
         {
+            audioManager.SFXSourcePortalHit.Play();
             Vector3 hitPoint = hit.point;
             Vector3 normal = hit.normal;
 

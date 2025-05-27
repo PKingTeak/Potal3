@@ -27,11 +27,8 @@ public class ClearPanel : MonoBehaviour
 
 	private void Awake()
 	{
-	
-		
-        exitButton.onClick.AddListener(() => ExitButton());
-	
-		//MissionCheck();
+		Utility.ButtonBind(exitButton, () => ExitButton());
+		MissionCheck();
 	}
 
 	//경택 추가함
