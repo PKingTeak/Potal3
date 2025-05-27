@@ -3037,7 +3037,7 @@ MonoBehaviour:
   selectedListViewUI: {fileID: 1531846706335378244}
   prefabListViewUI: {fileID: 7274805284910746239}
   inputField: {fileID: 1329014210}
-  savePath: Assets/Resources/ScriptableObject_SW/StageData
+  savePath: Assets/Resources/Json
 --- !u!1 &847289317
 GameObject:
   m_ObjectHideFlags: 0

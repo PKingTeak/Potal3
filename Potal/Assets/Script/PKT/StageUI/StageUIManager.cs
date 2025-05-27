@@ -53,7 +53,7 @@ public class StageUIManager : MonoBehaviour
             Buttons[i].InitButton(i+1, this);
             if (i < stageList.Count)
             {
-                Buttons[i].InitStageName(stageList[i].name);
+                //Buttons[i].InitStageName(stageList[i].name);
 
             }
             else 
