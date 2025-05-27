@@ -27,10 +27,14 @@ public class SettingPanel : MonoBehaviour
 
 	private void Awake()
 	{
-		settingData = SettingData.Instance;
+		settingData = SettingManager.Instance.Current;
 		OnSoundSliderChanged(settingData.soundVolume);
 		OnSFXSliderChanged(settingData.SFXVolume);
 		OnMouseSensitivitySliderChanged(settingData.lookSensitivity);
+		
+		soundSlider.value = settingData.soundVolume;
+		SFXSlider.value = settingData.SFXVolume;
+		mouseSensitivitySlider.value = settingData.lookSensitivity;
 
 		soundSlider.onValueChanged.AddListener(OnSoundSliderChanged);
 		SFXSlider.onValueChanged.AddListener(OnSFXSliderChanged);
@@ -70,6 +74,10 @@ public class SettingPanel : MonoBehaviour
 	private void ExitButton()
 	{
 		Debug.Log("닫기");
+		
+		var data = settingData;
+		SettingManager.Instance.SaveSettings(data.soundVolume, data.SFXVolume, data.lookSensitivity);
+
 		gameObject.SetActive(false);
 		if (gameSceneUI != null)
 		{
