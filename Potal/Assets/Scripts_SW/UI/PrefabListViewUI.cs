@@ -60,13 +60,19 @@ namespace SW
         private void OnButtonClicked(string prefabName)
         { 
             selectedPrefab = (prefabName, prefabs[prefabName]);
-            Debug.Log($"Button clicked: {prefabName}");
+            Logger.Log($"[PrefabListViewUI] selected: {prefabName}");
             if (prefabs[prefabName] == null)
             {
                 return;
             }
-            selectedListViewUI.AddPrefab(prefabs[prefabName], prefabName);
-            selectedListViewUI.BuildList();
+        }
+
+        public void OnAddPrefabButtonClicked()
+        {
+            if(selectedPrefab != null)
+            {
+                selectedListViewUI.AddPrefab(prefabs[selectedPrefab.Value.Item1], selectedPrefab.Value.Item1);
+            }
         }
     }
 }

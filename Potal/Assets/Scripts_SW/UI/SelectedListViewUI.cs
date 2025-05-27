@@ -54,17 +54,27 @@ namespace SW
         private void OnButtonClicked(GameObject prefab)
         {
             selectedPrefab = (prefab, prefabs[prefab]);
-            Logger.Log($"Button clicked: {prefabs[prefab]}");
+            Logger.Log($"[SelectedListViewUI] selected : {prefabs[prefab]}");
         }
 
         public void AddPrefab(GameObject prefab, string prefabName)
         {
             prefabs.Add(GameObject.Instantiate(prefab), prefabName);
-            
+            BuildList();
+
         }
         public void RemovePrefab(GameObject prefab)
         {
             prefabs.Remove(prefab);
+        }
+        public void OnRemoveSelectedButtonClicked()
+        {
+            if (selectedPrefab != null)
+            {
+                RemovePrefab(selectedPrefab.Value.Item1);
+                GameObject.Destroy(selectedPrefab.Value.Item1);
+                BuildList();
+            }
         }
     }
 }
