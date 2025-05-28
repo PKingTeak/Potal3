@@ -80,15 +80,13 @@ public class StageManager : MonoBehaviour
     public void OnPlayerDead()
     {
         StartCoroutine(RespawnDelay());
-
-
     }
 
     public void OnClearStage()
     {
-        clearPanel.GetComponent<ClearPanel>().Show();
+        clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동
         Debug.Log("클리어");
-        //유민님이 만드신 클리어 UI와 연동
+       
     }
 
 
