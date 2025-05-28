@@ -31,7 +31,6 @@ public class AudioManager : MonoSingleton<AudioManager>
         foreach(var BGMSource in BGMSourceArray)
 		{
 			BGMSource.volume = volume;
-            Debug.Log("볼륨 조절 완료");
 		}
 	}
 
@@ -40,7 +39,6 @@ public class AudioManager : MonoSingleton<AudioManager>
 		foreach (var SFXSource in SFXSourceArray)
 		{
 			SFXSource.volume = volume;
-			Debug.Log("볼륨 조절 완료");
 		}
 	}
 

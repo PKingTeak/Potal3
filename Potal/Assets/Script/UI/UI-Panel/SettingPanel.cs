@@ -54,7 +54,6 @@ public class SettingPanel : MonoBehaviour
 	private void OnSoundSliderChanged(float value)
 	{
 		// 필요 : 배경음악.볼륨
-		Debug.Log($"Sound volume changed to: {value}");
 		AudioManager.Instance.SetBGMVolume(value);
 		settingData.soundVolume = value;
 		soundValueText.text = $"음악 볼륨: {value*100:F0}%"; 
@@ -62,7 +61,6 @@ public class SettingPanel : MonoBehaviour
 	private void OnSFXSliderChanged(float value)
 	{
 		// 필요 : 효과음. 볼륨
-		Debug.Log($"SFX volume changed to: {value}");
 		AudioManager.Instance.SetSFXVolume(value);
 		settingData.SFXVolume = value;
 		SFXValueText.text = $"효과음 볼륨: {value*100:F0}%";
@@ -71,7 +69,6 @@ public class SettingPanel : MonoBehaviour
 	private void OnMouseSensitivitySliderChanged(float value)
 	{
 		// 필요 : 효과음. 볼륨
-		Debug.Log($"마우스 감도 mouse changed to: {value}");
 		settingData.lookSensitivity = value;
 		mouseSensitivityValueText.text = $"마우스 감도: {value*100:F0}"; // 소수점 둘째 자리까지 표시
 	}

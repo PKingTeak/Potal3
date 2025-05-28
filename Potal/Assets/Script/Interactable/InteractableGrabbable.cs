@@ -71,7 +71,6 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("잡을 수 있는 오브젝트와 상호작용 시도됨");
     }
 
     public bool CanShowUI()
