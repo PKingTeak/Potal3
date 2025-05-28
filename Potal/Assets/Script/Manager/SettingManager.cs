@@ -24,7 +24,6 @@ public class SettingManager : MonoSingleton<SettingManager>
 
         string json = JsonUtility.ToJson(Current, true);
         File.WriteAllText(SavePath, json);
-        Debug.Log(SavePath);
     }
 
     public void LoadSettings()

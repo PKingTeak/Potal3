@@ -9,7 +9,6 @@ public class ZeroGravityZone : MonoBehaviour
     {
         if (other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
-            Debug.Log($"{rb.name} entered zero gravity zone");
             rb.useGravity = false;
             rb.drag = 3f;
             rb.angularDrag = 1f;
