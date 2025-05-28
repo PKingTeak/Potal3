@@ -6,14 +6,13 @@ using UnityEngine;
 
 
 
-public class DataManager
+public class StageDataManager
 {
         
     List<StageData> datas = new List<StageData>();
     Dictionary<int, StageData> dataDict = new Dictionary<int, StageData>();
 
-    Dictionary<int, StageData> MydataDict = new Dictionary<int, StageData>();
-
+    
    
     public void JsonToData()
     {

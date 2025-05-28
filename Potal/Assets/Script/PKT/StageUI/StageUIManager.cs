@@ -6,37 +6,33 @@ using UnityEngine;
  
 public class StageUIManager : MonoBehaviour
 {
+    public int CurStage { get { return curStage; } }
+    public StageDataManager dataManger;
     private List<StageButton> Buttons = new List<StageButton>();
 
     private const string curStageKey = "curstage";
     [SerializeField]
     private int curStage;
-    public int CurStage { get { return curStage; } }
-
-    public  DataManager dataManger;
-    
-    
 
     private void Awake()
     {
         Buttons = GetComponentsInChildren<StageButton>().ToList();
-        dataManger = new DataManager();
+        dataManger = new StageDataManager();
         dataManger.JsonToData();
         
 
     }
-
     private void Start()
     {
         InitButtons();
     }
 
 
-
     public void UpdateCurStage() //버튼 인덱스
     {
         curStage += 1;
         PlayerPrefs.SetInt(curStageKey,curStage);
+        //해당 스테이지 클리어시 호출해줘야함
     }
 
     public void InitButtons()
@@ -49,8 +45,6 @@ public class StageUIManager : MonoBehaviour
         }
         
     }
-
-
 
     public void SettingMap(StageData data)
     {
@@ -67,12 +61,6 @@ public class StageUIManager : MonoBehaviour
            
        }
     }
-
-  
-        
-
-
-
 
 
     public void OnSelectedClicked(int stage)
