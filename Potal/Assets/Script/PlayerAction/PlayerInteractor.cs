@@ -8,9 +8,9 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private float interactRange = 3f;
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] private GameSceneUI gameSceneUI;
+    [SerializeField] private PlayerGrabber grabber;
 
     private IInteractable _currentTarget;
-
     private void Update()
     {
         UpdateUI();
@@ -18,6 +18,14 @@ public class PlayerInteractor : MonoBehaviour
 
     private void UpdateUI()
     {
+        // 잡고 있는 상태면 UI 안 뜨게 막기
+        if (grabber != null && grabber.IsHolding)
+        {
+            _currentTarget = null;
+            gameSceneUI.GetInteractData(); // UI 비활성화
+            return;
+        }
+
         if (TryGetInteractable(out IInteractable interactable, out RaycastHit hit))
         {
             if (interactable.CanShowUI())
@@ -41,9 +49,13 @@ public class PlayerInteractor : MonoBehaviour
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        if (context.performed && TryGetInteractable(out IInteractable interactable, out _))
+        // E 키 눌렀고, 잡고 있는 상태가 아닐 때만 상호작용 허용
+        if (context.performed && !grabber.IsHolding)
         {
-            interactable.Interact();
+            if (TryGetInteractable(out IInteractable interactable, out _))
+            {
+                interactable.Interact();
+            }
         }
     }
 
