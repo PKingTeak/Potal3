@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonDoorConnector : MonoBehaviour
+public class ButtonConnectManager : MonoBehaviour
 {
     private void Start()
     {
@@ -43,10 +43,21 @@ public class ButtonDoorConnector : MonoBehaviour
                     {
                         button.OnPressed += door.Open;
                         button.OnReleased += door.Close;
-                        Debug.Log($"[Connected] Button:{id} → Door:{id}");
+                        Debug.Log($"[Connected] Button:{button.Id} → Door:{door.Id}");
                     }
                 }
             }
         }
+    }
+
+    private void MatchSpawnerButton()
+    {
+        SpawnerButton[] spawnerButtons = FindObjectsOfType<SpawnerButton>();
+        BoxSpawner[] boxSpawners = FindObjectsOfType<BoxSpawner>();
+        
+        Dictionary<int, SpawnerButton> buttonMap = new Dictionary<int, SpawnerButton>();
+        Dictionary<int, BoxSpawner> spawnerMap = new Dictionary<int, BoxSpawner>();
+        
+        
     }
 }
