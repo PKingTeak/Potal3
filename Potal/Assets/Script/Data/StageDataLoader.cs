@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 
-public class StageDataLoader
+public class StageDataManager
 {
         
     List<StageData> datas = new List<StageData>();
@@ -39,7 +39,8 @@ public class StageDataLoader
         for (int i = 0; i < datas.Count; i++)
         {
             dataDict.Add(i,datas[i]); //캐싱
-                   
+            
+        
         }
 
     }

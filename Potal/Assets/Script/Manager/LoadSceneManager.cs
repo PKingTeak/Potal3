@@ -46,7 +46,7 @@ public class LoadSceneManager : MonoBehaviour
 
     public void LoadSceneAsync(string sceneName , Action onCompleted)
     {
-        StartCoroutine(loadSceneAsync(sceneName, () =>  onCompleted?.Invoke()));
+        StartCoroutine(loadSceneAsync(sceneName,onCompleted));
         
     }
 

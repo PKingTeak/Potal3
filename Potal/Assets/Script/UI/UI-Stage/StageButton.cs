@@ -25,6 +25,7 @@ public class StageButton : MonoBehaviour
     {
 
         stageUIManger.OnSelectedClicked(index);
+
        // stageUIManger.gameObject.SetActive(false);
        // stageUIManger.gameObject.SetActive(false); //임시로 끄기 
     }
