@@ -20,28 +20,22 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (TryGetInteractable(out IInteractable interactable, out RaycastHit hit))
         {
-            if (!interactable.CanShowUI())
+            if (interactable.CanShowUI())
             {
-                ClearUI();
-                return;
+                _currentTarget = interactable;
+                string layerName = LayerMask.LayerToName(hit.collider.gameObject.layer);
+                gameSceneUI.GetInteractData(layerName); // UI 활성화
             }
-
-            _currentTarget = interactable;
-            string layerName = LayerMask.LayerToName(hit.collider.gameObject.layer);
-            gameSceneUI.GetInteractData(layerName);
+            else
+            {
+                _currentTarget = null;
+                gameSceneUI.GetInteractData(); // UI 비활성화
+            }
         }
         else
         {
-            ClearUI();
-        }
-    }
-
-    private void ClearUI()
-    {
-        if (_currentTarget != null)
-        {
             _currentTarget = null;
-            gameSceneUI.GetInteractData();
+            gameSceneUI.GetInteractData(); // UI 비활성화
         }
     }
 

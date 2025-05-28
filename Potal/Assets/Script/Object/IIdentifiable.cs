@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IIdentifiable
 {
-    string Id { get; }
+    int Id { get; }
 }
