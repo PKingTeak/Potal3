@@ -794,6 +794,10 @@ PrefabInstance:
       propertyPath: id
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 79088448404197341, guid: 82aebd50469e9114b8fb6d72f44bf3ca, type: 3}
+      propertyPath: openDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6147852132269744010, guid: 82aebd50469e9114b8fb6d72f44bf3ca, type: 3}
       propertyPath: m_Name
       value: Door
@@ -8854,7 +8858,6 @@ MonoBehaviour:
   releasePushStrength: 0.5
   grabDistance: 1.5
   heldLayer: 13
-  interactableLayer: 6
 --- !u!114 &79088448602426883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8870,7 +8873,7 @@ MonoBehaviour:
   id: 3
   leftDoor: {fileID: 2404434867828071605}
   rightDoor: {fileID: 5987024165282116151}
-  openDistance: 1
+  openDistance: 2
 --- !u!1 &103139978701280765
 GameObject:
   m_ObjectHideFlags: 0
@@ -10978,7 +10981,6 @@ MonoBehaviour:
   releasePushStrength: 0.5
   grabDistance: 1.5
   heldLayer: 13
-  interactableLayer: 6
 --- !u!1 &3432770848561336257
 GameObject:
   m_ObjectHideFlags: 0
@@ -11774,7 +11776,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   gameSceneUI: {fileID: 1349652747}
-  grabber: {fileID: 8062707613992301040}
 --- !u!1 &4964455839519971040
 GameObject:
   m_ObjectHideFlags: 0
@@ -12251,7 +12252,6 @@ MonoBehaviour:
   releasePushStrength: 0.5
   grabDistance: 1.5
   heldLayer: 13
-  interactableLayer: 6
 --- !u!20 &5779771457725388761
 Camera:
   m_ObjectHideFlags: 0
@@ -12612,7 +12612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d27a2eaf8611a849b599cd495c29eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpPower: 40
+  _jumpPower: 20
 --- !u!64 &6738240503794036805
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13079,7 +13079,7 @@ Transform:
   m_GameObject: {fileID: 7272637130184664243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.18, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13148,7 +13148,6 @@ MonoBehaviour:
   releasePushStrength: 0.5
   grabDistance: 1.5
   heldLayer: 0
-  interactableLayer: 0
 --- !u!114 &8121106271032123769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13165,7 +13164,6 @@ MonoBehaviour:
   releasePushStrength: 0.5
   grabDistance: 1.5
   heldLayer: 13
-  interactableLayer: 6
 --- !u!1 &8129680310281322168
 GameObject:
   m_ObjectHideFlags: 0
@@ -13793,7 +13791,6 @@ MonoBehaviour:
   releasePushStrength: 0.5
   grabDistance: 1.5
   heldLayer: 13
-  interactableLayer: 6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
