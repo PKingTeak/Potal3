@@ -22,7 +22,7 @@ Shader "Custom/GlassLitTint"
         #pragma surface surf BlinnPhong alpha
 
         fixed4 _TintColor;
-        fixed4 _MySpecColor;   // ← 여기 이름 정확히!
+        fixed4 _MySpecColor;
         float _Alpha;
         float _Glossiness;
 
