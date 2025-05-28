@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8480527595023671888, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
       propertyPath: curStage
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8480527595023671888, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
       propertyPath: stageList.Array.size
