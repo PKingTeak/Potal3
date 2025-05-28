@@ -43,7 +43,7 @@ public class ButtonDoorConnector : MonoBehaviour
                 
                 _activeLinks[id] = (button, door);
                 
-                Debug.Log($"[Connected] Button:{id} → Door:{id}");
+                Debug.Log($"[Connected] Button:{button.Id} → Door:{door.Id}");
             }
         }
     }
