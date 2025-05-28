@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalTraveller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Teleport(Transform fromPortal, Transform traveller, Transform toPortal)
     {
-        
-    }
+        Vector3 relativePos = fromPortal.InverseTransformPoint(traveller.position);
+        Vector3 newPos = toPortal.TransformPoint(relativePos) + toPortal.forward * 0.4f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Quaternion relativeRot = Quaternion.Inverse(fromPortal.rotation) * traveller.rotation;
+        Quaternion newRot = toPortal.transform.rotation * relativeRot;
+        newRot *= Quaternion.Euler(0, 180f, 0);
+
+        Vector3 euler = newRot.eulerAngles;
+        euler.x = 0f;
+        euler.z = 0f;
+        newRot = Quaternion.Euler(euler);
+
+        traveller.SetPositionAndRotation(newPos, newRot);
     }
 }
