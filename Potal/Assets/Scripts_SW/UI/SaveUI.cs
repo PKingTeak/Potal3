@@ -16,6 +16,8 @@ public class SaveUI : MonoBehaviour
     private TMP_InputField inputField;
     [SerializeField]
     private string savePath;
+    [SerializeField]
+    private TMP_Text saveResult;
     void Start()
     {
         
@@ -33,6 +35,7 @@ public class SaveUI : MonoBehaviour
         if (string.IsNullOrEmpty(fileName))
         {
             Logger.LogWarning("[SaveUI] 입력된 파일명이 비어 있습니다.");
+            saveResult.text = "저장 실패...";
             return;
         }
 
@@ -40,6 +43,7 @@ public class SaveUI : MonoBehaviour
         if (stageData == null || stageData.PrefabEntries == null || stageData.PrefabEntries.Count == 0)
         {
             Logger.LogWarning("[SaveUI] StageData가 비어 있거나 생성 실패");
+            saveResult.text = "저장 실패...";
             return;
         }
 
@@ -51,6 +55,7 @@ public class SaveUI : MonoBehaviour
         File.WriteAllText(jsonPath, json);
 
         Logger.Log($"[SaveUI] StageData JSON 저장 완료: {jsonPath}");
+        saveResult.text = "저장 성공!";
     }
 
     public void OnGoToMainButtonClicked()

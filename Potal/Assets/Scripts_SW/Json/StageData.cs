@@ -9,6 +9,7 @@ namespace SW
     public class StageData
     {
         public List<PrefabEntry> PrefabEntries;
+        public List<(string, string)> bindList;
     }
 
     [Serializable]
@@ -18,6 +19,5 @@ namespace SW
         public Vector3 position;
         public Vector3 rotation;
         public Vector3 scale;
-
     }
 }
