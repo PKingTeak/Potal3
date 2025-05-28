@@ -8,9 +8,15 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private float interactRange = 3f;
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] private GameSceneUI gameSceneUI;
-    [SerializeField] private PlayerGrabber grabber;
 
     private IInteractable _currentTarget;
+    private PlayerGrabber _grabber;
+
+    private void Awake()
+    {
+        _grabber = GetComponent<PlayerGrabber>();
+    }
+
     private void Update()
     {
         UpdateUI();
@@ -18,11 +24,10 @@ public class PlayerInteractor : MonoBehaviour
 
     private void UpdateUI()
     {
-        // 잡고 있는 상태면 UI 안 뜨게 막기
-        if (grabber != null && grabber.IsHolding)
+        if (_grabber != null && _grabber.IsHolding)
         {
             _currentTarget = null;
-            gameSceneUI.GetInteractData(); // UI 비활성화
+            gameSceneUI.GetInteractData();
             return;
         }
 
@@ -32,30 +37,26 @@ public class PlayerInteractor : MonoBehaviour
             {
                 _currentTarget = interactable;
                 string layerName = LayerMask.LayerToName(hit.collider.gameObject.layer);
-                gameSceneUI.GetInteractData(layerName); // UI 활성화
+                gameSceneUI.GetInteractData(layerName);
             }
             else
             {
                 _currentTarget = null;
-                gameSceneUI.GetInteractData(); // UI 비활성화
+                gameSceneUI.GetInteractData();
             }
         }
         else
         {
             _currentTarget = null;
-            gameSceneUI.GetInteractData(); // UI 비활성화
+            gameSceneUI.GetInteractData();
         }
     }
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        // E 키 눌렀고, 잡고 있는 상태가 아닐 때만 상호작용 허용
-        if (context.performed && !grabber.IsHolding)
+        if (context.performed && TryGetInteractable(out IInteractable interactable, out _))
         {
-            if (TryGetInteractable(out IInteractable interactable, out _))
-            {
-                interactable.Interact();
-            }
+            interactable.Interact();
         }
     }
 
@@ -70,5 +71,11 @@ public class PlayerInteractor : MonoBehaviour
 
         interactable = null;
         return false;
+    }
+
+    public void ForceUIRefresh()
+    {
+        _currentTarget = null;
+        UpdateUI();
     }
 }
