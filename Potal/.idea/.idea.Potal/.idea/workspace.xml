@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script_LYS/DiagonalJumpPad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script_LYS/DiagonalJumpPad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/YeseulScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/YeseulScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/ButtonDoorConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/ButtonDoorConnector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/Door.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/DoorButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/DoorButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/IIdentifiable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/IIdentifiable.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +40,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;GGM&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;LYS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,

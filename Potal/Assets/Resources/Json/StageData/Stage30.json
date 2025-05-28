@@ -2,6 +2,7 @@
     "PrefabEntries": [
         {
             "prefabPath": "Floor",
+            "connectID": -1,
             "position": {
                 "x": 0.0,
                 "y": -5.0,
@@ -13,13 +14,14 @@
                 "z": 0.0
             },
             "scale": {
-                "x": 100.0,
+                "x": 200.0,
                 "y": 10.0,
-                "z": 100.0
+                "z": 200.0
             }
         },
         {
             "prefabPath": "Ceiling",
+            "connectID": 0,
             "position": {
                 "x": 0.0,
                 "y": 55.0,
@@ -38,6 +40,7 @@
         },
         {
             "prefabPath": "Wall",
+            "connectID": 50,
             "position": {
                 "x": 0.0,
                 "y": 25.0,
@@ -56,6 +59,7 @@
         },
         {
             "prefabPath": "Player",
+            "connectID": 5,
             "position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -73,27 +77,10 @@
             }
         },
         {
-            "prefabPath": "JumpPad",
+            "prefabPath": "ZeroGravityZone",
+            "connectID": -1,
             "position": {
-                "x": 4.019999980926514,
-                "y": 0.25,
-                "z": 0.0
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        {
-            "prefabPath": "ButtonDoor",
-            "position": {
-                "x": 0.0,
+                "x": 3.309999942779541,
                 "y": 0.0,
                 "z": 0.0
             },

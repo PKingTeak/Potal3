@@ -2,6 +2,7 @@
     "PrefabEntries": [
         {
             "prefabPath": "Floor",
+            "connectID": -1,
             "position": {
                 "x": 0.0,
                 "y": -5.0,
@@ -20,6 +21,7 @@
         },
         {
             "prefabPath": "Ceiling",
+            "connectID": 0,
             "position": {
                 "x": 0.0,
                 "y": 55.0,
@@ -38,6 +40,7 @@
         },
         {
             "prefabPath": "Wall",
+            "connectID": 50,
             "position": {
                 "x": 0.0,
                 "y": 25.0,
@@ -56,6 +59,7 @@
         },
         {
             "prefabPath": "Player",
+            "connectID": 5,
             "position": {
                 "x": 0.0,
                 "y": 0.0,

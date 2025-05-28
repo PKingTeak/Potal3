@@ -58,9 +58,7 @@ namespace SW
 
             Vector3 up = camera.transform.up;
             Vector3 right = camera.transform.right;
-            Vector3 forward = camera.transform.forward;
-            up.Normalize();
-            right.Normalize();
+            Vector3 forward = camera.transform.forward;;
 
             Vector3 moveDir = up * inputDir.z + right * inputDir.x;
             Vector3 verticalMove = 
