@@ -14,9 +14,10 @@ namespace SW
     public class SelectedListViewUI : MonoBehaviour
     {
         private Dictionary<GameObject, string> prefabs;
-        private Dictionary<GameObject, (Vector3, Quaternion, Vector3)> originTransform;
-        private List<(Button, GameObject)> buttonGameObjectPairList;
-        private (GameObject, string)? selectedPrefab;
+        private Dictionary<GameObject, int> connectIDs;
+        //private Dictionary<GameObject, (Vector3, Quaternion, Vector3)> originTransform;
+        private List<Button> buttonList;
+        private GameObject selectedPrefab;
         private Button selectedButton;
         [SerializeField]
         private GameObject buttonPrefab;
@@ -35,8 +36,9 @@ namespace SW
         {
             prefabs = new();
             selectedPrefab = null;
-            originTransform = new();
-            buttonGameObjectPairList = new();
+            connectIDs = new();
+            //originTransform = new();
+            buttonList = new();
             BuildList();
         }
 
@@ -52,7 +54,7 @@ namespace SW
         public void BuildList()
         {
             selectedPrefab = null;
-            buttonGameObjectPairList.Clear();
+            buttonList.Clear();
             foreach (Transform child in contentRoot)
             {
                 Destroy(child.gameObject);
@@ -65,7 +67,7 @@ namespace SW
                 label.SetText(pair.Value);
 
                 Button button = buttonGameObject.GetComponent<Button>();
-                buttonGameObjectPairList.Add((button, pair.Key));
+                buttonList.Add(button);
                 if (ColorUtility.TryParseHtmlString(defaultColor, out var color))
                 {
                     ColorBlock colorBlock = button.colors;
@@ -90,9 +92,14 @@ namespace SW
                 colorBlock.selectedColor = color;
                 selectedButton.colors = colorBlock;
             }
-            selectedPrefab = (prefab, prefabs[prefab]);
+            selectedPrefab = prefab;
             Logger.Log($"[SelectedListViewUI] selected : {prefabs[prefab]}");
-            inspectorUI.InspectObject(selectedPrefab.Value.Item1);
+            inspectorUI.InspectObject(selectedPrefab, connectIDs[selectedPrefab]);
+        }
+
+        public void changeConnectID(GameObject prefab,  int connectID)
+        {
+            connectIDs[prefab] = connectID;
         }
 
         public void RemoveSelectFocus()
@@ -114,23 +121,25 @@ namespace SW
             inspectorUI.ClearObject();
         }
 
-        public void AddPrefab(GameObject prefab, string prefabName)
+        public void AddPrefab(GameObject prefab, string prefabName, int connectID)
         {
             GameObject gameObject = GameObject.Instantiate(prefab);
             prefabs.Add(gameObject, prefabName);
+            connectIDs.Add(gameObject, connectID);
             Transform transform = gameObject.transform;
             Vector3 position = transform.position;
             Quaternion rotation = transform.rotation;
             Vector3 scale = transform.localScale;
-            originTransform.Add(gameObject, (position, rotation, scale));
+            //originTransform.Add(gameObject, (position, rotation, scale));
             BuildList();
             Logger.Log($"[SelectedListViewuI] prefab count after Add: {prefabs.Count}");
         }
 
         public void RemovePrefab(GameObject prefab)
         {
-            originTransform.Remove(prefab);
+            //originTransform.Remove(prefab);
             prefabs.Remove(prefab);
+            connectIDs.Remove(prefab);
             inspectorUI.ClearObject();
             GameObject.Destroy(prefab);
             Logger.Log($"[SelectedListViewuI] prefab count after Remove: {prefabs.Count}");
@@ -140,22 +149,22 @@ namespace SW
             if (selectedPrefab != null)
             {
                 int selectedButtonIndex = -1;
-                for (int i = 0; i < buttonGameObjectPairList.Count; i++)
+                for (int i = 0; i < buttonList.Count; i++)
                 {
-                    if (buttonGameObjectPairList[i].Item1 == selectedButton)
+                    if (buttonList[i] == selectedButton)
                     {
                         selectedButtonIndex = i;
                     }
                     
                 }
 
-                RemovePrefab(selectedPrefab.Value.Item1);
+                RemovePrefab(selectedPrefab);
                 BuildList();
 
-                if (selectedButtonIndex >= 0 && selectedButtonIndex < buttonGameObjectPairList.Count)
+                if (selectedButtonIndex >= 0 && selectedButtonIndex < buttonList.Count)
                 {
-                    var newButton = buttonGameObjectPairList[selectedButtonIndex];
-                    newButton.Item1.onClick.Invoke();
+                    var newButton = buttonList[selectedButtonIndex];
+                    newButton.onClick.Invoke();
                 }
                 else
                 {
@@ -181,7 +190,8 @@ namespace SW
                     prefabPath = prefabPath,
                     position = transform.position,
                     rotation = transform.rotation.eulerAngles,
-                    scale = transform.localScale
+                    scale = transform.localScale,
+                    connectID = connectIDs[pair.Key]
                 });
             }
 
@@ -196,8 +206,9 @@ namespace SW
             }
 
             prefabs.Clear();
-            originTransform.Clear();
-            buttonGameObjectPairList.Clear();
+            connectIDs.Clear();
+            //originTransform.Clear();
+            buttonList.Clear();
             selectedPrefab = null;
             selectedButton = null;
 
@@ -210,13 +221,14 @@ namespace SW
                     continue;
                 }
 
-                GameObject go = Instantiate(loadedPrefab);
-                go.transform.position = entry.position;
-                go.transform.rotation = Quaternion.Euler(entry.rotation);
-                go.transform.localScale = entry.scale;
+                GameObject prefab = Instantiate(loadedPrefab);
+                prefab.transform.position = entry.position;
+                prefab.transform.rotation = Quaternion.Euler(entry.rotation);
+                prefab.transform.localScale = entry.scale;
 
-                prefabs.Add(go, entry.prefabPath);
-                originTransform.Add(go, (entry.position, Quaternion.Euler(entry.rotation), entry.scale));
+                prefabs.Add(prefab, entry.prefabPath);
+                connectIDs.Add(prefab, entry.connectID);
+                //originTransform.Add(go, (entry.position, Quaternion.Euler(entry.rotation), entry.scale));
             }
 
             BuildList();
