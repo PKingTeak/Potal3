@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca29f9f2040ac6b46a4d203682156743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
 --- !u!1 &4423499830663074973
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a984f14722175b6449cfb989678b3e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
 --- !u!1 &5210651249458762583
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +228,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2466390009329254915}
-  - component: {fileID: 5437001772762469328}
   m_Layer: 0
   m_Name: ButtonDoor
   m_TagString: Untagged
@@ -251,20 +252,6 @@ Transform:
   - {fileID: 8270507255373543118}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5437001772762469328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5497507462479058984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f2cb8005bb91094f977e08c4410acb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 6068120588661941512}
-  door: {fileID: 3098499730320380270}
 --- !u!1 &5501821277565921700
 GameObject:
   m_ObjectHideFlags: 0
