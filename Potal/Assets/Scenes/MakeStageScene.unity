@@ -2337,7 +2337,7 @@ GameObject:
   - component: {fileID: 544031903}
   - component: {fileID: 544031904}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Result
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4478,7 +4478,7 @@ GameObject:
   - component: {fileID: 1179500369}
   - component: {fileID: 1179500370}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8295,7 +8295,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 808963379}
         m_TargetAssemblyTypeName: SaveUI, Assembly-CSharp
-        m_MethodName: OnGoToMainButtonClicked
+        m_MethodName: OnLoadButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9461,6 +9461,7 @@ MonoBehaviour:
   inspectorUI: {fileID: 5384393664623314227}
   selectedColor: '#FFFFFF'
   defaultColor: '#B3FFFF'
+  prefabPath: Prefabs/MakeStagePrefab
 --- !u!224 &1538066776772777010
 RectTransform:
   m_ObjectHideFlags: 0

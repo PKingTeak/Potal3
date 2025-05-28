@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using TMPro;
@@ -27,6 +28,8 @@ namespace SW
         private string selectedColor;
         [SerializeField]
         private string defaultColor;
+        [SerializeField]
+        private string prefabPath;
 
         private void Awake()
         {
@@ -126,10 +129,10 @@ namespace SW
 
         public void RemovePrefab(GameObject prefab)
         {
-            originTransform.Remove(selectedPrefab.Value.Item1);
+            originTransform.Remove(prefab);
             prefabs.Remove(prefab);
             inspectorUI.ClearObject();
-            GameObject.Destroy(selectedPrefab.Value.Item1);
+            GameObject.Destroy(prefab);
             Logger.Log($"[SelectedListViewuI] prefab count after Remove: {prefabs.Count}");
         }
         public void OnRemoveSelectedButtonClicked()
@@ -183,6 +186,41 @@ namespace SW
             }
 
             return stageData;
+        }
+
+        public void SetStageData(StageData stageData)
+        {
+            foreach (var prefab in prefabs.Keys.ToList())
+            {
+                RemovePrefab(prefab);
+            }
+
+            prefabs.Clear();
+            originTransform.Clear();
+            buttonGameObjectPairList.Clear();
+            selectedPrefab = null;
+            selectedButton = null;
+
+            foreach (var entry in stageData.PrefabEntries)
+            {
+                GameObject loadedPrefab = Resources.Load<GameObject>(Path.Combine(prefabPath, entry.prefabPath));
+                if (loadedPrefab == null)
+                {
+                    Logger.LogWarning($"[SelectedListViewUI] Resources.Load Failed: {entry.prefabPath}");
+                    continue;
+                }
+
+                GameObject go = Instantiate(loadedPrefab);
+                go.transform.position = entry.position;
+                go.transform.rotation = Quaternion.Euler(entry.rotation);
+                go.transform.localScale = entry.scale;
+
+                prefabs.Add(go, entry.prefabPath);
+                originTransform.Add(go, (entry.position, Quaternion.Euler(entry.rotation), entry.scale));
+            }
+
+            BuildList();
+            inspectorUI.ClearObject();
         }
     }
 }
