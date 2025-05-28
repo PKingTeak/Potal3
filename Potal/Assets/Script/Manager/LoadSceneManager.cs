@@ -46,6 +46,11 @@ public class LoadSceneManager : MonoBehaviour
 
     }
 
+    public void LoadSceneNormalMap(string scenName)
+    {
+        SceneManager.LoadScene(scenName);
+    }
+
 
 
   

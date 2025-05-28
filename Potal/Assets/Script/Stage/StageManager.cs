@@ -44,6 +44,9 @@ public class StageManager : MonoBehaviour
     [Header("Player")]
     [SerializeField] private GameObject playerPrefab;
 
+
+
+
     private GameObject playerObject;
 
     public void Start()
@@ -59,16 +62,14 @@ public class StageManager : MonoBehaviour
     {
         if (player != null)
         {
-            Destroy(player);
+            playerObject.transform.position = respawnPos;
             
         }
         playerObject = Instantiate(playerPrefab, respawnPos, Quaternion.identity);
 
         playerObject.tag = "Player";
-
-
-
     }
+
 
     private IEnumerator RespawnDelay()
     {
@@ -83,11 +84,18 @@ public class StageManager : MonoBehaviour
     }
 
     public void OnClearStage()
-    {
-        clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동
+    {//이벤트로 만들예정 엑션으로 만들고 
+         clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동
+        //LoadSceneManager.Instance.LoadSceneNormalMap("MapSelectScene");가기 전에 UI틀어주기
+        //UpdateCurStage(); cur
         Debug.Log("클리어");
        
     }
 
+
+    public void ClearStage()
+    {
+      //  OnClearStage?.Invoke();
+    }
 
 }

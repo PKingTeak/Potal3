@@ -6,6 +6,7 @@ using UnityEngine;
  
 public class StageUIManager : MonoBehaviour
 {
+
     public int CurStage { get { return curStage; } }
     public StageDataManager dataManger;
     private List<StageButton> Buttons = new List<StageButton>();
@@ -14,16 +15,20 @@ public class StageUIManager : MonoBehaviour
     [SerializeField]
     private int curStage;
 
+
+
     private void Awake()
     {
         Buttons = GetComponentsInChildren<StageButton>().ToList();
         dataManger = new StageDataManager();
         dataManger.JsonToData();
-        
+
+        curStage = PlayerPrefs.GetInt(curStageKey, 0);
 
     }
     private void Start()
     {
+        
         InitButtons();
     }
 
@@ -66,10 +71,16 @@ public class StageUIManager : MonoBehaviour
     public void OnSelectedClicked(int stage)
     {
 
-       LoadSceneManager.Instance.LoadSceneAsync("TestStageScene", () => { SettingMap(dataManger.GetStageData(stage));}); //이름 넣어주기
+       LoadSceneManager.Instance.LoadSceneAsync("GameToScene", () => { SettingMap(dataManger.GetStageData(stage));}); //이름 넣어주기
 
 
 
     }
+
+    // 저희 각자맵 -> 선택 
+
+    //선우님이 맵에디로 생성된 맵 -> 선택 =>
+
+    //선우님 맵 표시 별개로 저희가 만든 맵 로드 
 
 }
