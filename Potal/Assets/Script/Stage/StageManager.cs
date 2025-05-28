@@ -79,9 +79,9 @@ public class StageManager : MonoBehaviour
     {//이벤트로 만들예정 엑션으로 만들고 
 
 
-        clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동 -> 이거 미션이 없어서 뺌
-        
-      // LoadSceneManager.Instance.LoadSceneNormalMap("CustomMapSelectScene");
+        // clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동 -> 이거 미션이 없어서 뺌
+        OnClearStage?.Invoke();
+       LoadSceneManager.Instance.LoadSceneNormalMap("CustomMapSelectScene");
         
         Debug.Log("클리어");
        

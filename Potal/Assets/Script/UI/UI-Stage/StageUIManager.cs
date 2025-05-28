@@ -15,8 +15,7 @@ public class StageUIManager : MonoBehaviour
     private const string curStageKey = "curstage";
     [SerializeField]
     private int curStage;
-    [SerializeField]
-    private GameObject stageUI;
+  
    
 
 
@@ -41,22 +40,15 @@ public class StageUIManager : MonoBehaviour
     private void OnEnable()
     {
         StageManager.OnClearStage += HandleStage;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+      
     }
 
-    private void OnDisable()
+    private void OnDestory()
     {
         StageManager.OnClearStage -= HandleStage;
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+       
     }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "CustomMapSelectScene")
-        {
-            this.gameObject.SetActive(true);
-            stageUI.gameObject.SetActive(true);
-        }
-    }
+
 
     private void HandleStage()
     {
