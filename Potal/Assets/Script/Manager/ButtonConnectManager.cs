@@ -8,6 +8,7 @@ public class ButtonConnectManager : MonoBehaviour
     private void Start()
     {
         MatchButtonDoor();
+        MatchSpawnerButton();
     }
     private void MatchButtonDoor()
     {
@@ -57,7 +58,26 @@ public class ButtonConnectManager : MonoBehaviour
         
         Dictionary<int, SpawnerButton> buttonMap = new Dictionary<int, SpawnerButton>();
         Dictionary<int, BoxSpawner> spawnerMap = new Dictionary<int, BoxSpawner>();
-        
-        
+
+        foreach (var button in spawnerButtons)
+        {
+            if (!buttonMap.ContainsKey(button.Id))
+                buttonMap[button.Id] = button;
+        }
+
+        foreach (var spawner in boxSpawners)
+        {
+            if (!spawnerMap.ContainsKey(spawner.Id))
+                spawnerMap[spawner.Id] = spawner;
+        }
+
+        foreach (var id in buttonMap.Keys)
+        {
+            if (buttonMap.TryGetValue(id, out var button) && spawnerMap.TryGetValue(id, out var spawner))
+            {
+                button.OnPressed += spawner.Spawn;
+                Debug.Log($"[Connected] Button:{button.Id} → Spawner:{spawner.Id}");
+            }
+        }
     }
 }

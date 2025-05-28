@@ -9,7 +9,14 @@ public class SpawnerButton : MonoBehaviour, IIdentifiable
     public int Id => id;
     
     public event Action OnPressed;
-    
+
+    [SerializeField] private bool isPressed;
+
+    private void Start()
+    {
+        isPressed = false;
+    }
+
     public void SetId(int id)
     {
         this.id = id;
@@ -17,9 +24,10 @@ public class SpawnerButton : MonoBehaviour, IIdentifiable
     
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        if (!isPressed && other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
             OnPressed?.Invoke();
+            isPressed = true;
         }
     }
 }
