@@ -46,7 +46,7 @@ public class Portal : MonoBehaviour
 
         Debug.Log(dot); // dot확인 디버그
 
-        if (dot < 0.5f)
+        //if (dot < 0.5f)
         {
             // 현재 포탈 기준으로 플레이어 위치 로컬 좌표로 변환
             Vector3 relativePos = transform.InverseTransformPoint(player.position);

@@ -3,34 +3,6 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField]
-    private LayerMask groundLayerMask;
-
-    [SerializeField]
-    private float staminaCostOnJump;
-    public float moveSpeed;
-    public float jumpPower;
-    private Vector2 curMovementInput;
-
-    [Header("Look")]
-    [SerializeField]
-    private Transform cameraContainer;
-
-    [SerializeField]
-    private float minXLook;
-
-    [SerializeField]
-    private float maxXLook;
-
-    [SerializeField]
-    private float lookSensitivity;
-    private bool canLook = true;
-    private float camCurXRot;
-    private Vector2 mouseDelta;
-
-    private Rigidbody rb;
-
     [SerializeField]
     private LayerMask portalSurfaceLayer;
 
@@ -40,79 +12,21 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject orangePortal;
 
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked; // 마우스 커서 고정
-    }
-
-    void Update()
-    {
-        Move(); // 일반 이동
-    }
-
-    void LateUpdate()
-    {
-        if (canLook)
-        {
-            CameraLook();
-        }
-    }
-
-    void Move()
-    {
-        Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
-        dir.y = rb.velocity.y; // y값 유지
-
-        rb.velocity = dir;
-    }
-
-    void CameraLook()
-    {
-        camCurXRot += mouseDelta.y * lookSensitivity;
-        camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
-        cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
-
-        transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
-    }
-
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnBluePortal(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            curMovementInput = context.ReadValue<Vector2>();
-        }
-        else if (context.phase == InputActionPhase.Canceled)
-        {
-            curMovementInput = Vector2.zero;
+            ShootPortal(bluePortal);
         }
     }
 
-    public void OnLook(InputAction.CallbackContext context)
+    public void OnOrangePortal(InputAction.CallbackContext context)
     {
-        mouseDelta = context.ReadValue<Vector2>();
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ShootPortal(orangePortal);
+        }
     }
-
-    // public void OnBluePortal(InputAction.CallbackContext context)
-    // {
-    //     if (context.phase == InputActionPhase.Performed)
-    //     {
-    //         ShootPortal(bluePortal);
-    //     }
-    // }
-
-    // public void OnOrangePortal(InputAction.CallbackContext context)
-    // {
-    //     if (context.phase == InputActionPhase.Performed)
-    //     {
-    //         ShootPortal(orangePortal);
-    //     }
-    // }
 
     void ShootPortal(GameObject portal)
     {

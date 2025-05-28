@@ -2918,13 +2918,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSceneUI: {fileID: 3878949426078949088}
-  settingData: {fileID: 0}
-  soundSlider: {fileID: 0}
-  soundValueText: {fileID: 0}
-  SFXSlider: {fileID: 0}
-  SFXValueText: {fileID: 0}
-  mouseSensitivitySlider: {fileID: 0}
-  mouseSensitivityValueText: {fileID: 0}
+  settingData:
+    lookSensitivity: 0.1
+    soundVolume: 0.5
+    SFXVolume: 0.5
+  soundSlider: {fileID: 4691732112813435486}
+  soundValueText: {fileID: 5036850220420397380}
+  SFXSlider: {fileID: 3246659691761396990}
+  SFXValueText: {fileID: 4031032113717367471}
+  mouseSensitivitySlider: {fileID: 2110398457902576898}
+  mouseSensitivityValueText: {fileID: 6310452842804620412}
   closeButton: {fileID: 8678873890089636234}
   selectSceneButton: {fileID: 6553261563784806914}
 --- !u!1 &4859823804057783303
