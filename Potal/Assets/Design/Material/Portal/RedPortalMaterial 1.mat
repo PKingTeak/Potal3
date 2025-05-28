@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BluePortalMaterial
+  m_Name: RedPortalMaterial 1
   m_Shader: {fileID: 4800000, guid: 9207bd66386dd410b8f6df973223c077, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 8400000, guid: ec57a0250d4a3430a85f32a0219a04fa, type: 2}
+        m_Texture: {fileID: 8400000, guid: fa6f9da22f3bb214e9d7c4ee8f789868, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
