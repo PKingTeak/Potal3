@@ -1,24 +1,19 @@
-using DG.Tweening.Core.Easing;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StageButton : MonoBehaviour
 {
     public bool isClear;
-    private StageUIManager stageManger;
+    private StageUIManager stageUIManger;
 
-   
+    [SerializeField]
     private int index;
-    private UnityEngine.UI.Button button;
-    private TextMeshProUGUI buttonText;
+    private Button button;
+
 
     private void Start()
     {
-        buttonText = GetComponentInChildren<TextMeshProUGUI>();
+      
         if (TryGetComponent<UnityEngine.UI.Button>(out button))
         {
            button.onClick.AddListener(OnClickStageButton); //T씬로드
@@ -28,21 +23,18 @@ public class StageButton : MonoBehaviour
     public void OnClickStageButton()
     {
 
-        stageManger.OnSelectedClicked(index);
-        stageManger.gameObject.SetActive(false); //임시로 끄기 
+        stageUIManger.OnSelectedClicked(index);
+        stageUIManger.gameObject.SetActive(false); //임시로 끄기 
     }
 
 
-    public void InitStageName(string name)
-    {
-        buttonText.text = name;
-    }
+   
     public void InitButton(int _index , StageUIManager _manager)
     {
         index = _index;
-        stageManger = _manager;
+        stageUIManger = _manager;
 
-        this.button.interactable =  index <= _manager.CurStage ? true : false; //나는 바보야~~
+        this.button.interactable =  index <= stageUIManger.CurStage ? true : false; //현재 인덱스 가 CurStage보다 작으면 클릭가능 이외는 불가능
     }
 
 

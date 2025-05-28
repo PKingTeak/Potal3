@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Potal/Assets/Resources/Json/StageData/Stage05.json.meta
+guid: 0ce157589ba67804489c6ea34d1396a1
+TextScriptImporter:
+  externalObjects: {}
+========
+guid: 783674256706cf64fb5883e8c270f675
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>>> Develop:Potal/Assets/Shader_GGM/Floor/FloorMaterial.mat.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

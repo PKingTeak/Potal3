@@ -41,30 +41,30 @@ public class StageManager : MonoBehaviour
     [Header("ClearUI")]
     public GameObject clearPanel;
 
-  
+    [Header("Player")]
+    [SerializeField] private GameObject playerPrefab;
+
+    private GameObject playerObject;
 
     public void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-       
         SpawnPlayer();
     }
     public void InitRespawnPos(Vector3 pos)
     {
-        //이걸 사용해서 넣어주는중
-        //startpos가 0번째에 있다고 생각중 StageUIManger에서 
         respawnPos = pos;
     }
 
     private void SpawnPlayer()
     {
-        if (player == null)
+        if (player != null)
         {
-            Debug.Log("플레이어가 없습니다");
-            return;
+            Destroy(player);
+            
         }
+        playerObject = Instantiate(playerPrefab, respawnPos, Quaternion.identity);
 
-        player.transform.position = respawnPos;
+        playerObject.tag = "Player";
 
 
 
@@ -80,15 +80,13 @@ public class StageManager : MonoBehaviour
     public void OnPlayerDead()
     {
         StartCoroutine(RespawnDelay());
-
-
     }
 
     public void OnClearStage()
     {
-        clearPanel.GetComponent<ClearPanel>().Show();
+        clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동
         Debug.Log("클리어");
-        //유민님이 만드신 클리어 UI와 연동
+       
     }
 
 

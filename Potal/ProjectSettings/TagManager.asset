@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - GrabPoint
+  - Wall
+  - test
   layers:
   - Default
   - TransparentFX
@@ -27,7 +29,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Portal
   - 
   - 
   - 
