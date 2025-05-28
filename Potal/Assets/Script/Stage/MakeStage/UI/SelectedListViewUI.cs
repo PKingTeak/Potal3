@@ -48,7 +48,31 @@ namespace SW
 
         private void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                {
+                    return;
+                }
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    GameObject clickedObject = hit.collider.gameObject;
 
+                    if (prefabs.ContainsKey(clickedObject))
+                    {
+                        for (int i = 0; i < buttonList.Count; i++)
+                        {
+                            if (prefabs.Keys.ElementAt<GameObject>(i) == clickedObject)
+                            {
+                                Button button = buttonList[i];
+                                OnButtonClicked(button, clickedObject);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public void BuildList()
