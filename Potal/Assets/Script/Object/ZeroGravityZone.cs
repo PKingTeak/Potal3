@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ZeroGravityZone : MonoBehaviour
 {
+    [SerializeField] private float power;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb))
@@ -30,7 +31,7 @@ public class ZeroGravityZone : MonoBehaviour
     {
         Vector3 randomForce = new Vector3(
             UnityEngine.Random.Range(-2f, 2f),
-            UnityEngine.Random.Range(10f, 15f),
+            power,
             UnityEngine.Random.Range(-2f, 2f)
         );
         rb.AddForce(randomForce, ForceMode.VelocityChange);
