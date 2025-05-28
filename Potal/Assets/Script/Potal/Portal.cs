@@ -66,7 +66,7 @@ public class Portal : MonoBehaviour
             PortalTraveller traveller = travellers[i];
             Vector3 offset = traveller.transform.position - transform.position; // 이동 오브젝트 위치 계산
             float dot = Vector3.Dot(transform.forward, offset); // 오브젝트가 앞인지 뒤인지 판별
-            // Debug.Log(dot); // dot확인 디버그
+             Debug.Log(dot); // dot확인 디버그
             if (dot < 0.5f)
             {
                 traveller.Teleport(transform, traveller.transform, linkedPortal.transform);

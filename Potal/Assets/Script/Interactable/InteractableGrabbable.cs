@@ -13,8 +13,8 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
     [SerializeField] private float grabDistance = 1.5f;
 
     [Header("Layer Change Settings")]
-    [SerializeField] private LayerMask heldLayer;     // 잡은 상태에서의 레이어 (점프 불가)
-    [SerializeField] private LayerMask defaultLayer;  // 원래 레이어 (점프 가능)
+    [SerializeField] private int heldLayer;         // 잡고 있을 때 적용할 레이어 인덱스
+    [SerializeField] private int interactableLayer; // 원래 레이어로 복구할 인덱스
 
     private Quaternion _rotationOffset;
 
@@ -23,7 +23,6 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
         _rb = GetComponent<Rigidbody>();
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _rb.freezeRotation = true;
-
         _rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
 
@@ -38,7 +37,7 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
         _rb.angularVelocity = Vector3.zero;
 
         // 점프 방지 레이어로 변경
-        gameObject.layer = LayerMaskToIndex(heldLayer);
+        gameObject.layer = heldLayer;
     }
 
     public void StopGrab()
@@ -46,8 +45,7 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
         _isHeld = false;
         _rb.constraints = RigidbodyConstraints.None;
 
-        // 원래 레이어로 복구
-        gameObject.layer = LayerMaskToIndex(defaultLayer);
+        gameObject.layer = interactableLayer;
 
         if (_holder != null)
         {
@@ -79,16 +77,4 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
     public void Interact() { }
 
     public bool CanShowUI() => !_isHeld;
-
-    // LayerMask에서 단일 레이어 index 추출
-    private int LayerMaskToIndex(LayerMask mask)
-    {
-        int value = mask.value;
-        for (int i = 0; i < 32; i++)
-        {
-            if ((value & (1 << i)) != 0)
-                return i;
-        }
-        return 0;
-    }
 }
