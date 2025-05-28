@@ -10,13 +10,6 @@ public class MovingPad : MonoBehaviour
 
     private Vector3 destination;
     private int currentIndex;
-    
-    private Rigidbody _rigid;
-
-    private void Awake()
-    {
-        _rigid = GetComponent<Rigidbody>();
-    }
 
     private void Start()
     {

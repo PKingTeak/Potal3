@@ -10,21 +10,23 @@ public class StageButton : MonoBehaviour
     private int index;
     private Button button;
 
+  
 
     private void Start()
     {
-      
-        if (TryGetComponent<UnityEngine.UI.Button>(out button))
+        if (TryGetComponent<Button>(out button))
         {
-           button.onClick.AddListener(OnClickStageButton); //T씬로드
+            button.onClick.AddListener(OnClickStageButton); //T씬로드
         } //이런식으로 안전하게
     }
+
 
     public void OnClickStageButton()
     {
 
         stageUIManger.OnSelectedClicked(index);
-        stageUIManger.gameObject.SetActive(false); //임시로 끄기 
+       // stageUIManger.gameObject.SetActive(false);
+       // stageUIManger.gameObject.SetActive(false); //임시로 끄기 
     }
 
 
@@ -33,6 +35,11 @@ public class StageButton : MonoBehaviour
     {
         index = _index;
         stageUIManger = _manager;
+
+        if (button == null)
+        {
+            button = GetComponent<Button>();
+        }
 
         this.button.interactable =  index <= stageUIManger.CurStage ? true : false; //현재 인덱스 가 CurStage보다 작으면 클릭가능 이외는 불가능
     }
