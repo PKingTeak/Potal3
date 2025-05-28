@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
- 
+using UnityEngine.SceneManagement;
+
 public class StageUIManager : MonoBehaviour
 {
 
@@ -14,6 +15,10 @@ public class StageUIManager : MonoBehaviour
     private const string curStageKey = "curstage";
     [SerializeField]
     private int curStage;
+    [SerializeField]
+    private GameObject stageUI;
+   
+
 
 
 
@@ -33,8 +38,37 @@ public class StageUIManager : MonoBehaviour
     }
 
 
+    private void OnEnable()
+    {
+        StageManager.OnClearStage += HandleStage;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        StageManager.OnClearStage -= HandleStage;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "CustomMapSelectScene")
+        {
+            this.gameObject.SetActive(true);
+            stageUI.gameObject.SetActive(true);
+        }
+    }
+
+    private void HandleStage()
+    {
+
+        Debug.Log("Handle호출");
+        UpdateCurStage();
+        InitButtons();
+        
+    }
     public void UpdateCurStage() //버튼 인덱스
     {
+        Debug.Log("점수 업데이트");
         curStage += 1;
         PlayerPrefs.SetInt(curStageKey,curStage);
         //해당 스테이지 클리어시 호출해줘야함
@@ -68,10 +102,12 @@ public class StageUIManager : MonoBehaviour
     }
 
 
+
+
     public void OnSelectedClicked(int stage)
     {
 
-       LoadSceneManager.Instance.LoadSceneAsync("GameToScene", () => { SettingMap(dataManger.GetStageData(stage));}); //이름 넣어주기
+       LoadSceneManager.Instance.LoadSceneAsync("TestStageScene", () => { SettingMap(dataManger.GetStageData(stage));}); //이름 넣어주기
 
 
 

@@ -28,7 +28,7 @@ public class ClearPanel : MonoBehaviour
 	private void Awake()
 	{
 		Utility.ButtonBind(exitButton, () => ExitButton());
-		MissionCheck();
+	//	MissionCheck();
 	}
 
 	//경택 추가함
@@ -38,7 +38,7 @@ public class ClearPanel : MonoBehaviour
 		gameObject.SetActive(true);
 
 	}
-
+	
 	private void MissionCheck()
 	{
 		//스테이지 미션에 맞게 Text 전달

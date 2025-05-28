@@ -734,6 +734,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8480527595023671888, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
+      propertyPath: CurStage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480527595023671888, guid: 3dd01bb761f36b84fbd428df602e974d, type: 3}
       propertyPath: curStage
       value: 3
       objectReference: {fileID: 0}
