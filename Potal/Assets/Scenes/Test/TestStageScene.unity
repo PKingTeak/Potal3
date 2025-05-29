@@ -185,6 +185,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acd5a6180fb46841948d58b4aac0efb, type: 3}
+--- !u!1 &227129991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675917052059800209, guid: 4acd5a6180fb46841948d58b4aac0efb, type: 3}
+  m_PrefabInstance: {fileID: 227129990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &518896201
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +223,7 @@ MonoBehaviour:
   curStage: 0
   respawnPos: {x: 0, y: 0, z: 0}
   respawnTime: 1
-  DoorConnecter: {fileID: 6675917052059800209, guid: 4acd5a6180fb46841948d58b4aac0efb, type: 3}
+  DoorConnecter: {fileID: 227129991}
 --- !u!4 &518896203
 Transform:
   m_ObjectHideFlags: 0

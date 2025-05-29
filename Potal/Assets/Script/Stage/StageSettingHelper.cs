@@ -37,7 +37,7 @@ public class StageSettingHelper : MonoBehaviour
                 entryGo.GetComponent<DoorButton>().SetId(map.connectID);
 
             }
-            else if (map.prefabPath == "ButtonDoor")
+            else if (map.prefabPath == "Door")
             {
 
                 entryGo.GetComponent<Door>().SetId(map.connectID);
