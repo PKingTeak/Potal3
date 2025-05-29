@@ -12,8 +12,11 @@ public class SpawnerButton : MonoBehaviour, IIdentifiable
 
     [SerializeField] private bool isPressed;
 
+    private MeshRenderer meshRenderer;
+    
     private void Start()
     {
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
         isPressed = false;
     }
 
@@ -28,6 +31,7 @@ public class SpawnerButton : MonoBehaviour, IIdentifiable
         {
             OnPressed?.Invoke();
             isPressed = true;
+            meshRenderer.material.color = Color.red;
         }
     }
 }
