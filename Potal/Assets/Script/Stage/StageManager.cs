@@ -47,7 +47,11 @@ public class StageManager : MonoBehaviour
 
     public void GetPlayer()
     {
-
+        if (playerObject == null)
+        {
+            Debug.Log("플레이어가 없습니다");
+            return;
+        }
         playerObject = FindObjectOfType<PlayerMovement>().gameObject;
       
         
