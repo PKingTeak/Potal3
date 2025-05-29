@@ -21,6 +21,11 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private GameObject clearPanel; // 끝 부분에 도달하면 표시
     [SerializeField] private GameObject settingPanel;
 
+    private void Start()
+    {
+        playerInput = FindObjectOfType<PlayerInput>(); 
+	}
+
     public void GetInteractData(string tag = "None")
     {
         switch (tag)

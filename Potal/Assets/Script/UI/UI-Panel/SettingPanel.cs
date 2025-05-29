@@ -43,11 +43,11 @@ public class SettingPanel : MonoBehaviour
 		SFXSlider.onValueChanged.AddListener(OnSFXSliderChanged);
 		mouseSensitivitySlider.onValueChanged.AddListener(OnMouseSensitivitySliderChanged);
 
-		closeButton.onClick.AddListener(() => ExitButton());
+		Utility.ButtonBind(closeButton ,ExitButton);
 
 		if (selectSceneButton != null)
 		{
-			selectSceneButton.onClick.AddListener(() => SceneManager.LoadScene("StartScene"));
+			Utility.ButtonBind(selectSceneButton, ()=> SceneManager.LoadScene("StartScene"));
 		}
 	}
 
