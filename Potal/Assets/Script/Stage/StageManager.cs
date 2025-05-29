@@ -50,6 +50,7 @@ public class StageManager : MonoBehaviour
         if (playerObject == null)
         {
             Debug.Log("플레이어가 없습니다");
+            //맵에서 로드 되어야함
             return;
         }
         playerObject = FindObjectOfType<PlayerMovement>().gameObject;
