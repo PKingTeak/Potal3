@@ -40,8 +40,8 @@ public class Door : MonoBehaviour, IIdentifiable
     private void Start()
     {
         leftInitX = leftDoor.transform.localPosition.x;
-        rightInitX = rightDoor.transform.localPosition.x;
         leftTargetX = leftDoor.transform.localPosition.x - openDistance;
+        rightInitX = rightDoor.transform.localPosition.x;
         rightTargetX = rightDoor.transform.localPosition.x + openDistance;
     }
     public void Open()

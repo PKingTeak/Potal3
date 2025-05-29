@@ -18,11 +18,11 @@ TagManager:
   - Player
   - 
   - 
-  - 
-  - 
-  - wall
   - heldLayer
   - 
+  - wall
+  - PlayerBody
+  - PortalClone
   - 
   - 
   - 
