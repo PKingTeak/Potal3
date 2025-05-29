@@ -30,7 +30,6 @@ public class PlayerFire : MonoBehaviour
         if (context.started)
         {
             PlacePortal(redPortalPrefab);
-            audioManager.SFXSourcePortalShoot.Play();
         }
     }
 
@@ -39,7 +38,6 @@ public class PlayerFire : MonoBehaviour
         if (context.started)
         {
             PlacePortal(bluePortalPrefab);
-            audioManager.SFXSourcePortalShoot.Play();
         }
     }
 

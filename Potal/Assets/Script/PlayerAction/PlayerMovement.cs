@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDir = (camForward * _curMovementInput.y + camRight * _curMovementInput.x).normalized;
 
-
         float crouchMultiplier = 1f;
         var crouch = GetComponent<PlayerCrouch>();
         if (crouch != null)
@@ -75,24 +74,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (!_groundChecker.IsGrounded)
         {
-            if (IsTouchingWallMultiDirection(_curMovementInput, out Vector3 wallNormal))
-            {
-                velocityChange = Vector3.zero;
-
-                if (!_wasTouchingWallLastFrame)
-                {
-                    _rigidbody.AddForce(wallNormal * 1.5f, ForceMode.Impulse);
-                    _wasTouchingWallLastFrame = true;
-                }
-
-                Vector3 vel = _rigidbody.velocity;
-                _rigidbody.velocity = new Vector3(0f, vel.y, 0f);
-            }
-            else
-            {
-                velocityChange *= 0.5f;
-                _wasTouchingWallLastFrame = false;
-            }
+            velocityChange *= 0.5f;
+            _wasTouchingWallLastFrame = false;
         }
         else
         {
@@ -189,6 +172,6 @@ public class PlayerMovement : MonoBehaviour
         horizontalVelocity.y = 0f;
 
         float speed = horizontalVelocity.magnitude / maxSpeed;
-        _animator.SetFloat("Blend", speed, 0.1f, Time.deltaTime); // 부드러운 블렌딩
+        _animator.SetFloat("Blend", speed, 0.1f, Time.deltaTime);
     }
 }

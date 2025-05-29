@@ -14,16 +14,16 @@ public class AudioManager : MonoSingleton<AudioManager>
     [Header("게임 내 효과음")]
     [SerializeField] public AudioSource SFXSourceJump;
     [SerializeField] public AudioSource SFXSourceCoin;
-    [SerializeField] public AudioSource SFXSourcePortalShoot;
     [SerializeField] public AudioSource SFXSourcePortalHit;
 	[SerializeField] public AudioSource SFXSourceButton;
+    [SerializeField] public AudioSource SFXSourceButtonHover;
 
 	private void Start()
     {
-		//BGMSourceMain.Play();
-      // SetBGMVolume(SettingManager.Instance.Current.soundVolume);
-		//SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
-      // DontDestroyOnLoad(gameObject);
+		BGMSourceMain.Play();
+        SetBGMVolume(SettingManager.Instance.Current.soundVolume);
+		SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
+        DontDestroyOnLoad(gameObject);
 	}
 
     public void SetBGMVolume(float volume)
