@@ -24,33 +24,32 @@ public class StageSettingHelper : MonoBehaviour
 
 
     public void SettingMap(StageData data)
-    { 
-        foreach(var map in data.PrefabEntries)
+    {
+        foreach (var map in data.PrefabEntries)
         {
             GameObject go = Resources.Load<GameObject>($"Prefabs/RealStagePrefab/{map.prefabPath}");
             Vector3 goPosition = map.position;
-            Quaternion goRotaion = Quaternion.Euler( map.rotation);
+            Quaternion goRotaion = Quaternion.Euler(map.rotation);
 
-            GameObject entryGo = Instantiate(go,goPosition, goRotaion);
+            GameObject entryGo = Instantiate(go, goPosition, goRotaion);
             if (map.prefabPath == "Button")
             {
-                entryGo.GetComponent<DoorButton>().SetId(buttonid);
-                //짝지어주는거 조금 고민해야될듯
-                //이건 데이터에 부여해야 될듯하다. 
-                buttonid++;
+                entryGo.GetComponent<DoorButton>().SetId(map.connectID);
+
             }
             else if (map.prefabPath == "ButtonDoor")
             {
 
-                entryGo.GetComponent<Door>().SetId(doorid);
-                doorid++;
+                entryGo.GetComponent<Door>().SetId(map.connectID);
+
             }
-            
-            //버튼 연결은 추후에 해야한다. 모든 오브젝트가 달리고 버튼을 셋팅해줘야한다. 
+
+
         }
 
 
         onCompleted?.Invoke();
+
     }
 
     public void FindmapIndex(int stage)
