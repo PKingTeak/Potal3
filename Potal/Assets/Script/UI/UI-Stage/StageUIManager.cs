@@ -9,7 +9,8 @@ public class StageUIManager : MonoBehaviour
 {
 
     public int CurStage { get { return curStage; } }
-    public StageDataManager dataManger;
+
+   
     private List<StageButton> Buttons = new List<StageButton>();
 
     private const string curStageKey = "curstage";
