@@ -18,7 +18,7 @@ TagManager:
   - Player
   - 
   - 
-  - 
+  - heldLayer
   - 
   - wall
   - PlayerBody
