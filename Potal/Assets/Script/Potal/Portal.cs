@@ -19,7 +19,7 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        // Debug.Log(travellers.Count);
+        // Debug.Log(travellers.Count);/
         if (travellers.Count > 0)
         {
             CheckTravellers();
