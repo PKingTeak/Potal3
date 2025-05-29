@@ -167,8 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBBF8\uB85C\uAC00 \uAF2D \uD3C9\uBA74\uC77C\uAC70\uB77C\n\uAE30\uB300\uD558\uC9C4
-    \uB9C8"
+  m_text: "\uC810\uD504\uD574\uC11C \uC774\uB3D9\uD574\uBCFC\uAE4C?\n[ Space ]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39c3b027fa94759438087306a4700e73, type: 2}
   m_sharedMaterial: {fileID: 6594185635273122315, guid: 39c3b027fa94759438087306a4700e73, type: 2}
@@ -299,7 +298,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7ee80ea964e921b458d18104258ab136, type: 2}
+  - {fileID: 2100000, guid: 269637ade25ef4a8c82adec0362f70cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
