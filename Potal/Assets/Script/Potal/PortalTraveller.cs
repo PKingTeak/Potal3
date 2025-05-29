@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PortalTraveller : MonoBehaviour
@@ -5,7 +6,7 @@ public class PortalTraveller : MonoBehaviour
     public GameObject clonePrefab; // 포탈 통고할때 생성되는 클론 프리팹
     public GameObject clone; // Traveller의 클론
 
-    public void Teleport()
+    public void Teleport(Transform portal, Transform linkedPortal)
     {
         if (clone == null)
             return;
@@ -22,7 +23,24 @@ public class PortalTraveller : MonoBehaviour
 
         // 본체 위치와 회전 적용
         transform.SetPositionAndRotation(newPos, newRot);
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            Debug.Log("포탈들어갈떄 속도: " + rb.velocity);
+            Vector3 relativeVel = portal.InverseTransformDirection(rb.velocity);
+            Vector3 newVelocity = linkedPortal.TransformDirection(relativeVel);
+            rb.velocity = -newVelocity * 1.2f;
+            Debug.Log("포탈나갈때 속도: " + rb.velocity);
+        // StartCoroutine(ApplyVelocityAfterDelay(rb, -newVelocity * 1.2f));
+        }
     }
+
+    // private IEnumerator ApplyVelocityAfterDelay(Rigidbody rb, Vector3 newVelocity)
+    // {
+    //     yield return new WaitForFixedUpdate(); // 한 프레임 쉬고 적용
+    //     rb.velocity = newVelocity;
+    // }
 
     public void UpdateCloneTransform(Transform portal, Transform linkedPortal)
     {
