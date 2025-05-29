@@ -1,23 +1,26 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
 
-    public static event Action OnClearStage;
+    public static event Action OnClearStage; //클리어시
 
-
-    
-    
-    public const string curStageKey = "curstage";
-    public int curStage;
     private void Awake()
     {
-    
+        StageSettingHelper.onCompleted += GetPlayer;
     }
+
+    [Header("ClearUI")]
+    public GameObject clearPanel;
+    
+    
+
+
+    public const string curStageKey = "curstage";
+    public int curStage;
+    
     public Vector3 RespawnPos { get { return respawnPos; } }
 
     private static StageManager instance;
@@ -26,24 +29,34 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private float respawnTime = 1f;
     GameObject player;
-    [Header("ClearUI")]
-    public GameObject clearPanel;
-
-    [Header("Player")]
-    [SerializeField] private GameObject playerPrefab;
-
-
-
-
+    
     private GameObject playerObject;
+    
+   
+
+    [SerializeField]
+    private GameObject DoorConnecter;
 
     public void Start()
     {
-        SpawnPlayer();
        
-        curStage = PlayerPrefs.GetInt(curStageKey, 0);
+        SpawnPlayer();
+        // curStage = PlayerPrefs.GetInt(curStageKey, 0);
+
     }
 
+    public void GetPlayer()
+    {
+        if (playerObject == null)
+        {
+            Debug.Log("플레이어가 없습니다");
+            //맵에서 로드 되어야함
+            return;
+        }
+        playerObject = FindObjectOfType<PlayerMovement>().gameObject;
+      
+        
+    }
     
     public void InitRespawnPos(Vector3 pos)
     {
@@ -57,9 +70,7 @@ public class StageManager : MonoBehaviour
             playerObject.transform.position = respawnPos;
             
         }
-        playerObject = Instantiate(playerPrefab, respawnPos, Quaternion.identity);
 
-        playerObject.tag = "Player";
     }
 
 

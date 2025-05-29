@@ -3,12 +3,15 @@ using UnityEngine.UI;
 
 public class StageButton : MonoBehaviour
 {
-    public bool isClear;
+    public bool IsClear { get => isClear; set => isClear = value; }
     private StageUIManager stageUIManger;
 
     [SerializeField]
     private int index;
     private Button button;
+    [SerializeField]
+    private bool isClear = false;
+    
 
   
 
@@ -23,10 +26,7 @@ public class StageButton : MonoBehaviour
 
     public void OnClickStageButton()
     {
-
-        stageUIManger.OnSelectedClicked(index);
-       // stageUIManger.gameObject.SetActive(false);
-       // stageUIManger.gameObject.SetActive(false); //임시로 끄기 
+        stageUIManger.OnSelectedClicked(index);             
     }
 
 

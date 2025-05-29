@@ -6,26 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Design/Font/NEXONLv1GothicRegular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Design/Font/NEXONLv1GothicRegular SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Design/Material/Cube/PortalCubeMerial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Design/Material/Cube/PortalCubeMerial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/BoxSpawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/BoxSpawner.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Manager/ButtonDoorConnector.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Manager/ButtonDoorConnector.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/Button.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/Button.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/DiagonalJumpPad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/DiagonalJumpPad.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/Door.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/Door.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/DoorButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/DoorButton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/JumpPad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/JumpPad.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/MovingPad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/MovingPad.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/SpawnerButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/SpawnerButton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/ZeroGravityZone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/ZeroGravityZone.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/YeseulScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/YeseulScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SciFiProps/Material/GlassTankMat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SciFiProps/Material/GlassTankMat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SciFiProps/Material/GlobesphereMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SciFiProps/Material/GlobesphereMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SciFiProps/Models/GlobeBase.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SciFiProps/Models/GlobeBase.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SciFiProps/Prefabs/Globe.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SciFiProps/Prefabs/Globe.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/DoorButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/DoorButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/SpawnerButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/SpawnerButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/ButtonDoorConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/ButtonConnectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/ButtonDoorConnector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/ButtonConnectManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/IIdentifiable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/IIdentifiable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/MovingPad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/MovingPad.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,10 +31,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../BeyondInfinity/BeyondInfinity/Assets/Scripts/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LYS/ButtonController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LYS/IIdentifiable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LYS/ZeroGravityZone.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/PlayerAction/CameraCollisionHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Prompt/PromptDatabase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Prompt/PromptTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -55,7 +50,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;LYS&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GGM&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -128,6 +123,8 @@
       <workItem from="1748261699863" duration="825000" />
       <workItem from="1748317572251" duration="2953000" />
       <workItem from="1748365488527" duration="382000" />
+      <workItem from="1748490219420" duration="2065000" />
+      <workItem from="1748494472959" duration="6824000" />
     </task>
     <servers />
   </component>
