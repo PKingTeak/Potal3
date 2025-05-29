@@ -12,6 +12,11 @@ public class StageManager : MonoBehaviour
         StageSettingHelper.onCompleted += GetPlayer;
     }
 
+    [Header("ClearUI")]
+    public GameObject clearPanel;
+    
+    
+
 
     public const string curStageKey = "curstage";
     public int curStage;
@@ -24,16 +29,20 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private float respawnTime = 1f;
     GameObject player;
-    [Header("ClearUI")]
-    public GameObject clearPanel;
-
+    
     private GameObject playerObject;
+    
+   
+
+    [SerializeField]
+    private GameObject DoorConnecter;
 
     public void Start()
     {
        
         SpawnPlayer();
        // curStage = PlayerPrefs.GetInt(curStageKey, 0);
+       
         
     }
 

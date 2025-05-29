@@ -461,8 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e00ad9f0f2694d4eab1c0cb4afe08aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redPortalPrefab: {fileID: 0}
-  bluePortalPrefab: {fileID: 0}
+  redPortalPrefab: {fileID: 4143404345452209165, guid: 69163b6c375c126448c65b11d3654ef4, type: 3}
+  bluePortalPrefab: {fileID: 55835734169971331, guid: cdc9a549f53ce9a48b100a551f00341a, type: 3}
   wallLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -479,6 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70e61fc919ee4ddea8e56433daeed52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clonePrefab: {fileID: 0}
+  clone: {fileID: 0}
 --- !u!1 &5633979270610499049
 GameObject:
   m_ObjectHideFlags: 0

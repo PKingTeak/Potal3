@@ -157,11 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7c0d0b1ff5f7c4fbf6de235afe572b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearPanel: {fileID: 188717101}
   curStage: 0
   respawnPos: {x: 0, y: 0, z: 0}
   respawnTime: 1
-  clearPanel: {fileID: 188717101}
-  playerPrefab: {fileID: 2143986591970643995, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
+  DoorConnecter: {fileID: 6675917052059800209, guid: 4acd5a6180fb46841948d58b4aac0efb, type: 3}
 --- !u!4 &518896203
 Transform:
   m_ObjectHideFlags: 0
