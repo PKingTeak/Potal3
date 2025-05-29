@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
+    [Header("Movement")]
     [SerializeField] private float maxSpeed = 5f;
     private Vector2 _curMovementInput;
 
-    [Header("Look Settings")]
+    [Header("Look")]
     [SerializeField] private Transform cameraContainer;
     [SerializeField] private float minXLook = -80f;
     [SerializeField] private float maxXLook = 80f;
@@ -38,9 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isJumping)
-            Move();
+        if (isJumping)
+            return;
 
+        Move();
+        SmoothLanding();
         UpdateAnimatorBlend();
     }
 
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         camRight.Normalize();
 
         Vector3 moveDir = (camForward * _curMovementInput.y + camRight * _curMovementInput.x).normalized;
+
 
         float crouchMultiplier = 1f;
         var crouch = GetComponent<PlayerCrouch>();
@@ -87,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                velocityChange *= 0.5f;
                 _wasTouchingWallLastFrame = false;
             }
         }
@@ -96,6 +100,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
+    }
+
+    private void SmoothLanding()
+    {
+        if (_groundChecker != null && _groundChecker.IsGrounded)
+        {
+            Vector3 velocity = _rigidbody.velocity;
+            if (velocity.y < -2f)
+            {
+                _rigidbody.velocity = new Vector3(velocity.x, -1f, velocity.z);
+            }
+        }
     }
 
     private void CameraLook()
@@ -173,6 +189,6 @@ public class PlayerMovement : MonoBehaviour
         horizontalVelocity.y = 0f;
 
         float speed = horizontalVelocity.magnitude / maxSpeed;
-        _animator.SetFloat("Blend", speed, 0.1f, Time.deltaTime);
+        _animator.SetFloat("Blend", speed, 0.1f, Time.deltaTime); // 부드러운 블렌딩
     }
 }
