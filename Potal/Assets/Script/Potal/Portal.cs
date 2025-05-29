@@ -21,7 +21,7 @@ public class Portal : MonoBehaviour
     {
         if (travellers.Count > 0)
         {
-            CheckTravellers(); //
+            CheckTravellers();
         }
     }
 
