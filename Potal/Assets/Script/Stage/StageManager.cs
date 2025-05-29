@@ -28,7 +28,7 @@ public class StageManager : MonoBehaviour
     private Vector3 respawnPos;
     [SerializeField]
     private float respawnTime = 1f;
-    GameObject player;
+    [SerializeField] GameObject player;
     
     private GameObject playerObject;
     
@@ -41,19 +41,22 @@ public class StageManager : MonoBehaviour
     {
        
         SpawnPlayer();
+        player = FindObjectOfType<PlayerMovement>().gameObject;
+        GetPlayer();
         // curStage = PlayerPrefs.GetInt(curStageKey, 0);
 
     }
 
     public void GetPlayer()
     {
-        if (playerObject == null)
+        if (player == null)
         {
             Debug.Log("플레이어가 없습니다");
             //맵에서 로드 되어야함
             return;
         }
-        playerObject = FindObjectOfType<PlayerMovement>().gameObject;
+        player = FindObjectOfType<PlayerMovement>().gameObject;
+        
       
         
     }
@@ -67,7 +70,7 @@ public class StageManager : MonoBehaviour
     {
         if (player != null)
         {
-            playerObject.transform.position = respawnPos;
+            player.transform.position = respawnPos;
             
         }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7069062925295794283}
   - component: {fileID: 5508145661899881707}
   - component: {fileID: 1333917729572612377}
+  - component: {fileID: 1223643517585337620}
   m_Layer: 0
   m_Name: RightDoor
   m_TagString: Untagged
@@ -84,6 +85,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1223643517585337620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254632660983386271}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1079003, y: 1.6650596, z: 0.049999997}
+  m_Center: {x: 0.55395013, y: 0.7146596, z: 0.0000000027939677}
 --- !u!1 &6147852132269744010
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +167,7 @@ GameObject:
   - component: {fileID: 2077678708121896512}
   - component: {fileID: 3656891886879802048}
   - component: {fileID: 7803675594509080370}
+  - component: {fileID: 5337850823552595917}
   m_Layer: 0
   m_Name: LeftDoor
   m_TagString: Untagged
@@ -218,3 +241,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5337850823552595917
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027074426322857652}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1079003, y: 1.6650596, z: 0.049999997}
+  m_Center: {x: 0.55395013, y: 0.7146596, z: 0.0000000027939677}

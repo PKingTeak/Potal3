@@ -19,11 +19,31 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
+        // Debug.Log(travellers.Count);/
         if (travellers.Count > 0)
         {
             CheckTravellers();
         }
     }
+
+private void FixedUpdate()
+{
+    if (Physics.SphereCast(transform.position, 0.3f, transform.forward, out RaycastHit hit, 1.2f))
+    {
+        if (hit.collider.TryGetComponent<PortalTraveller>(out var traveller))
+        {
+            SetWallCollision(traveller, true); // 포탈 뒤쪽 벽도 무시
+        }
+    }
+}
+
+private void OnTriggerEnter(Collider other)
+{
+    if (other.TryGetComponent<PortalTraveller>(out var traveller))
+    {
+        OnTravellerEnterPortal(traveller); // 리스트 등록 + 클론 처리
+    }
+}
 
     private void LateUpdate()
     {
@@ -41,13 +61,15 @@ public class Portal : MonoBehaviour
         portalCamera.fieldOfView = targetFOV;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent<PortalTraveller>(out var traveller))
-        {
-            OnTravellerEnterPortal(traveller);
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.TryGetComponent<PortalTraveller>(out var traveller))
+    //     {
+    //         OnTravellerEnterPortal(traveller);
+    //         SetWallCollision(traveller, true);
+    //         // linkedPortal.SetWallCollision(traveller, true);
+    //     }
+    // }
 
     // 포탈뒤에 있는 벽들의 Collider 모두 반환
     private List<Collider> GetWallBehindPortal()
@@ -100,15 +122,15 @@ public class Portal : MonoBehaviour
 
             Vector3 offset = traveller.transform.position - transform.position; // traveller 위치 계산
             float dot = Vector3.Dot(transform.forward, offset); // traveller가 앞인지 뒤인지 판별
+            Debug.Log(dot);
 
             // 벽과 traveller의 충돌 제거
-            SetWallCollision(traveller, true);
             if (dot < 0f)
             {
                 // 본체를 클론 위치로 이동시키고, 상대 포탈에 클론 배치
-                traveller.Teleport();
+                traveller.Teleport(transform, linkedPortal.transform);
                 // 포탈 도착 지점에 이동했을때 시작지점에 클론 배치
-                linkedPortal.OnTravellerEnterPortal(traveller);
+                // linkedPortal.OnTravellerEnterPortal(traveller);
                 if (traveller.clone != null)
                     traveller.clone.SetActive(false);
             }

@@ -36,6 +36,7 @@ public class Zone : MonoBehaviour
 
                 case ZoneType.DeadZone:
                     stageManager.OnPlayerDead();
+                    Debug.Log("player Dead");
                     break;
                 default:
                     break;
