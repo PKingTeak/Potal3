@@ -60,6 +60,11 @@ public class StageUIManager : MonoBehaviour
     public void UpdateCurStage() //버튼 인덱스
     {
         Debug.Log("점수 업데이트");
+        if (Buttons[curStage].IsClear == true)
+        {
+            return;
+        }
+       
         curStage += 1;
         PlayerPrefs.SetInt(curStageKey,curStage);
         //해당 스테이지 클리어시 호출해줘야함
@@ -70,6 +75,10 @@ public class StageUIManager : MonoBehaviour
         for (int i = 0; i < Buttons.Count; i++)
         {
             Buttons[i].InitButton(i, this);
+            if (curStage > i)
+            {
+                Buttons[curStage].IsClear = true;
+            }
            
             //버튼 인덱스 넣어주기 
         }
