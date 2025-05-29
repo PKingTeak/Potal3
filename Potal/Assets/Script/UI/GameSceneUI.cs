@@ -26,6 +26,7 @@ public class GameSceneUI : MonoBehaviour
         playerInput = FindObjectOfType<PlayerInput>(); 
 	}
 
+    private Coroutine _typingCoroutine;
     public void GetInteractData(string tag = "None")
     {
         switch (tag)
@@ -56,4 +57,34 @@ public class GameSceneUI : MonoBehaviour
         Cursor.lockState = isOpen == true ? CursorLockMode.Locked : CursorLockMode.None;
         playerInput.enabled = isOpen; // 플레이어 입력 비활성화
 	}
+    
+    public void ShowPromptById(string id)
+    {
+	    PromptData data = PromptDatabase.Instance.GetPrompt(id);
+	    if (data == null) return;
+
+	    promptText.text = data.message;
+	    promptText.maxVisibleCharacters = 0;
+	    promptText.gameObject.SetActive(true);
+
+	    if (_typingCoroutine != null)
+		    StopCoroutine(_typingCoroutine);
+	    _typingCoroutine = StartCoroutine(TypePrompt(data.message, data.duration));
+    }
+
+    private IEnumerator TypePrompt(string message, float duration)
+    {
+	    promptText.text = message;
+	    promptText.ForceMeshUpdate();
+
+	    int totalChars = promptText.textInfo.characterCount;
+	    for (int i = 0; i <= totalChars; i++)
+	    {
+		    promptText.maxVisibleCharacters = i;
+		    yield return new WaitForSeconds(0.03f);
+	    }
+
+	    yield return new WaitForSeconds(duration);
+	    promptText.gameObject.SetActive(false);
+    }
 }

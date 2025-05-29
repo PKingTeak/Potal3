@@ -9,11 +9,20 @@ public class ZeroGravityZone : MonoBehaviour
 
     private Collider zoneCollider;
     private float maxY;
+    
+    private MeshRenderer meshRenderer;
 
     private void Awake()
     {
         zoneCollider = GetComponent<Collider>();
         maxY = zoneCollider.bounds.max.y;
+
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+    }
+
+    private void Start()
+    {
+        meshRenderer.material.color = Color.gray;
     }
 
     private void OnTriggerEnter(Collider other)

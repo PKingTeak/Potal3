@@ -12,6 +12,11 @@ public class StageManager : MonoBehaviour
         StageSettingHelper.onCompleted += GetPlayer;
     }
 
+    [Header("ClearUI")]
+    public GameObject clearPanel;
+    
+    
+
 
     public const string curStageKey = "curstage";
     public int curStage;
@@ -24,22 +29,30 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private float respawnTime = 1f;
     GameObject player;
-    [Header("ClearUI")]
-    public GameObject clearPanel;
-
+    
     private GameObject playerObject;
+    
+   
+
+    [SerializeField]
+    private GameObject DoorConnecter;
 
     public void Start()
     {
        
         SpawnPlayer();
-       // curStage = PlayerPrefs.GetInt(curStageKey, 0);
-        
+        // curStage = PlayerPrefs.GetInt(curStageKey, 0);
+
     }
 
     public void GetPlayer()
     {
-
+        if (playerObject == null)
+        {
+            Debug.Log("플레이어가 없습니다");
+            //맵에서 로드 되어야함
+            return;
+        }
         playerObject = FindObjectOfType<PlayerMovement>().gameObject;
       
         

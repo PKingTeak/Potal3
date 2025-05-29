@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class ButtonConnectManager : MonoBehaviour
 {
+    
     private void Start()
     {
         MatchButtonDoor();
         MatchSpawnerButton();
+        StageSettingHelper.onCompleted += OnMatchButtonDoor;
+    }
+
+    private void OnMatchButtonDoor()
+    {
+        MatchButtonDoor();
     }
     private void MatchButtonDoor()
     {

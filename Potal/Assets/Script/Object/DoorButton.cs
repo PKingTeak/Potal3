@@ -13,6 +13,13 @@ public class DoorButton : MonoBehaviour, IIdentifiable
 
     private Rigidbody current;
 
+    private MeshRenderer meshRenderer;
+
+    private void Start()
+    {
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+    }
+
     public void SetId(int id)
     {
         this.id = id;
@@ -24,6 +31,7 @@ public class DoorButton : MonoBehaviour, IIdentifiable
         {
             current = rb;
             OnPressed?.Invoke();
+            meshRenderer.material.color = Color.red;
         }
     }
     
@@ -33,6 +41,7 @@ public class DoorButton : MonoBehaviour, IIdentifiable
         {
             OnReleased?.Invoke();
             current = null;
+            meshRenderer.material.color = Color.white;
         }
     }
 }

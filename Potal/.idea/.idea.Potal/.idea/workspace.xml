@@ -7,20 +7,8 @@
     <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Potal/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Design/Material/Cube/PortalCubeMerial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Design/Material/Cube/PortalCubeMerial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Manager/ButtonDoorConnector.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Manager/ButtonDoorConnector.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/Button.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/Button.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/DiagonalJumpPad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/DiagonalJumpPad.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/Door.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/Door.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/JumpPad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/JumpPad.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/MovingPad.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/MovingPad.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Object/ZeroGravityZone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Object/ZeroGravityZone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/YeseulScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/YeseulScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/ButtonDoorConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/ButtonConnectManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/ButtonDoorConnector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/ButtonConnectManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/IIdentifiable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/IIdentifiable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/MovingPad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/MovingPad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Architecture/Profile1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Architecture/Profile1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Object/ZeroGravityZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Object/ZeroGravityZone.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +19,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../BeyondInfinity/BeyondInfinity/Assets/Scripts/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LYS/ButtonController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LYS/IIdentifiable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LYS/ZeroGravityZone.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/PlayerAction/CameraCollisionHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Prompt/PromptDatabase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Prompt/PromptTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -45,21 +33,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "GGM",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "two.files.diff.last.used.file": "C:/GitHub/Potal3/Potal/Assets/Script/Manager/ButtonConnectManager.cs",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/GitHub/Potal3/Potal/Assets/Script/Manager/ButtonConnectManager.cs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Unity.exe" />
@@ -123,6 +111,9 @@
       <workItem from="1748261699863" duration="825000" />
       <workItem from="1748317572251" duration="2953000" />
       <workItem from="1748365488527" duration="382000" />
+      <workItem from="1748490219420" duration="2065000" />
+      <workItem from="1748494472959" duration="6824000" />
+      <workItem from="1748502496758" duration="525000" />
     </task>
     <servers />
   </component>

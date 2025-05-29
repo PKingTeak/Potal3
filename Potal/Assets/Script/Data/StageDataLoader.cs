@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 
-public class StageDataManager
+public class StageDataLoader
 {
         
     List<StageData> datas = new List<StageData>();
