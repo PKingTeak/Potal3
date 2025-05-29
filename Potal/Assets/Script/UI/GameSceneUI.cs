@@ -10,7 +10,6 @@ public class GameSceneUI : MonoBehaviour
 												//플레이어 isMove 값 필요. 
 	[Header("잡담 표시")]
     [SerializeField] private TextMeshProUGUI promptText;
-	[SerializeField] private float typingSpeed = 0.05f;
     
     [Header("상호작용 시 표시")]
     [SerializeField] private GameObject interactPanel;
