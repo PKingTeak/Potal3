@@ -33,7 +33,8 @@ public class StageManager : MonoBehaviour
     {
        
         SpawnPlayer();
-        curStage = PlayerPrefs.GetInt(curStageKey, 0);
+       // curStage = PlayerPrefs.GetInt(curStageKey, 0);
+        
     }
 
     public void GetPlayer()

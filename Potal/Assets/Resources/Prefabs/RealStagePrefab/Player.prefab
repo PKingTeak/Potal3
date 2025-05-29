@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 2143986591970643995}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -461,8 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e00ad9f0f2694d4eab1c0cb4afe08aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redPortalPrefab: {fileID: 0}
-  bluePortalPrefab: {fileID: 0}
+  redPortalPrefab: {fileID: 4668164028104030963, guid: 7cbab00cab96e420c9b43d81d08bf619, type: 3}
+  bluePortalPrefab: {fileID: 1618513372204476742, guid: f57ed319455654c0f80d0f6b54a8688c, type: 3}
   wallLayer:
     serializedVersion: 2
     m_Bits: 4096
