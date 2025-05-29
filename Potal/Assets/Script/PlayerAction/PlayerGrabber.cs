@@ -12,33 +12,37 @@ public class PlayerGrabber : MonoBehaviour
 
     private InteractableGrabbable _held;
 
+    public bool IsHolding => _held != null;
+
     public void OnGrab(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            TryGrab();
-        }
-        else if (context.canceled)
-        {
-            Release();
+            if (IsHolding)
+                Release();
+            else
+                TryGrab();
         }
     }
 
     private void Update()
     {
-        if (_held != null)
+        if (IsHolding)
         {
             float distance = Vector3.Distance(_held.transform.position, grabPoint.position);
             if (distance > maxGrabDistance)
             {
                 Release();
+
+                if (TryGetComponent(out PlayerInteractor interactor))
+                    interactor.ForceUIRefresh();
             }
         }
     }
 
     private void TryGrab()
     {
-        if (_held != null) return;
+        if (IsHolding) return;
 
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, grabRange, grabLayer))
@@ -53,10 +57,9 @@ public class PlayerGrabber : MonoBehaviour
 
     private void Release()
     {
-        if (_held != null)
-        {
-            _held.StopGrab();
-            _held = null;
-        }
+        if (!IsHolding) return;
+
+        _held.StopGrab();
+        _held = null;
     }
 }

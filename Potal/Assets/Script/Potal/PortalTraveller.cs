@@ -2,20 +2,44 @@ using UnityEngine;
 
 public class PortalTraveller : MonoBehaviour
 {
-    public void Teleport(Transform fromPortal, Transform traveller, Transform toPortal)
+    public GameObject clonePrefab; // 포탈 통고할때 생성되는 클론 프리팹
+    public GameObject clone; // Traveller의 클론
+
+    public void Teleport()
     {
-        Vector3 relativePos = fromPortal.InverseTransformPoint(traveller.position);
-        Vector3 newPos = toPortal.TransformPoint(relativePos) + toPortal.forward * 0.4f;
+        if (clone == null)
+            return;
 
-        Quaternion relativeRot = Quaternion.Inverse(fromPortal.rotation) * traveller.rotation;
-        Quaternion newRot = toPortal.transform.rotation * relativeRot;
-        newRot *= Quaternion.Euler(0, 180f, 0);
+        // 클론의 위치와 회전값을 본체 위치로 설정
+        Vector3 newPos = clone.transform.position;
+        Quaternion newRot = clone.transform.rotation;
 
+        // 기울어진 상태로 나오는 거 방지
         Vector3 euler = newRot.eulerAngles;
         euler.x = 0f;
         euler.z = 0f;
         newRot = Quaternion.Euler(euler);
 
-        traveller.SetPositionAndRotation(newPos, newRot);
+        // 본체 위치와 회전 적용
+        transform.SetPositionAndRotation(newPos, newRot);
+    }
+
+    public void UpdateCloneTransform(Transform portal, Transform linkedPortal)
+    {
+        // 포탈과 traveller의 상대 거리 계산
+        Vector3 relativePos = portal.InverseTransformPoint(transform.position);
+        // 포탈 기준 traveller와 반대방향, 포탈에서 나오는 느낌을 주게 함
+        relativePos = new Vector3(-relativePos.x, relativePos.y, -relativePos.z);
+        Vector3 newPos = linkedPortal.TransformPoint(relativePos);
+
+        // 포탈과 traveller의 상대 회전 계산
+        Quaternion relativeRot = Quaternion.Inverse(portal.rotation) * transform.rotation;
+        Quaternion newRot = linkedPortal.rotation * relativeRot;
+
+        // 회전 반전
+        newRot *= Quaternion.Euler(0, 180f, 0); // 반전으로 포탈에서 나오는 방향으로 보이게 함
+
+        // 클론 위치와 회전 적용
+        clone.transform.SetPositionAndRotation(newPos, newRot);
     }
 }

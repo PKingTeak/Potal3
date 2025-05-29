@@ -10,6 +10,12 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private GameSceneUI gameSceneUI;
 
     private IInteractable _currentTarget;
+    private PlayerGrabber _grabber;
+
+    private void Awake()
+    {
+        _grabber = GetComponent<PlayerGrabber>();
+    }
 
     private void Update()
     {
@@ -18,24 +24,31 @@ public class PlayerInteractor : MonoBehaviour
 
     private void UpdateUI()
     {
+        if (_grabber != null && _grabber.IsHolding)
+        {
+            _currentTarget = null;
+            gameSceneUI.GetInteractData();
+            return;
+        }
+
         if (TryGetInteractable(out IInteractable interactable, out RaycastHit hit))
         {
             if (interactable.CanShowUI())
             {
                 _currentTarget = interactable;
                 string layerName = LayerMask.LayerToName(hit.collider.gameObject.layer);
-                gameSceneUI.GetInteractData(layerName); // UI 활성화
+                gameSceneUI.GetInteractData(layerName);
             }
             else
             {
                 _currentTarget = null;
-                gameSceneUI.GetInteractData(); // UI 비활성화
+                gameSceneUI.GetInteractData();
             }
         }
         else
         {
             _currentTarget = null;
-            gameSceneUI.GetInteractData(); // UI 비활성화
+            gameSceneUI.GetInteractData();
         }
     }
 
@@ -58,5 +71,11 @@ public class PlayerInteractor : MonoBehaviour
 
         interactable = null;
         return false;
+    }
+
+    public void ForceUIRefresh()
+    {
+        _currentTarget = null;
+        UpdateUI();
     }
 }
