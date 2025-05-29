@@ -7520,7 +7520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clearPanel: {fileID: 1285426060}
   curStage: 0
-  respawnPos: {x: 0, y: 0, z: -5.7}
+  respawnPos: {x: 0, y: -1.14, z: -5.7}
   respawnTime: 1
   player: {fileID: 2016225163}
   DoorConnecter: {fileID: 0}
@@ -20109,7 +20109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400240611173429523, guid: 726570624a050a94eaa64788a2107d59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.14
       objectReference: {fileID: 0}
     - target: {fileID: 400240611173429523, guid: 726570624a050a94eaa64788a2107d59, type: 3}
       propertyPath: m_LocalPosition.z
