@@ -12,7 +12,7 @@ public class PortalTraveller : MonoBehaviour
             return;
 
         // 클론의 위치와 회전값을 본체 위치로 설정
-        Vector3 newPos = clone.transform.position;
+        Vector3 newPos = clone.transform.position + linkedPortal.transform.forward * 0.1f;
         Quaternion newRot = clone.transform.rotation;
 
         // 기울어진 상태로 나오는 거 방지
@@ -28,19 +28,19 @@ public class PortalTraveller : MonoBehaviour
         if (rb != null)
         {
             Debug.Log("포탈들어갈떄 속도: " + rb.velocity);
+            // Vector3 relativeVel = portal.InverseTransformDirection(rb.velocity);
+            // Vector3 newVelocity = linkedPortal.TransformDirection(relativeVel);
+            // rb.velocity = -newVelocity * 1.2f;
             Vector3 relativeVel = portal.InverseTransformDirection(rb.velocity);
+
+            // z축만 반전
+            relativeVel.z = -relativeVel.z;
+
             Vector3 newVelocity = linkedPortal.TransformDirection(relativeVel);
-            rb.velocity = -newVelocity * 1.2f;
+            rb.velocity = newVelocity;
             Debug.Log("포탈나갈때 속도: " + rb.velocity);
-        // StartCoroutine(ApplyVelocityAfterDelay(rb, -newVelocity * 1.2f));
         }
     }
-
-    // private IEnumerator ApplyVelocityAfterDelay(Rigidbody rb, Vector3 newVelocity)
-    // {
-    //     yield return new WaitForFixedUpdate(); // 한 프레임 쉬고 적용
-    //     rb.velocity = newVelocity;
-    // }
 
     public void UpdateCloneTransform(Transform portal, Transform linkedPortal)
     {
