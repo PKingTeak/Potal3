@@ -6,24 +6,16 @@ using UnityEngine;
 
 public class DoorButton : MonoBehaviour, IIdentifiable
 {
-    [SerializeField] private string id;
-    public string Id => id;
+    [SerializeField] private int id;
+    public int Id => id;
     public event Action OnPressed;
     public event Action OnReleased;
 
     private Rigidbody current;
 
-    private void Awake()
+    public void SetId(int id)
     {
-        id = ExtractInstanceIndex(gameObject.name);
-    }
-
-    private string ExtractInstanceIndex(string id)
-    {
-        Match match = Regex.Match(name, @"\((\d+)\)");
-        if (match.Success)
-            return match.Groups[1].Value;
-        return "0";
+        this.id = id;
     }
     
     private void OnCollisionEnter(Collision other)

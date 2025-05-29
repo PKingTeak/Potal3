@@ -1,33 +1,52 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LoadSceneManager : MonoBehaviour
 {
+
     private static LoadSceneManager instance;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
     public static LoadSceneManager Instance
     {
-        get 
+        get
         {
             if (instance == null)
             {
-                instance = new GameObject("LoadSceneManger").AddComponent<LoadSceneManager>();
+                instance = FindObjectOfType<LoadSceneManager>();
+                if (instance == null)
+                {
+                    instance = new GameObject("LoadSceneManager").AddComponent<LoadSceneManager>();
+                }
+                
             }
             return instance;
         }
-
     }
 
-   
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
     public void LoadSceneAsync(string sceneName , Action onCompleted)
     {
-        StartCoroutine(loadSceneAsync(sceneName, () =>  onCompleted?.Invoke()));
+        StartCoroutine(loadSceneAsync(sceneName,onCompleted));
         
     }
 
@@ -44,6 +63,11 @@ public class LoadSceneManager : MonoBehaviour
 
 
 
+    }
+
+    public void LoadSceneNormalMap(string scenName)
+    {
+        SceneManager.LoadScene(scenName);
     }
 
 

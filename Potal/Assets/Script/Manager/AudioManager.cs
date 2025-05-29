@@ -20,10 +20,10 @@ public class AudioManager : MonoSingleton<AudioManager>
 
 	private void Start()
     {
-		BGMSourceMain.Play();
-        SetBGMVolume(SettingManager.Instance.Current.soundVolume);
-		SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
-        DontDestroyOnLoad(gameObject);
+		//BGMSourceMain.Play();
+      // SetBGMVolume(SettingManager.Instance.Current.soundVolume);
+		//SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
+      // DontDestroyOnLoad(gameObject);
 	}
 
     public void SetBGMVolume(float volume)

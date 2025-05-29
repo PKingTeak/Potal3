@@ -457,6 +457,18 @@ PrefabInstance:
       propertyPath: groundLayer.m_Bits
       value: 69210359
       objectReference: {fileID: 0}
+    - target: {fileID: 67583466744420112, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
+      propertyPath: clone
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 67583466744420112, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
+      propertyPath: clonePrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451509495124589998, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2018297097458913412, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.8
@@ -498,6 +510,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2077781587138408076, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077781587138408076, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
       propertyPath: redPortalPrefab
       value: 
       objectReference: {fileID: 69901624}
@@ -509,10 +525,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2143986591970643995, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238530517143056988, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2238530517143056988, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
       propertyPath: gameSceneUI
       value: 
       objectReference: {fileID: 1549118611}
+    - target: {fileID: 4553650817609559951, guid: effdf392b36340640b3e0c024421ff9c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

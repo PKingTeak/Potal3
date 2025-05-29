@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using SW;
 using TMPro;
 using UnityEditor.UI;
 using UnityEngine;
@@ -11,9 +14,14 @@ public class InspectorUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI selectedObjectName;
     [SerializeField]
-    private TMP_InputField[] attributeTexts = new TMP_InputField[(int)AttributeIndex.Total];
-    private float[] currentValues;
-    private enum AttributeIndex
+    private TMP_InputField[] transformTexts = new TMP_InputField[(int)TransformIndex.Total];
+    [SerializeField]
+    private TMP_InputField connectIDText;
+    [SerializeField]
+    private SelectedListViewUI selectedListViewUI;
+    private float[] currentTransformArr;
+    private int currentConnectID;
+    private enum TransformIndex
     {
         PosX = 0,
         PosY = 1,
@@ -30,7 +38,7 @@ public class InspectorUI : MonoBehaviour
     private void Awake()
     {
         ClearObject();
-        currentValues = new float[attributeTexts.Length];
+        currentTransformArr = new float[transformTexts.Length];
         selectedObject = null;
     }
     private void Start()
@@ -43,48 +51,72 @@ public class InspectorUI : MonoBehaviour
         
     }
 
-    public void InspectObject(GameObject gameObject)
+    public void InspectObject(GameObject gameObject, int connectID)
     {
         selectedObject = gameObject;
         selectedObjectName.text = gameObject.name;
 
-        currentValues = TransformToArray(gameObject.transform);
+        currentTransformArr = TransformToArray(gameObject.transform);
 
-        for (int i = 0; i < attributeTexts.Length; i++)
+
+        for (int i = 0; i < transformTexts.Length; i++)
         {
             int index = i;
-            attributeTexts[i].text = currentValues[i].ToString();
-            attributeTexts[i].onEndEdit.RemoveAllListeners();
-            attributeTexts[i].onEndEdit.AddListener((string val) => OnAttributeChanged(index, val));
+            transformTexts[i].text = currentTransformArr[i].ToString();
+            transformTexts[i].onEndEdit.RemoveAllListeners();
+            transformTexts[i].onEndEdit.AddListener((string val) => OnTransformChanged(index, val));
         }
+        connectIDText.text = connectID.ToString();
+        connectIDText.onEndEdit.RemoveAllListeners();
+        connectIDText.onEndEdit.AddListener((string val) => OnConnectIDChanged(gameObject, val));
     }
 
-    private void OnAttributeChanged(int index, string value)
+    private void OnTransformChanged(int index, string value)
     {
         if (selectedObject == null)
         {
-            attributeTexts[index].text = "";
+            transformTexts[index].text = "";
             return;
         }
 
         if (!float.TryParse(value, out float result))
         {
-            attributeTexts[index].text = currentValues[index].ToString();
+            transformTexts[index].text = currentTransformArr[index].ToString();
             return;
         }
 
-        currentValues[index] = result;
-        ArrayToTransform(selectedObject.transform, currentValues);
+        currentTransformArr[index] = result;
+        ArrayToTransform(selectedObject.transform, currentTransformArr);
+    }
+
+    private void OnConnectIDChanged(GameObject gameObject, string value)
+    {
+        if (selectedObject == null)
+        {
+            connectIDText.text = "";
+            return;
+        }
+
+        if (!int.TryParse(value, out int result))
+        {
+            connectIDText.text = currentConnectID.ToString();
+            return;
+        }
+
+        currentConnectID = result;
+        selectedListViewUI.changeConnectID(gameObject, result);
+        ArrayToTransform(selectedObject.transform, currentTransformArr);
     }
 
     public void ClearObject()
     {
         selectedObjectName.SetText("None");
         selectedObject = null;
-        foreach (var attribute in attributeTexts)
+        foreach (var transformText in transformTexts)
         {
-            attribute.text = "";
+            transformText.text = "";
         }
+        connectIDText.text = "";
     }
 
     private float[] TransformToArray(Transform transform)

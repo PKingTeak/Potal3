@@ -109,7 +109,7 @@ namespace SW
         {
             if(selectedPrefab != null)
             {
-                selectedListViewUI.AddPrefab(prefabs[selectedPrefab.Value.Item1], selectedPrefab.Value.Item1);
+                selectedListViewUI.AddPrefab(prefabs[selectedPrefab.Value.Item1], selectedPrefab.Value.Item1, -1);
                 selectedListViewUI.RemoveSelectFocus();
             }
         }

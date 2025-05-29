@@ -7,8 +7,8 @@ using DG.Tweening;
 
 public class Door : MonoBehaviour, IIdentifiable
 {
-    [SerializeField] private string id;
-    public string Id => id;
+    [SerializeField] private int id;
+    public int Id => id;
     
     private Tween leftMoveTween;
     private Tween rightMoveTween;
@@ -23,12 +23,12 @@ public class Door : MonoBehaviour, IIdentifiable
     [SerializeField] private GameObject rightDoor;
 
     [SerializeField] private float openDistance;
-
-    private void Awake()
+    
+    public void SetId(int id)
     {
-        id = ExtractInstanceIndex(gameObject.name);
+        this.id = id;
     }
-
+    
     private string ExtractInstanceIndex(string id)
     {
         Match match = Regex.Match(name, @"\((\d+)\)");

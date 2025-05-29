@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainUIScene.unity
+    path: Assets/Scenes/CustomMapSelectScene.unity
     guid: d7962a5afb6e4a8488673e599f435449
   - enabled: 1
     path: Assets/Scenes/MakeStageScene.unity
@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 8fbfa78c71000df45bc4cd0e08375caa
+  - enabled: 1
+    path: Assets/Scenes/GameToScene.unity
+    guid: a81eb67d6170e3e4e9b0b737ddf2dd93
+  - enabled: 1
+    path: Assets/Scenes/YuminMap_1Scene.unity
+    guid: 35118a54d7d46234cbd490a0b8929aae
+  - enabled: 1
+    path: Assets/Scenes/Seongeun_tes.unity
+    guid: 41e8f977ae9684787b6b0766b17f5c58
+  - enabled: 1
+    path: Assets/Scenes/Test/TestStageScene.unity
+    guid: e88c0f7215357a640b2e97a45cd6fe39
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 1b81b7f4d27de6c46bc917c508e9a79d
   m_configObjects: {}

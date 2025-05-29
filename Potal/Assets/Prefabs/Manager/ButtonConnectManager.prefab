@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 852843100119627602}
   - component: {fileID: 2299555474792319795}
   m_Layer: 0
-  m_Name: ButtonDoorConnector
+  m_Name: ButtonConnectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

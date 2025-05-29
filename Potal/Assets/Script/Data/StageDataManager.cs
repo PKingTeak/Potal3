@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 
-public class StageDataManager
+public class StageDataLoader
 {
         
     List<StageData> datas = new List<StageData>();
@@ -17,16 +17,15 @@ public class StageDataManager
     public void JsonToData()
     {
 
-       string json =  Resources.Load<TextAsset>("Json/StageData/Stage02").text;
-        //LoadAll로 변경
-
-        //영튜한테 질문드리기
+        //LoadAll로 변경   
         TextAsset[] jsons = Resources.LoadAll<TextAsset>("Json/StageData");
 
 
         //뭘해겠어? 텍스트를 이제 구분지어서 리스트로 담아야겠지??
         //하나만 가져올꺼야
-        StageData data =JsonUtility.FromJson<StageData>(json);
+    
+
+
 
         for (int i = 0; i < jsons.Length; i++)
         {
@@ -40,8 +39,7 @@ public class StageDataManager
         for (int i = 0; i < datas.Count; i++)
         {
             dataDict.Add(i,datas[i]); //캐싱
-            
-        
+                   
         }
 
     }
