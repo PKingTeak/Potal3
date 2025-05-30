@@ -32,6 +32,7 @@ public class Zone : MonoBehaviour
 
                 case ZoneType.EndZone:
                     stageManager.ClearStage();
+                    Debug.Log("Clear Stage");
                     break;
 
                 case ZoneType.DeadZone:

@@ -29,6 +29,7 @@ public class DoorButton : MonoBehaviour, IIdentifiable
     {
         if (current == null && other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
+            AudioManager.Instance.SFXSourceButtonDown.Play();
             current = rb;
             OnPressed?.Invoke();
             meshRenderer.material.color = Color.red;
