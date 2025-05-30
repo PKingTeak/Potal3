@@ -78,7 +78,7 @@ public class PlayerFire : MonoBehaviour
 
     private IEnumerator MoveAfterDisappear(GameObject portal, Vector3 newPos, Quaternion newRot)
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
 
         portal.SetActive(false);
         portal.transform.SetPositionAndRotation(newPos, newRot);
