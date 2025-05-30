@@ -11,7 +11,7 @@ public class Utility : MonoBehaviour
 	public static void ButtonBind(Button button, Action action)
 	{
 		button.onClick.AddListener(() => action());
-		button.onClick.AddListener(() => AudioManager.Instance.SFXSourceButton.Play());
+		button.onClick.AddListener(() => AudioManager.Instance.SFXSourceUIButton.Play());
 		//button.OnPointerEnter(()=>AudioManager.Instance.SFXSourceButton.Play());
 		//button.transition.
 		// 3. Hover 사운드 (EventTrigger를 통해 동적으로 등록)
@@ -24,7 +24,7 @@ public class Utility : MonoBehaviour
 		{
 			if (button.transition == Selectable.Transition.ColorTint)
 			{
-				AudioManager.Instance.SFXSourceButtonHover.Play();
+				AudioManager.Instance.SFXSourceUIButtonHover.Play();
 			}
 		});
 		trigger.triggers.Add(entry);
