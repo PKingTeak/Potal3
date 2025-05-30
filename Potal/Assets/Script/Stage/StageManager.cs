@@ -13,7 +13,7 @@ public class StageManager : MonoBehaviour
     }
 
     [Header("ClearUI")]
-    public GameObject clearPanel;
+    public GameSceneUI gameSceneUI;
     
     
 
@@ -91,11 +91,11 @@ public class StageManager : MonoBehaviour
 
     public void ClearStage()
     {//이벤트로 만들예정 엑션으로 만들고 
-
+        gameSceneUI.ClearPanelOpen();
 
         // clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동 -> 이거 미션이 없어서 뺌
         OnClearStage?.Invoke();
-       LoadSceneManager.Instance.LoadSceneNormalMap("CustomMapSelectScene");
+       //LoadSceneManager.Instance.LoadSceneNormalMap("CustomMapSelectScene");
         
         Debug.Log("클리어");
        

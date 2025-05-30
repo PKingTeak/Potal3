@@ -21,9 +21,9 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private GameObject clearPanel; // 끝 부분에 도달하면 표시
     [SerializeField] private GameObject settingPanel;
 
-    private void Start()
+	private void Start()
     {
-        playerInput = FindObjectOfType<PlayerInput>(); 
+        playerInput = FindObjectOfType<PlayerCrouch>().gameObject.GetComponent<PlayerInput>(); 
 	}
 
     private Coroutine _typingCoroutine;
@@ -43,6 +43,12 @@ public class GameSceneUI : MonoBehaviour
 		}
     }
 
+    public void ClearPanelOpen()
+    {
+        gameObject.GetComponent<PlayerInput>().enabled = false;
+        clearPanel.SetActive(true);
+        OpenUI(!clearPanel.activeSelf);
+    }
     public void OnSetting(InputAction.CallbackContext context)
     {
         if (context.started)
