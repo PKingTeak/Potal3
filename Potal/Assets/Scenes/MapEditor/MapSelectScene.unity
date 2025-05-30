@@ -3253,7 +3253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   isClear: 0
-  sceneName: 
+  sceneName: StageGGM
 --- !u!1 &1907596248
 GameObject:
   m_ObjectHideFlags: 0
