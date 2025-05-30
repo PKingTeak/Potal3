@@ -57,6 +57,9 @@ public class StageSettingHelper : MonoBehaviour
         SettingMap(dataLoader.GetStageData(stage));
     }
 
-   
+    public int GetDatasNum()
+    {
+        return dataLoader.GetDataNum();
+    }
     
 }
