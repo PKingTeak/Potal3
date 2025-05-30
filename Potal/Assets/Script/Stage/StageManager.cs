@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StageManager : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class StageManager : MonoBehaviour
     public void Start()
     {
 
+        
         Invoke("FindPlayer",1f);
         curStage = PlayerPrefs.GetInt(curStageKey, 0);
         
@@ -54,7 +56,9 @@ public class StageManager : MonoBehaviour
             return;
         }
         player = FindObjectOfType<PlayerMovement>().gameObject;
-       // SettingSpawnPos();
+        gameSceneUI = FindObjectOfType<GameSceneUI>();
+        gameSceneUI.GetComponent<GameSceneUI>().SettingPlayerInput(player.GetComponent<PlayerInput>());
+        SettingSpawnPos();
 
     }
 
@@ -124,5 +128,8 @@ public class StageManager : MonoBehaviour
             Debug.Log("클리어");
        
     }
+
+
+   
     
 }

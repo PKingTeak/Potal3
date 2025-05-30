@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8384656416058249276}
   - component: {fileID: 8010088560049808348}
   - component: {fileID: 4593256641337440943}
-  - component: {fileID: 7349396627476773796}
+  - component: {fileID: 7930017680523882705}
   m_Layer: 27
   m_Name: GlassWall_ZigleZigle
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7349396627476773796
+--- !u!65 &7930017680523882705
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

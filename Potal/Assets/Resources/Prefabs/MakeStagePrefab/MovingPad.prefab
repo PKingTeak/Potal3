@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6401734576290964824}
-  - component: {fileID: 2522408497533835151}
+  - component: {fileID: -5350215296241111657}
   m_Layer: 0
   m_Name: MovingPad
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Transform:
   - {fileID: 2538355815063091885}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2522408497533835151
+--- !u!65 &-5350215296241111657
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,5 +135,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.8, y: 0.5, z: 2.8}
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Size: {x: 3, y: 0.5, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}

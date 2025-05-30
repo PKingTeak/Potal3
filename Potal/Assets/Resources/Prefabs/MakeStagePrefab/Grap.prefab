@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7092851788738267042}
-  - component: {fileID: 2507234591722216346}
   m_Layer: 6
   m_Name: GlowEffect
   m_TagString: Untagged
@@ -32,23 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 756697914584539358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2507234591722216346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103139978338111022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a1828a10ab05742b256a3954dd6ee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetMaterial: {fileID: 2100000, guid: 31b97dc5f74e1db4fafed281553073da, type: 2}
-  glowColor: {r: 0, g: 1, b: 1, a: 1}
-  glowSpeed: 0.5
-  minIntensity: 0.2
-  maxIntensity: 2
 --- !u!1 &3756311661594536860
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +42,7 @@ GameObject:
   - component: {fileID: 756697914584539358}
   - component: {fileID: 4451434400595579695}
   - component: {fileID: 2619273898145894974}
-  - component: {fileID: 624903947987688773}
+  - component: {fileID: -606336125583236341}
   m_Layer: 6
   m_Name: Grap
   m_TagString: Untagged
@@ -134,7 +116,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &624903947987688773
+--- !u!65 &-606336125583236341
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,8 +17,6 @@ public class PlayerFire : MonoBehaviour
     [SerializeField]
     private Camera playerCamera;
 
-    private GameObject _currentRedPortal;
-    private GameObject _currentBluePortal;
     private AudioManager audioManager;
 
     private void Start()
@@ -43,18 +42,46 @@ public class PlayerFire : MonoBehaviour
 
     private void PlacePortal(GameObject portal)
     {
-        // Ray ray = playerCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2f, Screen.height / 2f));
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 1000f, wallLayer))
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000f))
         {
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("PortalClone"))
+                return;
+
+            if (((1 << hit.collider.gameObject.layer) & wallLayer.value) == 0)
+                return;
+
             audioManager.SFXSourcePortalHit.Play();
 
-            portal.transform.position = hit.point + hit.normal * 0.01f;
-            portal.transform.rotation = Quaternion.LookRotation(hit.normal);
-
-            if (!portal.activeSelf)
-                portal.SetActive(true);
+            RepositionAndActivate(portal, hit.point, Quaternion.LookRotation(hit.normal));
         }
+    }
+
+    private void RepositionAndActivate(GameObject portal, Vector3 pos, Quaternion rot)
+    {
+        Animator animator = portal.GetComponent<Animator>();
+
+        if (portal.activeSelf)
+        {
+            animator.ResetTrigger("Off");
+            animator.SetTrigger("Off");
+
+            StartCoroutine(MoveAfterDisappear(portal, pos + rot * Vector3.forward * 0.01f, rot));
+        }
+        else
+        {
+            portal.transform.SetPositionAndRotation(pos + rot * Vector3.forward * 0.01f, rot);
+            portal.SetActive(true);
+        }
+    }
+
+    private IEnumerator MoveAfterDisappear(GameObject portal, Vector3 newPos, Quaternion newRot)
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        portal.SetActive(false);
+        portal.transform.SetPositionAndRotation(newPos, newRot);
+        portal.SetActive(true);
     }
 }

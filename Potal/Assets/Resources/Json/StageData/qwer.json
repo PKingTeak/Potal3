@@ -1,11 +1,11 @@
 {
     "PrefabEntries": [
         {
-            "prefabPath": "Floor",
+            "prefabPath": "Floor1",
             "connectID": -1,
             "position": {
                 "x": 0.0,
-                "y": -5.0,
+                "y": -1.0,
                 "z": 0.0
             },
             "rotation": {
@@ -15,17 +15,17 @@
             },
             "scale": {
                 "x": 100.0,
-                "y": 10.0,
+                "y": 1.0000033378601075,
                 "z": 100.0
             }
         },
         {
-            "prefabPath": "Door",
+            "prefabPath": "Player_Jammo",
             "connectID": -1,
             "position": {
                 "x": 0.0,
-                "y": 0.4399999976158142,
-                "z": 3.4100000858306886
+                "y": 5.0,
+                "z": 0.0
             },
             "rotation": {
                 "x": 0.0,
@@ -33,18 +33,18 @@
                 "z": 0.0
             },
             "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
+                "x": 0.699999988079071,
+                "y": 0.699999988079071,
+                "z": 0.699999988079071
             }
         },
         {
-            "prefabPath": "Button",
+            "prefabPath": "EndZone",
             "connectID": -1,
             "position": {
-                "x": 10.0,
-                "y": 0.0,
-                "z": 0.0
+                "x": 20.0,
+                "y": 1.0,
+                "z": 20.0
             },
             "rotation": {
                 "x": 0.0,

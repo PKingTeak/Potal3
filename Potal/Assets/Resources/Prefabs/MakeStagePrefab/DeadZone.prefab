@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4629316595672091348}
   - component: {fileID: 867815368337883561}
   - component: {fileID: 9041895158060907372}
-  - component: {fileID: 6061672260912143149}
+  - component: {fileID: -3619771453873235884}
   m_Layer: 0
   m_Name: DeadZone
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6061672260912143149
+--- !u!65 &-3619771453873235884
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,9 +99,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 1, z: 20}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

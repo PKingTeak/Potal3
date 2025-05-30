@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2688920449342715998}
-  - component: {fileID: 2787490130255960004}
+  - component: {fileID: 2218927153623433245}
   m_Layer: 0
   m_Name: DoorButton
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Transform:
   - {fileID: 6451067536113653018}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2787490130255960004
+--- !u!65 &2218927153623433245
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,5 +135,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.3, z: 0.55}
+  m_Size: {x: 0.6364223, y: 0.394211, z: 0.878493}
   m_Center: {x: 0, y: 0, z: 0}

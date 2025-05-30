@@ -29,8 +29,9 @@ public class StageSettingHelper : MonoBehaviour
             GameObject go = Resources.Load<GameObject>($"Prefabs/RealStagePrefab/{map.prefabPath}");
             Vector3 goPosition = map.position;
             Quaternion goRotaion = Quaternion.Euler(map.rotation);
-
+            Vector3 Scale = map.scale;
             GameObject entryGo = Instantiate(go, goPosition, goRotaion);
+            entryGo.transform.localScale = map.scale;
             if (map.prefabPath == "Button")
             {
                 entryGo.GetComponent<DoorButton>().SetId(map.connectID);
@@ -56,6 +57,9 @@ public class StageSettingHelper : MonoBehaviour
         SettingMap(dataLoader.GetStageData(stage));
     }
 
-   
+    public int GetDatasNum()
+    {
+        return dataLoader.GetDataNum();
+    }
     
 }
