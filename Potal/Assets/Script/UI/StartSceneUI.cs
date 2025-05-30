@@ -26,7 +26,7 @@ public class StartSceneUI : MonoBehaviour
 
 	private void Start()
 	{
-		Utility.ButtonBind(startButton, () => SceneManager.LoadScene("MainUIScene"));
+		Utility.ButtonBind(startButton, () => SceneManager.LoadScene("MapSelectScene"));
 		Utility.ButtonBind(settingButton, () => settingPanel.SetActive(true));
 		Utility.ButtonBind(mapBuildButton, () => SceneManager.LoadScene("MapBuildScene"));
 	}

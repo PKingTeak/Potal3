@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.EventSystems;
 
-public class GizmoHandle : MonoBehaviour
+public class GizmoPositionHandle : MonoBehaviour
 {
     Camera _camera;
     [SerializeField]
@@ -18,7 +18,11 @@ public class GizmoHandle : MonoBehaviour
 
     private void Awake()
     {
-        if (_camera == null) _camera = Camera.main;
+        if (_camera == null)
+        {
+            _camera = Camera.main;
+        }
+
         Renderer renderer = this.GetComponent<Renderer>();
         if (renderer != null)
         {
@@ -66,10 +70,9 @@ public class GizmoHandle : MonoBehaviour
             Vector2 screenAxis = (screenDir - screenPos).normalized;
 
             float signedAmount = Vector2.Dot((Vector2)delta, screenAxis);
+
             gizmoUI.MoveTarget(worldDir, signedAmount * moveSpeed * Time.deltaTime);
         }
-
-
 
         if (Input.GetMouseButtonUp(0))
         {

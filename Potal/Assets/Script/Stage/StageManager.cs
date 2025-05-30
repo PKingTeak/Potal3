@@ -12,15 +12,13 @@ public class StageManager : MonoBehaviour
         StageSettingHelper.onCompleted += GetPlayer;
     }
 
-    [Header("ClearUI")]
-    public GameObject clearPanel;
-    
     
 
 
     public const string curStageKey = "curstage";
     public int curStage;
-    
+
+
     public Vector3 RespawnPos { get { return respawnPos; } }
 
     private static StageManager instance;
@@ -29,9 +27,11 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private float respawnTime = 1f;
     [SerializeField] GameObject player;
-    
-   
-   
+
+    [SerializeField] private GameSceneUI gameSceneUI;
+
+
+
 
     [SerializeField]
     private GameObject DoorConnecter;
@@ -39,8 +39,9 @@ public class StageManager : MonoBehaviour
     public void Start()
     {
 
-        Invoke("FindPlayer",0.5f);
+        Invoke("FindPlayer",1f);
         curStage = PlayerPrefs.GetInt(curStageKey, 0);
+        
 
     }
 
@@ -53,9 +54,8 @@ public class StageManager : MonoBehaviour
             return;
         }
         player = FindObjectOfType<PlayerMovement>().gameObject;
-        
-      
-        
+       // SettingSpawnPos();
+
     }
 
 
@@ -66,9 +66,17 @@ public class StageManager : MonoBehaviour
         GetPlayer();
 
     }
+
+  
     public void InitRespawnPos(Vector3 pos)
     {
         respawnPos = pos;
+    }
+
+    public void SettingSpawnPos()
+    {
+        respawnPos = player.transform.position;
+
     }
 
     private void SettingPos()
@@ -99,10 +107,8 @@ public class StageManager : MonoBehaviour
     public void ClearStage()
     {
 
-        //gameSceneUI.ClearPanelOpen();
-        //clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동 -> 이거 미션이 없어서 뺌
-        //OnClearStage?.Invoke();
-        //LoadSceneManager.Instance.LoadSceneNormalMap("CustomMapSelectScene");
+        gameSceneUI.ClearPanelOpen();
+                    
 
         if (MainStageSelecter.stageNum <= curStage)
         {
