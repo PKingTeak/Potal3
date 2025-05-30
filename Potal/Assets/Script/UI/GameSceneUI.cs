@@ -65,7 +65,7 @@ public class GameSceneUI : MonoBehaviour
 
 	    promptText.text = data.message;
 	    promptText.maxVisibleCharacters = 0;
-	    promptText.gameObject.SetActive(true);
+	    promptText.transform.parent.gameObject.SetActive(true);
 
 	    if (_typingCoroutine != null)
 		    StopCoroutine(_typingCoroutine);
@@ -85,6 +85,6 @@ public class GameSceneUI : MonoBehaviour
 	    }
 
 	    yield return new WaitForSeconds(duration);
-	    promptText.gameObject.SetActive(false);
+	    promptText.transform.parent.gameObject.SetActive(false);
     }
 }
