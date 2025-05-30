@@ -87,11 +87,13 @@ public class SettingPanel : MonoBehaviour
 			if (!gameObject.activeSelf)
 			{
 				gameSceneUI.TimerData.TimeStart();
+				Time.timeScale = 1f;
 				Debug.Log("시작");
 			}
 			else
 			{
 				gameSceneUI.TimerData.TimeStop();
+				Time.timeScale = 0f;
 			}
 		}
 	}

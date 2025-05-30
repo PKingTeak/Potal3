@@ -32,10 +32,12 @@ public class MiddleSceneUI : MonoSingleton<MiddleSceneUI>
 			if (!settingPanel.activeSelf)
 			{
 				gameSceneUI.TimerData.TimeStart();
+				Time.timeScale = 1f;
 			}
 			else
 			{
 				gameSceneUI.TimerData.TimeStop();
+				Time.timeScale = 0f;
 			}
 			gameSceneUI.OpenUI(!settingPanel.activeSelf);
 		}
