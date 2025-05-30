@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StageManager : MonoBehaviour
 {
@@ -55,7 +56,9 @@ public class StageManager : MonoBehaviour
             return;
         }
         player = FindObjectOfType<PlayerMovement>().gameObject;
-       // SettingSpawnPos();
+        gameSceneUI = FindObjectOfType<GameSceneUI>();
+        gameSceneUI.GetComponent<GameSceneUI>().SettingPlayerInput(player.GetComponent<PlayerInput>());
+        SettingSpawnPos();
 
     }
 
