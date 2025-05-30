@@ -118,6 +118,7 @@
 | 박경택     | [커스텀 맵 데이터 로드 및 구조 분리](TroubleShooting/커스텀맵데이터로드및구조분리.md) |
 | 백성은     | [포탈 이동 시 충돌로 인한 이동 불가](TroubleShooting/포탈이동시충돌로인한이동불가.md) |
 | 김경민     | [플레이어 점프 시 벽 끼임 현상](TroubleShooting/플레이어점프시벽끼임현상.md) |
+| 김선우     | [URP Outline Gizmo](TroubleShooting/URPOutlineGizmo.md) |
 
 ---
 
