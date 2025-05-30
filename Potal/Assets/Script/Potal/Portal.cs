@@ -63,6 +63,8 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (linkedPortal == null || !linkedPortal.gameObject.activeSelf)
+            return;
         if (other.TryGetComponent<PortalTraveller>(out var traveller))
         {
             OnTravellerEnterPortal(traveller);
