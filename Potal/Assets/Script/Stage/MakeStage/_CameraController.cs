@@ -22,7 +22,7 @@ public class _CameraController : MonoBehaviour
 
     private void Awake()
     {
-        _camera.transform.position = new Vector3(-80, 30, -80);
+        _camera.transform.position = new Vector3(-30, 15, -30);
         _camera.transform.rotation = Quaternion.Euler(15, 45, 0);
         cameraOriginPosition = _camera.transform.position;
         Vector3 euler = _camera.transform.eulerAngles;

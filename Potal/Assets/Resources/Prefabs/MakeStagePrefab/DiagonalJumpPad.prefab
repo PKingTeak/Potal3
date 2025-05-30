@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6719728459415499527}
-  - component: {fileID: 8136242029072792862}
+  - component: {fileID: 7934327068028045083}
   m_Layer: 0
   m_Name: DiagonalJumpPad
   m_TagString: Untagged
@@ -33,8 +33,8 @@ Transform:
   - {fileID: 7035424298560960773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8136242029072792862
-BoxCollider:
+--- !u!64 &7934327068028045083
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -51,9 +51,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.7, y: 0.2, z: 1.7}
-  m_Center: {x: 0, y: 0.1, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &6017943893476550722
 GameObject:
   m_ObjectHideFlags: 0
