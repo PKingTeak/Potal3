@@ -39,7 +39,7 @@ public class StageManager : MonoBehaviour
     public void Start()
     {
 
-        Invoke("FindPlayer",0.5f);
+        Invoke("FindPlayer",1f);
         curStage = PlayerPrefs.GetInt(curStageKey, 0);
         
 
@@ -56,8 +56,6 @@ public class StageManager : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>().gameObject;
        // SettingSpawnPos();
 
-
-
     }
 
 
@@ -68,6 +66,8 @@ public class StageManager : MonoBehaviour
         GetPlayer();
 
     }
+
+  
     public void InitRespawnPos(Vector3 pos)
     {
         respawnPos = pos;
