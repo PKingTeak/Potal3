@@ -1,7 +1,5 @@
 
-# (김선우) - (outline 구현 - 1)
-
-# Unity URP Outline Gizmo 트러블슈팅
+# [김선우] 트러블슈팅: Unity URP Outline Gizmo
 
 ## 🎯 목적
 
