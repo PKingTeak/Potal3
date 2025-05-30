@@ -47,7 +47,7 @@ public class GameSceneUI : MonoBehaviour
     {
         if (context.started)
         {
-            settingPanel.SetActive(true);
+            settingPanel.SetActive(!settingPanel.activeSelf);
             OpenUI(!settingPanel.activeSelf);
 		}
     }

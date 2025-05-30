@@ -12,22 +12,19 @@ public class OpenPanel : MonoBehaviour
 
 	void OnEnable()
     {
-        timeRate = 1.0f / frame;
+		time = 0;
 		transform.localScale = new Vector3(time, 1, 1);
-        Invoke("OpenAnimation", 0f);
+        StartCoroutine("OpenAnimation");
     }
-    private void OpenAnimation()
+
+	private IEnumerator OpenAnimation()
     {
-        while (true)
+        while (time < 1.0f)
         {
-            time = time + Time.deltaTime * timeRate;
-            if (1.0 < time)
-            {
-                time = 1.0f;
-                transform.localScale = new Vector3(curve.Evaluate(time), 1, 1);
-                return;
-            }
-            transform.localScale = new Vector3(curve.Evaluate(time), 1, 1);
+            time = time + Time.deltaTime;
+            float clampedTime = Mathf.Clamp(time, 0, 1);
+            transform.localScale = new Vector3(curve.Evaluate(clampedTime), 1, 1);
+            yield return null;
         }
 	}
 }
