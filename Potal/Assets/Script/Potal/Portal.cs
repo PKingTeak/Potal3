@@ -26,24 +26,24 @@ public class Portal : MonoBehaviour
         }
     }
 
-private void FixedUpdate()
-{
-    if (Physics.SphereCast(transform.position, 0.3f, transform.forward, out RaycastHit hit, 1.2f))
-    {
-        if (hit.collider.TryGetComponent<PortalTraveller>(out var traveller))
-        {
-            SetWallCollision(traveller, true); // 포탈 뒤쪽 벽도 무시
-        }
-    }
-}
+    // private void FixedUpdate()
+    // {
+    //         if (Physics.SphereCast(transform.position, 0.3f, transform.forward, out RaycastHit hit, 1.2f))
+    //         {
+    //             if (hit.collider.TryGetComponent<PortalTraveller>(out var traveller))
+    //             {
+    //                 SetWallCollision(traveller, true);
+    //             }
+    //     }
+    // }
 
-private void OnTriggerEnter(Collider other)
-{
-    if (other.TryGetComponent<PortalTraveller>(out var traveller))
-    {
-        OnTravellerEnterPortal(traveller); // 리스트 등록 + 클론 처리
-    }
-}
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.TryGetComponent<PortalTraveller>(out var traveller))
+    //     {
+    //         OnTravellerEnterPortal(traveller);
+    //     }
+    // }
 
     private void LateUpdate()
     {
@@ -61,15 +61,16 @@ private void OnTriggerEnter(Collider other)
         portalCamera.fieldOfView = targetFOV;
     }
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.TryGetComponent<PortalTraveller>(out var traveller))
-    //     {
-    //         OnTravellerEnterPortal(traveller);
-    //         SetWallCollision(traveller, true);
-    //         // linkedPortal.SetWallCollision(traveller, true);
-    //     }
-    // }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<PortalTraveller>(out var traveller))
+        {
+            OnTravellerEnterPortal(traveller);
+            SetWallCollision(traveller, true);
+            // linkedPortal.SetWallCollision(traveller, true);
+            // linkedPortal.SetWallCollision(traveller, true);
+        }
+    }
 
     // 포탈뒤에 있는 벽들의 Collider 모두 반환
     private List<Collider> GetWallBehindPortal()
@@ -165,6 +166,7 @@ private void OnTriggerEnter(Collider other)
             if (travellers.Count == 0)
             {
                 SetWallCollision(traveller, false);
+                // linkedPortal.SetWallCollision(traveller, false);
             }
         }
     }
