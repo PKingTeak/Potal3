@@ -19,7 +19,7 @@ public class TimerData : MonoBehaviour
 		while (true)
 		{
 			timer += Time.deltaTime;
-			timerText.text = Mathf.FloorToInt(timer) + "초 " + (int)(timer % 1 * 100);
+			timerText.text = Mathf.FloorToInt(timer) + "초 " + ((int)(timer % 1 * 100)).ToString("D2");
 			yield return null;
 		}
 	}
