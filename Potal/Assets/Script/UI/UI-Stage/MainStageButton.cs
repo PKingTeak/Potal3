@@ -1,10 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageButton : MonoBehaviour
+public class MainStageButton : MonoBehaviour
 {
     public bool IsClear { get => isClear; set => isClear = value; }
-    private StageUIManager stageUIManger;
+   
     private MainStageSelecter mainStage;
 
     [SerializeField]
@@ -12,40 +15,30 @@ public class StageButton : MonoBehaviour
     private Button button;
     [SerializeField]
     private bool isClear = false;
+    [SerializeField]
+    private string sceneName;
 
     
-
-  
-
-    private void Start()
+    private void Awake()
     {
         if (TryGetComponent<Button>(out button))
         {
             button.onClick.AddListener(OnClickStageButton); //T씬로드
-        } //이런식으로 안전하게
+        }
     }
 
+
+ 
 
     public void OnClickStageButton()
     {
-        stageUIManger.OnSelectedClicked(index);
-       
+        Debug.Log(mainStage);
+        MainStageSelecter.stageNum =  index + 1; //스테이지 넘겨주기 위해서 
+        mainStage.OnSeletedClickButton(sceneName);
+
     }
 
-
-   
-    public void InitButton(int _index , StageUIManager _manager)
-    {
-        index = _index;
-        stageUIManger = _manager;
-
-        if (button == null)
-        {
-            button = GetComponent<Button>();
-        }
-
-        this.button.interactable =  index <= stageUIManger.CurStage ? true : false; //현재 인덱스 가 CurStage보다 작으면 클릭가능 이외는 불가능
-    }
+    
 
 
     public void InitMainButton(int _index, MainStageSelecter mainSelect)
@@ -59,5 +52,6 @@ public class StageButton : MonoBehaviour
         }
         this.button.interactable = index <= mainSelect.CurStage ? true : false;
     }
+
 
 }
