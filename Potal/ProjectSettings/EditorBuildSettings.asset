@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 1b81b7f4d27de6c46bc917c508e9a79d
+  - enabled: 1
+    path: Assets/Scenes/MapSelectScene.unity
+    guid: ffa4e66cf31b94d48932ba886b8cce67
   m_configObjects: {}
