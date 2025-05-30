@@ -5,12 +5,14 @@ public class StageButton : MonoBehaviour
 {
     public bool IsClear { get => isClear; set => isClear = value; }
     private StageUIManager stageUIManger;
+    private MainStageSelecter mainStage;
 
     [SerializeField]
     private int index;
     private Button button;
     [SerializeField]
     private bool isClear = false;
+
     
 
   
@@ -26,7 +28,8 @@ public class StageButton : MonoBehaviour
 
     public void OnClickStageButton()
     {
-        stageUIManger.OnSelectedClicked(index);             
+        stageUIManger.OnSelectedClicked(index);
+       
     }
 
 
@@ -44,5 +47,17 @@ public class StageButton : MonoBehaviour
         this.button.interactable =  index <= stageUIManger.CurStage ? true : false; //현재 인덱스 가 CurStage보다 작으면 클릭가능 이외는 불가능
     }
 
+
+    public void InitMainButton(int _index, MainStageSelecter mainSelect)
+    {
+        index = _index;
+        mainStage = mainSelect;
+
+        if (button == null)
+        {
+            button = GetComponent<Button>();
+        }
+        this.button.interactable = index <= mainSelect.CurStage ? true : false;
+    }
 
 }

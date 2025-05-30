@@ -19,6 +19,7 @@ public class MoveCircle : MonoBehaviour
 	public void OnCollisionEnter(Collision collision)
 	{
 		Quaternion flip = Quaternion.AngleAxis(180f, transform.up);
+		//Quaternion flip = Quaternion.Euler(Vector3.forward * 180f);
 		rb.rotation = flip * rb.rotation;
 
 		rb.velocity = rb.rotation * Vector3.forward * moveSpeed;

@@ -12,15 +12,13 @@ public class StageManager : MonoBehaviour
         StageSettingHelper.onCompleted += GetPlayer;
     }
 
-    [Header("ClearUI")]
-    public GameObject clearPanel;
-    
     
 
 
     public const string curStageKey = "curstage";
     public int curStage;
-    
+
+
     public Vector3 RespawnPos { get { return respawnPos; } }
 
     private static StageManager instance;
@@ -29,21 +27,21 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private float respawnTime = 1f;
     [SerializeField] GameObject player;
-    
-    private GameObject playerObject;
-    
-   
+
+    [SerializeField] private GameSceneUI gameSceneUI;
+
+
+
 
     [SerializeField]
     private GameObject DoorConnecter;
 
     public void Start()
     {
-       
-        SpawnPlayer();
-        player = FindObjectOfType<PlayerMovement>().gameObject;
-        GetPlayer();
-        // curStage = PlayerPrefs.GetInt(curStageKey, 0);
+
+        Invoke("FindPlayer",0.5f);
+        curStage = PlayerPrefs.GetInt(curStageKey, 0);
+        
 
     }
 
@@ -56,17 +54,32 @@ public class StageManager : MonoBehaviour
             return;
         }
         player = FindObjectOfType<PlayerMovement>().gameObject;
-        
-      
-        
+       // SettingSpawnPos();
+
+
+
     }
-    
+
+
+    private void FindPlayer()
+    {
+        player = FindObjectOfType<PlayerMovement>().gameObject;
+        SettingPos();
+        GetPlayer();
+
+    }
     public void InitRespawnPos(Vector3 pos)
     {
         respawnPos = pos;
     }
 
-    private void SpawnPlayer()
+    public void SettingSpawnPos()
+    {
+        respawnPos = player.transform.position;
+
+    }
+
+    private void SettingPos()
     {
         if (player != null)
         {
@@ -81,7 +94,7 @@ public class StageManager : MonoBehaviour
     {
         //죽음 이벤트 호출
         yield return new WaitForSeconds(respawnTime);
-        SpawnPlayer();
+        SettingPos();
     }
 
     public void OnPlayerDead()
@@ -89,15 +102,26 @@ public class StageManager : MonoBehaviour
         StartCoroutine(RespawnDelay());
     }
 
+
+
     public void ClearStage()
-    {//이벤트로 만들예정 엑션으로 만들고 
+    {
+
+        gameSceneUI.ClearPanelOpen();
+                    
+
+        if (MainStageSelecter.stageNum <= curStage)
+        {
+            return;
+        }
+        else
+        {
+            curStage += 1;
+            PlayerPrefs.SetInt(curStageKey, curStage);
+        }
 
 
-        // clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동 -> 이거 미션이 없어서 뺌
-        OnClearStage?.Invoke();
-       LoadSceneManager.Instance.LoadSceneNormalMap("CustomMapSelectScene");
-        
-        Debug.Log("클리어");
+            Debug.Log("클리어");
        
     }
     
