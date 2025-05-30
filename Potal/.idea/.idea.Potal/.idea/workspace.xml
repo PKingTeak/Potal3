@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Design/Material/Cube/PortalCubeMerial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Design/Material/Cube/PortalCubeMerial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/YeseulMapScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/YeseulMapScene.unity" afterDir="false" />
-    </list>
+    <list default="true" id="710f87e3-3d27-4506-91a2-a89a2d0a21aa" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +35,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "GGM",
+    "git-widget-placeholder": "LYS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,6 +112,7 @@
       <workItem from="1748494472959" duration="6824000" />
       <workItem from="1748502496758" duration="525000" />
       <workItem from="1748564028404" duration="4234000" />
+      <workItem from="1748573820553" duration="583000" />
     </task>
     <servers />
   </component>
