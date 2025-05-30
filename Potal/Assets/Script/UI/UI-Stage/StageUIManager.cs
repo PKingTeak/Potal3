@@ -1,14 +1,17 @@
+using Palmmedia.ReportGenerator.Core.Reporting.Builders.Rendering;
+using SW;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StageUIManager : MonoBehaviour
 {
 
-    public int CurStage { get { return curStage; } }
-
+    //public int CurStage { get { return curStage; } }
+    public int DataCount { get { return dataCount; } }
    
     private List<StageButton> Buttons = new List<StageButton>();
 
@@ -20,18 +23,24 @@ public class StageUIManager : MonoBehaviour
 
 
 
+    private int dataCount;
+
+
 
     private void Awake()
     {
         Buttons = GetComponentsInChildren<StageButton>().ToList();
-   
-     //   curStage = PlayerPrefs.GetInt(curStageKey, 0);
+
+        //   curStage = PlayerPrefs.GetInt(curStageKey, 0);
 
     }
     private void Start()
     {
-        
-        InitButtons();
+
+        settingHelper = GetComponent<StageSettingHelper>();
+         dataCount = settingHelper.GetDatasNum();
+        InitButton();
+        //dataCount; //연결
     }
 
 
@@ -53,7 +62,7 @@ public class StageUIManager : MonoBehaviour
 
         Debug.Log("Handle호출");
         UpdateCurStage();
-        InitButtons();
+        InitButton();
         
     }
     public void UpdateCurStage() //버튼 인덱스
@@ -69,6 +78,7 @@ public class StageUIManager : MonoBehaviour
         //해당 스테이지 클리어시 호출해줘야함
     }
 
+    /*
     public void InitButtons()
     {
         for (int i = 0; i < Buttons.Count; i++)
@@ -82,6 +92,23 @@ public class StageUIManager : MonoBehaviour
             //버튼 인덱스 넣어주기 
         }
         
+    }
+     */
+
+    public void InitButton()
+    { 
+      for (int i = 0; i < Buttons.Count; i++)
+        {
+            Buttons[i].InitButton(i, this);
+            if (dataCount > i)
+            {
+                Buttons[i].GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                Buttons[i].GetComponent<Button>().interactable = false;
+            }
+        }
     }
 
 

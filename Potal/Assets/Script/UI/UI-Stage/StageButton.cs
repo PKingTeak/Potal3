@@ -44,7 +44,7 @@ public class StageButton : MonoBehaviour
             button = GetComponent<Button>();
         }
 
-        this.button.interactable =  index <= stageUIManger.CurStage ? true : false; //현재 인덱스 가 CurStage보다 작으면 클릭가능 이외는 불가능
+        this.button.interactable =  index <= stageUIManger.DataCount ? true : false; //현재 인덱스 가 CurStage보다 작으면 클릭가능 이외는 불가능
     }
 
 

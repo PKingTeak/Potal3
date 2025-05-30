@@ -124,5 +124,8 @@ public class StageManager : MonoBehaviour
             Debug.Log("클리어");
        
     }
+
+
+   
     
 }

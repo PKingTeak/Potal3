@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private Camera portalCamera;
 
+    private Animator animator;
+
     private float maxDistance = 10f;
 
     private List<PortalTraveller> travellers = new List<PortalTraveller>();
@@ -17,12 +20,23 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private Transform player;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }//
+
     private void Update()
     {
         if (travellers.Count > 0)
         {
             CheckTravellers();
         }
+    }
+
+    private void OnEnable()
+    {
+        transform.localScale = Vector3.zero;
+        animator.SetTrigger("On"); // 포탈 생성 애니메이션 실행
     }
 
     private void LateUpdate()
