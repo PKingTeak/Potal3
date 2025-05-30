@@ -86,7 +86,7 @@ public class StageManager : MonoBehaviour
     {
         //죽음 이벤트 호출
         yield return new WaitForSeconds(respawnTime);
-       // SpawnPlayer();
+        SettingPos();
     }
 
     public void OnPlayerDead()
@@ -99,9 +99,9 @@ public class StageManager : MonoBehaviour
     public void ClearStage()
     {
 
-
-       //clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동 -> 이거 미션이 없어서 뺌
-       //OnClearStage?.Invoke();
+        //gameSceneUI.ClearPanelOpen();
+        //clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동 -> 이거 미션이 없어서 뺌
+        //OnClearStage?.Invoke();
         //LoadSceneManager.Instance.LoadSceneNormalMap("CustomMapSelectScene");
 
         if (MainStageSelecter.stageNum <= curStage)
