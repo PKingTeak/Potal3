@@ -37,10 +37,10 @@ rb.AddForce(desiredVelocity - new Vector3(rb.velocity.x, 0, rb.velocity.z), Forc
 
 ## ✅ 최종 해결 방법
 
-- **PlayerMovement에 `isJumping` 플래그 추가.**
-- **점프 중에는 Move()를 중단.**
-- **JumpPad에서 정확한 체공 시간 계산 후 `SetJumping(duration)` 호출.**
-- **점프 종료 시 코루틴으로 자동 복구.**
+- PlayerMovement에 `isJumping` 플래그 추가.
+- 점프 중에는 Move()를 중단.
+- JumpPad에서 정확한 체공 시간 계산 후 `SetJumping(duration)` 호출.
+- 점프 종료 시 코루틴으로 자동 복구.
 
 ---
 
