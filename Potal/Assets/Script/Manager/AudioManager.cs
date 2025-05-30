@@ -13,10 +13,15 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     [Header("게임 내 효과음")]
     [SerializeField] public AudioSource SFXSourceJump;
-    [SerializeField] public AudioSource SFXSourceCoin;
     [SerializeField] public AudioSource SFXSourcePortalHit;
-	[SerializeField] public AudioSource SFXSourceButton;
-    [SerializeField] public AudioSource SFXSourceButtonHover;
+    [SerializeField] public AudioSource SFXSourceOpenDoor;
+    [SerializeField] public AudioSource SFXSourceButtonDown;
+    [SerializeField] public AudioSource SFXSourceFallBlock;
+
+	[SerializeField] public AudioSource SFXSourceUIButton;
+    [SerializeField] public AudioSource SFXSourceUIButtonHover;
+    [SerializeField] public AudioSource SFXSourceUIGameClear;
+    [SerializeField] public AudioSource SFXSourceUIOpenPanel;
 
 	private void Start()
     {

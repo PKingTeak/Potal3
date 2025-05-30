@@ -45,6 +45,7 @@ public class GameSceneUI : MonoBehaviour
 
     public void ClearPanelOpen()
     {
+        AudioManager.Instance.SFXSourceUIGameClear.Play();
         gameObject.GetComponent<PlayerInput>().enabled = false;
         clearPanel.SetActive(true);
         OpenUI(!clearPanel.activeSelf);
@@ -53,6 +54,7 @@ public class GameSceneUI : MonoBehaviour
     {
         if (context.started)
         {
+            AudioManager.Instance.SFXSourceUIOpenPanel.Play();
             settingPanel.SetActive(!settingPanel.activeSelf);
             OpenUI(!settingPanel.activeSelf);
 		}

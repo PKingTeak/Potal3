@@ -46,7 +46,8 @@ public class Door : MonoBehaviour, IIdentifiable
     }
     public void Open()
     { 
-        leftMoveTween?.Kill();
+        AudioManager.Instance.SFXSourceOpenDoor.Play();
+		leftMoveTween?.Kill();
         rightMoveTween?.Kill();
         
         leftMoveTween = leftDoor.transform.DOLocalMoveX(leftTargetX, 1f).SetEase(Ease.InOutSine);
@@ -55,7 +56,8 @@ public class Door : MonoBehaviour, IIdentifiable
 
     public void Close()
     {
-        leftMoveTween?.Kill();
+		AudioManager.Instance.SFXSourceOpenDoor.Play();
+		leftMoveTween?.Kill();
         rightMoveTween?.Kill();
         leftMoveTween = leftDoor.transform.DOLocalMoveX(leftInitX, 1f).SetEase(Ease.InOutSine);
         rightMoveTween = rightDoor.transform.DOLocalMoveX(rightInitX, 1f).SetEase(Ease.InOutSine);
