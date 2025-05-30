@@ -11,6 +11,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private IInteractable _currentTarget;
     private PlayerGrabber _grabber;
+    private string _lastLayerName = null;
 
     private void Awake()
     {
@@ -26,8 +27,12 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (_grabber != null && _grabber.IsHolding)
         {
+            if (_lastLayerName != null)
+            {
+                _lastLayerName = null;
+                gameSceneUI.GetInteractData();
+            }
             _currentTarget = null;
-            gameSceneUI.GetInteractData();
             return;
         }
 
@@ -35,21 +40,24 @@ public class PlayerInteractor : MonoBehaviour
         {
             if (interactable.CanShowUI())
             {
-                _currentTarget = interactable;
                 string layerName = LayerMask.LayerToName(hit.collider.gameObject.layer);
-                gameSceneUI.GetInteractData(layerName);
-            }
-            else
-            {
-                _currentTarget = null;
-                gameSceneUI.GetInteractData();
+                if (_lastLayerName != layerName)
+                {
+                    _lastLayerName = layerName;
+                    gameSceneUI.GetInteractData(layerName);
+                }
+                _currentTarget = interactable;
+                return;
             }
         }
-        else
+
+        if (_lastLayerName != null)
         {
-            _currentTarget = null;
-            gameSceneUI?.GetInteractData();
+            _lastLayerName = null;
+            gameSceneUI.GetInteractData();
         }
+
+        _currentTarget = null;
     }
 
     public void OnUse(InputAction.CallbackContext context)
@@ -75,6 +83,7 @@ public class PlayerInteractor : MonoBehaviour
 
     public void ForceUIRefresh()
     {
+        _lastLayerName = null;
         _currentTarget = null;
         UpdateUI();
     }
