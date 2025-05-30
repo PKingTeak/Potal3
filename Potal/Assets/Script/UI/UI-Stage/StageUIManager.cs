@@ -1,5 +1,4 @@
 using Palmmedia.ReportGenerator.Core.Reporting.Builders.Rendering;
-using SW;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
