@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Test/TestStageScene.unity
     guid: e88c0f7215357a640b2e97a45cd6fe39
   - enabled: 1
+    path: Assets/Scenes/YeseulMapScene.unity
+    guid: 91ad9e8ee11224a4ca33a9f9c187dea4
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 1b81b7f4d27de6c46bc917c508e9a79d
   - enabled: 1

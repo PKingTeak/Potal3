@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 1467693112615751635}
   - component: {fileID: 8121106271740672682}
   - component: {fileID: 624903947987688773}
+  - component: {fileID: 562651338272558171}
   m_Layer: 6
   m_Name: Grap
   m_TagString: Untagged
@@ -177,6 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 20
   releasePushStrength: 0.5
+  grabDistance: 1.5
+  heldLayer: 0
 --- !u!65 &624903947987688773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -198,3 +201,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &562651338272558171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756311661594536860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70e61fc919ee4ddea8e56433daeed52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clonePrefab: {fileID: 8397938135083330153, guid: bf49b99b14d1c4787bfca393da75c831, type: 3}
+  clone: {fileID: 0}

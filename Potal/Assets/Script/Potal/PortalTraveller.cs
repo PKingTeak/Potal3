@@ -35,17 +35,76 @@ public class PortalTraveller : MonoBehaviour
             rb.velocity = newVelocity;
             Debug.Log("포탈나갈때 속도: " + rb.velocity);
         }
-        // x, z 축 기울어져 있을때 실행
+        float lookUpDot = Vector3.Dot(transform.forward.normalized, Vector3.up);
+
         Vector3 euler = transform.rotation.eulerAngles;
+
+        if (lookUpDot > 0.9f)
+        {
+            Vector3 forward = Vector3
+                .ProjectOnPlane(transform.forward, Vector3.up)
+                .normalized;
+
+            if (forward == Vector3.zero)
+                forward = Vector3.forward;
+
+            Quaternion uprightRot = Quaternion.LookRotation(forward, Vector3.up);
+            transform.rotation = uprightRot;
+
+            euler.x = 0f;
+            euler.z = 0f;
+
+            transform.rotation = Quaternion.Euler(euler);
+        }
+        else if (lookUpDot < -0.9f)
+        {
+            Vector3 forward = Vector3
+                .ProjectOnPlane(-transform.forward, Vector3.up)
+                .normalized;
+            if (forward == Vector3.zero)
+                forward = Vector3.forward;
+
+            Quaternion uprightRot = Quaternion.LookRotation(forward, Vector3.up);
+            transform.rotation = uprightRot;
+            euler.x = 0f;
+            euler.z = 0f;
+
+            transform.rotation = Quaternion.Euler(euler);
+        }
+        // x, z 축 기울어져 있을때 실행
         if (Mathf.Abs(euler.x) > 1f || Mathf.Abs(euler.z) > 1f)
         {
             StartCoroutine(SmoothRotation(linkedPortal));
         }
     }
 
+    public void UpdateCloneTransform(Transform portal, Transform linkedPortal)
+    {
+        Vector3 relativePos = portal.InverseTransformPoint(transform.position);
+        relativePos = new Vector3(-relativePos.x, relativePos.y, -relativePos.z);
+        Vector3 newPos = linkedPortal.TransformPoint(relativePos);
+
+        Quaternion newRot;
+
+        if (Vector3.Dot(linkedPortal.forward.normalized, Vector3.down) < 0.99f)
+        {
+            Vector3 relativeDir = portal.InverseTransformDirection(transform.forward);
+            relativeDir = new Vector3(-relativeDir.x, relativeDir.y, -relativeDir.z);
+            Vector3 exitDir = linkedPortal.TransformDirection(relativeDir);
+
+            newRot = Quaternion.LookRotation(exitDir, linkedPortal.up);
+        }
+        else
+        {
+            newRot = transform.rotation;
+        }
+
+        clone.transform.SetPositionAndRotation(newPos, newRot);
+    }
+
     IEnumerator SmoothRotation(Transform linkedPortal)
     {
-        yield return new WaitForSeconds(0.3f); // 안정화 시간
+        yield return new WaitForSeconds(0.1f);
 
         Quaternion startRot = transform.rotation;
 
@@ -53,12 +112,11 @@ public class PortalTraveller : MonoBehaviour
         forward.y = 0f;
         // 천장이나 바닥에 있는 경우
         if (forward == Vector3.zero)
-            forward = linkedPortal.up; // 포탈이 바닥/천장일 경우 대체
+            forward = linkedPortal.up;
 
-        // 해당 방향 바라보도록 회전 설정
         Quaternion targetRot = Quaternion.LookRotation(forward.normalized, Vector3.up);
 
-        float duration = 0.5f;
+        float duration = 0.3f;
         float t = 0f;
 
         while (t < 1f)
@@ -69,40 +127,5 @@ public class PortalTraveller : MonoBehaviour
         }
 
         transform.rotation = targetRot;
-    }
-
-    public void UpdateCloneTransform(Transform portal, Transform linkedPortal)
-    {
-        // 포탈과 traveller의 상대 거리 계산
-        Vector3 relativePos = portal.InverseTransformPoint(transform.position);
-        // 포탈 기준 traveller와 반대방향, 포탈에서 나오는 느낌을 주게 함
-        relativePos = new Vector3(-relativePos.x, relativePos.y, -relativePos.z);
-        Vector3 newPos = linkedPortal.TransformPoint(relativePos);
-
-        Quaternion newRot;
-
-        // 벨로시티 y가 클 경우 포탈 forward를 기준으로 회전
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (Mathf.Abs(rb.velocity.y) > 0.1f)
-        {
-            Vector3 forward = linkedPortal.forward;
-            forward.y = 0;
-            // 천장이나 바닥에 있는 경우
-            if (forward == Vector3.zero)
-                forward = linkedPortal.up;
-
-            // 해당 방향 바라보도록 회전 설정
-            newRot = Quaternion.LookRotation(forward.normalized, Vector3.up);
-        }
-        else
-        {
-            // 상대 회전 적용 후 반전)
-            Quaternion relativeRot = Quaternion.Inverse(portal.rotation) * transform.rotation;
-            newRot = linkedPortal.rotation * relativeRot;
-            newRot *= Quaternion.Euler(0, 180f, 0);
-        }
-
-        // 클론 위치와 회전 적용
-        clone.transform.SetPositionAndRotation(newPos, newRot);
     }
 }
