@@ -35,14 +35,10 @@ public class Portal : MonoBehaviour
 
     private void OnEnable()
     {
-        if (animator != null)
-            animator.SetTrigger("On"); // 포탈 생성 애니메이션 실행
+        transform.localScale = Vector3.zero;
+        animator.SetTrigger("On"); // 포탈 생성 애니메이션 실행
     }
 
-    public void Disappear()
-{
-    animator.SetTrigger("Off"); // 포탈 소멸 애니메이션 실행
-}
     private void LateUpdate()
     {
         UpdatePortalCamera();

@@ -3299,11 +3299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6536415751456724557, guid: cdc9a549f53ce9a48b100a551f00341a, type: 3}
       propertyPath: m_IsActive
-<<<<<<< Updated upstream
       value: 0
-=======
-      value: 1
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
