@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class CameraController : MonoBehaviour
+public class _CameraController : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed = 5f;
