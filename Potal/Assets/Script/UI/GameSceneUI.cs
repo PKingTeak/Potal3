@@ -23,12 +23,14 @@ public class GameSceneUI : MonoBehaviour
 
 	private void Start()
     {
-        playerInput = FindObjectOfType<PlayerCrouch>().gameObject.GetComponent<PlayerInput>(); 
+        playerInput = FindObjectOfType<PlayerCrouch>()?.gameObject.GetComponent<PlayerInput>(); 
+
 	}
 
     private Coroutine _typingCoroutine;
     public void GetInteractData(string tag = "None")
     {
+        Debug.Log("상호작용 작동확인");
         switch (tag)
         {
             case "None":

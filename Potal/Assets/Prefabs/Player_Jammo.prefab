@@ -1034,7 +1034,7 @@ MonoBehaviour:
   interactLayer:
     serializedVersion: 2
     m_Bits: 64
-  gameSceneUI: {fileID: 0}
+  gameSceneUI: {fileID: 5266344799682532663, guid: 8a8df1c362bd7a34e96c6ad99631f55e, type: 3}
 --- !u!114 &5847667128933904150
 MonoBehaviour:
   m_ObjectHideFlags: 0

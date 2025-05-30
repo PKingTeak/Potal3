@@ -48,7 +48,7 @@ public class PlayerInteractor : MonoBehaviour
         else
         {
             _currentTarget = null;
-            gameSceneUI.GetInteractData();
+            gameSceneUI?.GetInteractData();
         }
     }
 

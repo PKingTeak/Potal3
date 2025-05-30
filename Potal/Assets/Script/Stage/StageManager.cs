@@ -39,6 +39,7 @@ public class StageManager : MonoBehaviour
     public void Start()
     {
 
+        
         Invoke("FindPlayer",1f);
         curStage = PlayerPrefs.GetInt(curStageKey, 0);
         
