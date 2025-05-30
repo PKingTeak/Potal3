@@ -23,7 +23,7 @@ public class Portal : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-    }
+    }//
 
     private void Update()
     {
