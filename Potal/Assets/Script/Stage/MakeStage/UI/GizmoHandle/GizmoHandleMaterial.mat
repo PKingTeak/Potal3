@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GizmoButtonMaterial
+  m_Name: GizmoHandleMaterial
   m_Shader: {fileID: 4800000, guid: e7534d5e200ea9e46b1330547dbfdb76, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -31,5 +31,5 @@ Material:
     m_Floats:
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _Color: {r: 0, g: 1, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
