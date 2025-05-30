@@ -7,23 +7,27 @@ namespace SW
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private float moveSpeed = 5f;
-        [SerializeField] private float scrollSpeed = 5f;
-        [SerializeField] private float mouseSensitivity = 2.5f;
+        [SerializeField] 
+        private float moveSpeed = 5f;
+        [SerializeField] 
+        private float scrollSpeed = 5f;
+        [SerializeField]
+        private float mouseSensitivity = 2.5f;
+        [SerializeField]
+        private Camera _camera;
 
         private float yaw;
         private float pitch;
-        private new Camera camera;
 
         private Vector3 cameraOriginPosition;
         private Vector3 cameraOriginRotation;
 
         private void Awake()
         {
-            camera = Camera.main;
-            camera.transform.position = new Vector3(0, 140, 0);
-            cameraOriginPosition = camera.transform.position;
-            Vector3 euler = camera.transform.eulerAngles;
+            _camera.transform.position = new Vector3(-80, 30, -80);
+            _camera.transform.rotation = Quaternion.Euler(15, 45, 0);
+            cameraOriginPosition = _camera.transform.position;
+            Vector3 euler = _camera.transform.eulerAngles;
             cameraOriginRotation = euler;
             pitch = euler.x;
             yaw = euler.y;
@@ -39,6 +43,7 @@ namespace SW
 
         private void LateUpdate()
         {
+            if(_camera == null) return;
             ProcessCameraMove();
             ProcessCameraRotation();
             ProcessResetCameraPosition();
@@ -56,16 +61,16 @@ namespace SW
                 inputDir.Normalize();
             }
 
-            Vector3 up = camera.transform.up;
-            Vector3 right = camera.transform.right;
-            Vector3 forward = camera.transform.forward;;
+            Vector3 up = _camera.transform.up;
+            Vector3 right = _camera.transform.right;
+            Vector3 forward = _camera.transform.forward;;
 
             Vector3 moveDir = up * inputDir.z + right * inputDir.x;
             Vector3 verticalMove = 
                 forward * scroll * scrollSpeed;
 
             Vector3 move = (moveDir * moveSpeed + verticalMove) * Time.deltaTime;
-            camera.transform.position += move;
+            _camera.transform.position += move;
         }
 
         void ProcessCameraRotation()
@@ -78,7 +83,7 @@ namespace SW
                 yaw += mouseX * mouseSensitivity;
                 pitch -= mouseY * mouseSensitivity;
 
-                camera.transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+                _camera.transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
             }
         }
 
@@ -86,8 +91,8 @@ namespace SW
         {
             if (Input.GetKeyDown(KeyCode.F5))
             {
-                camera.transform.position = cameraOriginPosition;
-                camera.transform.rotation = Quaternion.Euler(cameraOriginRotation);
+                _camera.transform.position = cameraOriginPosition;
+                _camera.transform.rotation = Quaternion.Euler(cameraOriginRotation);
                 pitch = cameraOriginRotation.x;
                 yaw = cameraOriginRotation.y;
             }

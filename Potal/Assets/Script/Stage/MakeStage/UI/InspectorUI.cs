@@ -11,6 +11,13 @@ using UnityEngine.UI;
 public class InspectorUI : MonoBehaviour
 {
     private GameObject selectedObject;
+    private float[] currentTransformArr;
+    private int currentConnectID;
+
+    [SerializeField]
+    GizmoUI gizmoUI;
+    [SerializeField]
+    private OutlineDrawer outlineDrawer;
     [SerializeField]
     private TextMeshProUGUI selectedObjectName;
     [SerializeField]
@@ -19,8 +26,7 @@ public class InspectorUI : MonoBehaviour
     private TMP_InputField connectIDText;
     [SerializeField]
     private SelectedListViewUI selectedListViewUI;
-    private float[] currentTransformArr;
-    private int currentConnectID;
+
     private enum TransformIndex
     {
         PosX = 0,
@@ -51,13 +57,14 @@ public class InspectorUI : MonoBehaviour
         
     }
 
-    public void InspectObject(GameObject gameObject, int connectID)
+    public void InspectObject(GameObject gameObject, int connectID, string name)
     {
         selectedObject = gameObject;
-        selectedObjectName.text = gameObject.name;
+        selectedObjectName.text = name;
+        outlineDrawer?.SetTarget(selectedObject);
+        gizmoUI?.SetTarget(selectedObject);
 
         currentTransformArr = TransformToArray(gameObject.transform);
-
 
         for (int i = 0; i < transformTexts.Length; i++)
         {
@@ -66,10 +73,25 @@ public class InspectorUI : MonoBehaviour
             transformTexts[i].onEndEdit.RemoveAllListeners();
             transformTexts[i].onEndEdit.AddListener((string val) => OnTransformChanged(index, val));
         }
+
         connectIDText.text = connectID.ToString();
         connectIDText.onEndEdit.RemoveAllListeners();
         connectIDText.onEndEdit.AddListener((string val) => OnConnectIDChanged(gameObject, val));
     }
+
+    public void ClearObject()
+    {
+        selectedObjectName.SetText("None");
+        selectedObject = null;
+        outlineDrawer?.SetTarget(selectedObject);
+        gizmoUI?.SetTarget(selectedObject);
+        foreach (var transformText in transformTexts)
+        {
+            transformText.text = "";
+        }
+        connectIDText.text = "";
+    }
+
 
     private void OnTransformChanged(int index, string value)
     {
@@ -87,6 +109,7 @@ public class InspectorUI : MonoBehaviour
 
         currentTransformArr[index] = result;
         ArrayToTransform(selectedObject.transform, currentTransformArr);
+        gizmoUI?.SetTarget(selectedObject);
     }
 
     private void OnConnectIDChanged(GameObject gameObject, string value)
@@ -108,16 +131,6 @@ public class InspectorUI : MonoBehaviour
         ArrayToTransform(selectedObject.transform, currentTransformArr);
     }
 
-    public void ClearObject()
-    {
-        selectedObjectName.SetText("None");
-        selectedObject = null;
-        foreach (var transformText in transformTexts)
-        {
-            transformText.text = "";
-        }
-        connectIDText.text = "";
-    }
 
     private float[] TransformToArray(Transform transform)
     {

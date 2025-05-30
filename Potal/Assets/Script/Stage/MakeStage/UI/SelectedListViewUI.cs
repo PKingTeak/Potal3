@@ -48,7 +48,32 @@ namespace SW
 
         private void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                // 1. UI 클릭 시 무시
+                if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                    return;
 
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                // 3. 일반 선택 처리
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    GameObject clickedObject = hit.collider.gameObject;
+
+                    if (prefabs.ContainsKey(clickedObject))
+                    {
+                        for (int i = 0; i < buttonList.Count; i++)
+                        {
+                            if (prefabs.Keys.ElementAt(i) == clickedObject)
+                            {
+                                Button button = buttonList[i];
+                                OnButtonClicked(button, clickedObject);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public void BuildList()
@@ -94,7 +119,7 @@ namespace SW
             }
             selectedPrefab = prefab;
             Logger.Log($"[SelectedListViewUI] selected : {prefabs[prefab]}");
-            inspectorUI.InspectObject(selectedPrefab, connectIDs[selectedPrefab]);
+            inspectorUI.InspectObject(selectedPrefab, connectIDs[selectedPrefab], prefabs[selectedPrefab]);
         }
 
         public void changeConnectID(GameObject prefab,  int connectID)
