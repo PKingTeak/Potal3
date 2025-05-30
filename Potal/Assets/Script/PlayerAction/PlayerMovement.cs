@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
 
     [SerializeField] private bool isJumping = false;
-    private bool _wasTouchingWallLastFrame = false;
 
     private void Start()
     {
@@ -71,16 +70,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 desiredVelocity = moveDir * maxSpeed * crouchMultiplier;
         Vector3 currentHorizontalVelocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
         Vector3 velocityChange = desiredVelocity - currentHorizontalVelocity;
-
-        if (!_groundChecker.IsGrounded)
-        {
-            velocityChange *= 0.5f;
-            _wasTouchingWallLastFrame = false;
-        }
-        else
-        {
-            _wasTouchingWallLastFrame = false;
-        }
 
         _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
@@ -129,39 +118,6 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         yield return new WaitForSeconds(duration);
         isJumping = false;
-    }
-
-    private bool IsTouchingWallMultiDirection(Vector2 moveInput, out Vector3 wallNormal)
-    {
-        wallNormal = Vector3.zero;
-
-        Vector3 origin = transform.position + Vector3.up * 0.5f;
-        List<Vector3> checkDirs = new List<Vector3>();
-
-        if (moveInput.y > 0.1f) checkDirs.Add(cameraContainer.forward);
-        if (moveInput.y < -0.1f) checkDirs.Add(-cameraContainer.forward);
-        if (moveInput.x > 0.1f) checkDirs.Add(cameraContainer.right);
-        if (moveInput.x < -0.1f) checkDirs.Add(-cameraContainer.right);
-
-        Vector3 lookDir = cameraContainer.forward;
-        lookDir.y = 0f;
-        lookDir.Normalize();
-        if (!checkDirs.Contains(lookDir))
-            checkDirs.Add(lookDir);
-
-        float sphereRadius = 0.3f;
-        float checkDistance = 0.6f;
-
-        foreach (var dir in checkDirs)
-        {
-            if (Physics.SphereCast(origin, sphereRadius, dir, out RaycastHit hit, checkDistance))
-            {
-                wallNormal = hit.normal;
-                return true;
-            }
-        }
-
-        return false;
     }
 
     private void UpdateAnimatorBlend()
