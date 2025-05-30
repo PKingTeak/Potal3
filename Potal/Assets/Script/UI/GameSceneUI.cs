@@ -23,9 +23,19 @@ public class GameSceneUI : MonoBehaviour
 
 	private void Start()
     {
-        playerInput = FindObjectOfType<PlayerCrouch>()?.gameObject.GetComponent<PlayerInput>(); 
+        if (playerInput == null)
+        {
+        playerInput = FindObjectOfType<PlayerCrouch>()?.gameObject.GetComponent<PlayerInput>();
+            
+        }
 
-	}
+    }
+
+    public void SettingPlayerInput(PlayerInput _playerInput)
+    {
+        playerInput = _playerInput;
+    }
+   
 
     private Coroutine _typingCoroutine;
     public void GetInteractData(string tag = "None")
