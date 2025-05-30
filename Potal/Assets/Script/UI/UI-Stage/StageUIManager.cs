@@ -26,7 +26,7 @@ public class StageUIManager : MonoBehaviour
     {
         Buttons = GetComponentsInChildren<StageButton>().ToList();
    
-        curStage = PlayerPrefs.GetInt(curStageKey, 0);
+     //   curStage = PlayerPrefs.GetInt(curStageKey, 0);
 
     }
     private void Start()
