@@ -26,6 +26,7 @@ public class InspectorUI : MonoBehaviour
     private TMP_InputField connectIDText;
     [SerializeField]
     private SelectedListViewUI selectedListViewUI;
+    bool isEditing = false;
 
     private enum TransformIndex
     {
@@ -54,7 +55,15 @@ public class InspectorUI : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
+        if (selectedObject != null && !isEditing)
+        {
+            for (int i = 0; i < transformTexts.Length; i++)
+            {
+                int index = i;
+                currentTransformArr = TransformToArray(selectedObject.transform);
+                transformTexts[i].text = currentTransformArr[i].ToString();
+            }
+        }
     }
 
     public void InspectObject(GameObject gameObject, int connectID, string name)
@@ -72,6 +81,8 @@ public class InspectorUI : MonoBehaviour
             transformTexts[i].text = currentTransformArr[i].ToString();
             transformTexts[i].onEndEdit.RemoveAllListeners();
             transformTexts[i].onEndEdit.AddListener((string val) => OnTransformChanged(index, val));
+            transformTexts[i].onSelect.AddListener(_ => isEditing = true);
+            transformTexts[i].onDeselect.AddListener(_ => isEditing = false);
         }
 
         connectIDText.text = connectID.ToString();

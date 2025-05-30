@@ -37,7 +37,6 @@ namespace SW
             prefabs = new();
             selectedPrefab = null;
             connectIDs = new();
-            //originTransform = new();
             buttonList = new();
             BuildList();
         }
@@ -50,12 +49,10 @@ namespace SW
         {
             if (Input.GetMouseButtonDown(0))
             {
-                // 1. UI 클릭 시 무시
                 if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
                     return;
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                // 3. 일반 선택 처리
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     GameObject clickedObject = hit.collider.gameObject;
@@ -109,6 +106,7 @@ namespace SW
         private void OnButtonClicked(Button clickedButton, GameObject prefab)
         {
             RemoveSelectFocus();
+
             selectedButton = clickedButton;
             if (ColorUtility.TryParseHtmlString(selectedColor, out var color))
             {
@@ -118,8 +116,10 @@ namespace SW
                 selectedButton.colors = colorBlock;
             }
             selectedPrefab = prefab;
-            Logger.Log($"[SelectedListViewUI] selected : {prefabs[prefab]}");
+
             inspectorUI.InspectObject(selectedPrefab, connectIDs[selectedPrefab], prefabs[selectedPrefab]);
+
+            Logger.Log($"[SelectedListViewUI] selected : {prefabs[prefab]}");
         }
 
         public void changeConnectID(GameObject prefab,  int connectID)
@@ -149,24 +149,27 @@ namespace SW
         public void AddPrefab(GameObject prefab, string prefabName, int connectID)
         {
             GameObject gameObject = GameObject.Instantiate(prefab);
-            prefabs.Add(gameObject, prefabName);
-            connectIDs.Add(gameObject, connectID);
             Transform transform = gameObject.transform;
             Vector3 position = transform.position;
             Quaternion rotation = transform.rotation;
             Vector3 scale = transform.localScale;
-            //originTransform.Add(gameObject, (position, rotation, scale));
+
+            prefabs.Add(gameObject, prefabName);
+            connectIDs.Add(gameObject, connectID);
+
             BuildList();
+
             Logger.Log($"[SelectedListViewuI] prefab count after Add: {prefabs.Count}");
         }
 
         public void RemovePrefab(GameObject prefab)
         {
-            //originTransform.Remove(prefab);
             prefabs.Remove(prefab);
             connectIDs.Remove(prefab);
             inspectorUI.ClearObject();
+
             GameObject.Destroy(prefab);
+
             Logger.Log($"[SelectedListViewuI] prefab count after Remove: {prefabs.Count}");
         }
         public void OnRemoveSelectedButtonClicked()
@@ -232,7 +235,6 @@ namespace SW
 
             prefabs.Clear();
             connectIDs.Clear();
-            //originTransform.Clear();
             buttonList.Clear();
             selectedPrefab = null;
             selectedButton = null;
@@ -253,7 +255,6 @@ namespace SW
 
                 prefabs.Add(prefab, entry.prefabPath);
                 connectIDs.Add(prefab, entry.connectID);
-                //originTransform.Add(go, (entry.position, Quaternion.Euler(entry.rotation), entry.scale));
             }
 
             BuildList();
