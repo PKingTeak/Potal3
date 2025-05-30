@@ -14,7 +14,7 @@ public class OpenPanel : MonoBehaviour
     {
 		time = 0;
 		transform.localScale = new Vector3(time, 1, 1);
-        StartCoroutine("OpenAnimation");
+        StartCoroutine(OpenAnimation());
     }
 
 	private IEnumerator OpenAnimation()

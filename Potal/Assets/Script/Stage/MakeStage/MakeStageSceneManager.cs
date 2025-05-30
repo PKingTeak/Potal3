@@ -2,25 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SW
+
+public class MakeStageSceneManager : MonoBehaviour
 {
-    public class MakeStageSceneManager : MonoBehaviour
+    [SerializeField]
+    private CameraController cameraController;
+    // Start is called before the first frame update
+    private void Awake()
     {
-        [SerializeField]
-        private CameraController cameraController;
-        // Start is called before the first frame update
-        private void Awake()
-        {
-        }
-        private void Start()
-        {
+    }
+    private void Start()
+    {
 
-        }
+    }
 
-        // Update is called once per frame
-        private void Update()
-        {
+    // Update is called once per frame
+    private void Update()
+    {
 
-        }
     }
 }

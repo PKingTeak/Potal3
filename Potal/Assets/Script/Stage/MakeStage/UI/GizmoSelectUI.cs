@@ -105,6 +105,7 @@ public class GizmoSelectUI : MonoBehaviour
             {
                 ColorBlock colorBlock = button.colors;
                 colorBlock.normalColor = defaultColor;
+                colorBlock.selectedColor = defaultHighlightColor;
                 colorBlock.highlightedColor = defaultHighlightColor;
                 button.colors = colorBlock;
             }

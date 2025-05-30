@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private Camera portalCamera;
 
+    private Animator animator;
+
     private float maxDistance = 10f;
 
     private List<PortalTraveller> travellers = new List<PortalTraveller>();
@@ -17,33 +20,24 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private Transform player;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }//
+
     private void Update()
     {
-        // Debug.Log(travellers.Count);/
         if (travellers.Count > 0)
         {
             CheckTravellers();
         }
     }
 
-    // private void FixedUpdate()
-    // {
-    //         if (Physics.SphereCast(transform.position, 0.3f, transform.forward, out RaycastHit hit, 1.2f))
-    //         {
-    //             if (hit.collider.TryGetComponent<PortalTraveller>(out var traveller))
-    //             {
-    //                 SetWallCollision(traveller, true);
-    //             }
-    //     }
-    // }
-
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.TryGetComponent<PortalTraveller>(out var traveller))
-    //     {
-    //         OnTravellerEnterPortal(traveller);
-    //     }
-    // }
+    private void OnEnable()
+    {
+        transform.localScale = Vector3.zero;
+        animator.SetTrigger("On"); // 포탈 생성 애니메이션 실행
+    }
 
     private void LateUpdate()
     {
@@ -63,14 +57,10 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (linkedPortal == null || !linkedPortal.gameObject.activeSelf)
-            return;
         if (other.TryGetComponent<PortalTraveller>(out var traveller))
         {
             OnTravellerEnterPortal(traveller);
             SetWallCollision(traveller, true);
-            // linkedPortal.SetWallCollision(traveller, true);
-            // linkedPortal.SetWallCollision(traveller, true);
         }
     }
 
@@ -125,7 +115,7 @@ public class Portal : MonoBehaviour
 
             Vector3 offset = traveller.transform.position - transform.position; // traveller 위치 계산
             float dot = Vector3.Dot(transform.forward, offset); // traveller가 앞인지 뒤인지 판별
-            Debug.Log(dot);
+            // Debug.Log(dot);
 
             // 벽과 traveller의 충돌 제거
             if (dot < 0f)
@@ -133,7 +123,6 @@ public class Portal : MonoBehaviour
                 // 본체를 클론 위치로 이동시키고, 상대 포탈에 클론 배치
                 traveller.Teleport(transform, linkedPortal.transform);
                 // 포탈 도착 지점에 이동했을때 시작지점에 클론 배치
-                // linkedPortal.OnTravellerEnterPortal(traveller);
                 if (traveller.clone != null)
                     traveller.clone.SetActive(false);
             }
@@ -168,7 +157,6 @@ public class Portal : MonoBehaviour
             if (travellers.Count == 0)
             {
                 SetWallCollision(traveller, false);
-                // linkedPortal.SetWallCollision(traveller, false);
             }
         }
     }
