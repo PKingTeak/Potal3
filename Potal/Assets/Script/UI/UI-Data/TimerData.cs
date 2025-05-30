@@ -12,9 +12,18 @@ public class TimerData : MonoBehaviour
 
 	private void Start()
 	{
-		timerCoroutine = StartCoroutine("TimerStart");
+		TimeStart();
 	}
-	private IEnumerator TimerStart()
+
+	public void TimeStart()
+	{
+		if (timerCoroutine == null)
+		{
+			timerCoroutine = StartCoroutine(TimerStart());
+		}
+	}
+
+	public IEnumerator TimerStart()
 	{
 		while (true)
 		{
@@ -24,9 +33,10 @@ public class TimerData : MonoBehaviour
 		}
 	}
 
-	public string TimerStop()
+	public string TimeStop()
 	{
-		StopCoroutine(TimerStart());
+		StopCoroutine(timerCoroutine);
+		timerCoroutine = null;
 		return timerText.text;
 	}
 }

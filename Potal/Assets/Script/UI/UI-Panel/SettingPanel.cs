@@ -19,7 +19,6 @@ public class SettingPanel : MonoBehaviour
 	[SerializeField] private Slider mouseSensitivitySlider;
 	[SerializeField] private TextMeshProUGUI mouseSensitivityValueText;
 
-
 	[SerializeField] private Button closeButton;
 	[SerializeField] private Button selectSceneButton;
 	//필요 : 배경음악
@@ -32,6 +31,7 @@ public class SettingPanel : MonoBehaviour
 
 	private void Start()
 	{
+		gameSceneUI = MiddleSceneUI.Instance.GameSceneUI;
 		OnSoundSliderChanged(settingData.soundVolume);
 		OnSFXSliderChanged(settingData.SFXVolume);
 		OnMouseSensitivitySliderChanged(settingData.lookSensitivity);
@@ -84,6 +84,15 @@ public class SettingPanel : MonoBehaviour
 		if (gameSceneUI != null)
 		{
 			gameSceneUI.OpenUI(!gameObject.activeSelf);
+			if (!gameObject.activeSelf)
+			{
+				gameSceneUI.TimerData.TimeStart();
+				Debug.Log("시작");
+			}
+			else
+			{
+				gameSceneUI.TimerData.TimeStop();
+			}
 		}
 	}
 }

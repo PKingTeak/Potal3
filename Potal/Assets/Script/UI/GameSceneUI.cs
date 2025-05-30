@@ -19,11 +19,18 @@ public class GameSceneUI : MonoBehaviour
     [Header("패널 On, Off")]
     [SerializeField] private GameObject diePanel; // 죽으면 표시
     [SerializeField] private GameObject clearPanel; // 끝 부분에 도달하면 표시
-    [SerializeField] private GameObject settingPanel;
+
+    [Header("시간 조정")]
+    [SerializeField] private TimerData timerData;
+    public TimerData TimerData
+    {
+        get => timerData;
+    }
 
 	private void Start()
     {
-        playerInput = FindObjectOfType<PlayerCrouch>().gameObject.GetComponent<PlayerInput>(); 
+        playerInput = FindObjectOfType<PlayerCrouch>().gameObject.GetComponent<PlayerInput>();
+        MiddleSceneUI.Instance.GameSceneUI = this;
 	}
 
     private Coroutine _typingCoroutine;
@@ -50,15 +57,13 @@ public class GameSceneUI : MonoBehaviour
         clearPanel.SetActive(true);
         OpenUI(!clearPanel.activeSelf);
     }
-    public void OnSetting(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            AudioManager.Instance.SFXSourceUIOpenPanel.Play();
-            settingPanel.SetActive(!settingPanel.activeSelf);
-            OpenUI(!settingPanel.activeSelf);
-		}
-    }
+  //  public void OnSetting(InputAction.CallbackContext context)
+  //  {
+  //      if (context.started)
+  //      {
+  //          OpenUI(!settingPanel.activeSelf);
+		//}
+  //  }
 
     public void OpenUI(bool isOpen)
     {

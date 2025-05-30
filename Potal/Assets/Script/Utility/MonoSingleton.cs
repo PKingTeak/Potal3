@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-	private static T instance;
+	protected static T instance;
 
 	public static T Instance
 	{
@@ -23,6 +23,19 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 			}
 
 			return instance;
+		}
+	}
+
+	protected virtual void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this as T;
+			// 필요하면 개별 클래스에서 DontDestroyOnLoad 호출
+		}
+		else if (instance != this)
+		{
+			Destroy(gameObject); // 중복 인스턴스 제거
 		}
 	}
 }

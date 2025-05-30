@@ -17,7 +17,7 @@ public class ClearPanel1 : MonoBehaviour
 	private void Awake()
 	{
 		Utility.ButtonBind(goToMainButton, () => SceneManager.LoadScene("StartScene"));
-		timeText.text = timerData.TimerStop();
+		timeText.text = timerData.TimeStop();
 	}
 
 	//경택 추가함

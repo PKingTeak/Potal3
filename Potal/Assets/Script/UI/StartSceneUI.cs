@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,14 +21,16 @@ public class StartSceneUI : MonoBehaviour
 	[SerializeField] private GameObject settingPanel;
 	[SerializeField] private GameObject mapBuildPanel;
 
-	[SerializeField] private UnityEngine.UI.Button startButton;
-	[SerializeField] private UnityEngine.UI.Button mapBuildButton;
-	[SerializeField] private UnityEngine.UI.Button settingButton;
+	[SerializeField] private Button startButton;
+	[SerializeField] private Button mapBuildButton;
+	[SerializeField] private Button mapSelectButton;
+	[SerializeField] private Button settingButton;
 
 	private void Start()
 	{
 		Utility.ButtonBind(startButton, () => SceneManager.LoadScene("MapSelectScene"));
-		Utility.ButtonBind(settingButton, () => settingPanel.SetActive(true));
 		Utility.ButtonBind(mapBuildButton, () => SceneManager.LoadScene("MakeStageScene"));
+		Utility.ButtonBind(mapSelectButton, () => SceneManager.LoadScene("CustomMapSelectScene"));
+		Utility.ButtonBind(settingButton, () => MiddleSceneUI.Instance.SettingPanelOpen());
 	}
 }

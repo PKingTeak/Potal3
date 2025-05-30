@@ -23,12 +23,17 @@ public class AudioManager : MonoSingleton<AudioManager>
     [SerializeField] public AudioSource SFXSourceUIGameClear;
     [SerializeField] public AudioSource SFXSourceUIOpenPanel;
 
-	private void Start()
+	protected override void Awake()
     {
-		BGMSourceMain.Play();
-        SetBGMVolume(SettingManager.Instance.Current.soundVolume);
-		SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
-        DontDestroyOnLoad(gameObject);
+        base.Awake();
+
+        if (instance == this)
+        {
+		    BGMSourceMain.Play();
+            SetBGMVolume(SettingManager.Instance.Current.soundVolume);
+		    SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
+            DontDestroyOnLoad(gameObject);
+        }
 	}
 
     public void SetBGMVolume(float volume)
