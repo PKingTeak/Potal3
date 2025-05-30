@@ -43,9 +43,7 @@ for (int i = 0; i < jsons.Length; i++)
 
 ### 📷 구조 분리 이미지
 
-![Stage Data 구조도](docs/img/stage_data_flow.png)
-
-> ※ 예시 이미지: `StageUIManager → StageSettingHelper → StageManager` 간의 흐름을 시각화한 다이어그램
+![Stage Data 구조도](../docs/img/stage_data_flow.PNG)
 
 ---
 
