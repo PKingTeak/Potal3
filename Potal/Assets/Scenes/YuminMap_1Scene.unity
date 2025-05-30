@@ -2242,11 +2242,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7c0d0b1ff5f7c4fbf6de235afe572b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearPanel: {fileID: 0}
   curStage: 0
   respawnPos: {x: -12, y: 1, z: 12}
   respawnTime: 1
   player: {fileID: 1138954377560744865}
+  gameSceneUI: {fileID: 0}
   DoorConnecter: {fileID: 0}
 --- !u!23 &1598455450
 MeshRenderer:

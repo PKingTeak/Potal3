@@ -27148,7 +27148,7 @@ PrefabInstance:
     - target: {fileID: 1687930347554927434, guid: 23a40449ea4acb94da26745b6a05b16d, type: 3}
       propertyPath: SFXSourceButtonHover
       value: 
-      objectReference: {fileID: 1682026841}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60864,7 +60864,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -70333,11 +70333,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0286398, y: 0.11689375, z: 1.5003299}
   m_Center: {x: 0, y: 0.0000000055879354, z: 0}
---- !u!82 &1682026841 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5575186747540506979, guid: 23a40449ea4acb94da26745b6a05b16d, type: 3}
-  m_PrefabInstance: {fileID: 668252243}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1688823184
 GameObject:
   m_ObjectHideFlags: 0
