@@ -47,7 +47,7 @@ public class GameSceneUI : MonoBehaviour
     private Coroutine _typingCoroutine;
     public void GetInteractData(string tag = "None")
     {
-        Debug.Log("상호작용 작동확인");
+        // Debug.Log("상호작용 작동확인");
         switch (tag)
         {
             case "None":
