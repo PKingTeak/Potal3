@@ -27,7 +27,6 @@ public class SettingPanel : MonoBehaviour
 	private void Start()
 	{
 		settingData = SettingManager.Instance.Current;
-		gameSceneUI = MiddleSceneUI.Instance.GameSceneUI;
 		OnSoundSliderChanged(settingData.soundVolume);
 		OnSFXSliderChanged(settingData.SFXVolume);
 		OnMouseSensitivitySliderChanged(settingData.lookSensitivity);
@@ -76,12 +75,12 @@ public class SettingPanel : MonoBehaviour
 
 		var data = settingData;
 		SettingManager.Instance.SaveSettings(data.soundVolume, data.SFXVolume, data.lookSensitivity); // esc 닫을 때 저장
-
-		gameObject.SetActive(false);
+		gameSceneUI = MiddleSceneUI.Instance.GameSceneUI;
+		
 		if (gameSceneUI != null)
 		{
-			gameSceneUI.OpenUI(!gameObject.activeSelf);
-			if (!gameObject.activeSelf)
+			Debug.Log("뭐징");
+			if (gameObject.activeSelf)
 			{
 				gameSceneUI.TimerData.TimeStart();
 				Time.timeScale = 1f;
@@ -92,6 +91,8 @@ public class SettingPanel : MonoBehaviour
 				gameSceneUI.TimerData.TimeStop();
 				Time.timeScale = 0f;
 			}
+			gameSceneUI.OpenUI(gameObject.activeSelf);
 		}
+		gameObject.SetActive(false);
 	}
 }

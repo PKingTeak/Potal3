@@ -1568,6 +1568,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2996640777313458911, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
+      propertyPath: m_text
+      value: 'Stage : 4'
+      objectReference: {fileID: 0}
     - target: {fileID: 5595115715798419480, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1788,9 +1792,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5023525491576817153, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
       insertIndex: -1
       addedObject: {fileID: 322543740}
-    - targetCorrespondingSourceObject: {fileID: 2470248837619134697, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2015853674}
   m_SourcePrefab: {fileID: 100100000, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
 --- !u!1 &322543739 stripped
 GameObject:
@@ -10885,19 +10886,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986746914}
   m_Mesh: {fileID: 4300000, guid: a7908addf22c44cc79c101afc940c30b, type: 3}
---- !u!1 &2015853672 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2470248837619134697, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
-  m_PrefabInstance: {fileID: 322543738}
-  m_PrefabAsset: {fileID: 0}
---- !u!222 &2015853674
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015853672}
-  m_CullTransparentMesh: 1
 --- !u!1 &2035931878
 GameObject:
   m_ObjectHideFlags: 0
