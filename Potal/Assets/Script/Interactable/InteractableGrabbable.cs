@@ -10,13 +10,13 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
     [Header("Grab Settings")]
     [SerializeField] private float followSpeed = 20f;
     [SerializeField] private float releasePushStrength = 0.5f;
-    [SerializeField] private float grabDistance = 1.5f;
 
     [Header("Layer Change Settings")]
     [SerializeField] private int heldLayer;
 
     private int _originalLayer;
     private Quaternion _rotationOffset;
+    private float _holdDistance; // 유지 거리
 
     private void Awake()
     {
@@ -26,10 +26,11 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
         _rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
 
-    public void StartGrab(Transform holder)
+    public void StartGrab(Transform holder, float holdDistance)
     {
         _holder = holder;
         _isHeld = true;
+        _holdDistance = holdDistance;
 
         _originalLayer = gameObject.layer;
         gameObject.layer = heldLayer;
@@ -60,10 +61,10 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
     {
         if (_isHeld && _holder != null)
         {
-            Vector3 targetPos = _holder.position + _holder.forward * grabDistance;
+            Vector3 targetPos = _holder.position + _holder.forward * _holdDistance;
             Quaternion targetRot = _holder.rotation * _rotationOffset;
 
-            Vector3 dir = (targetPos - transform.position);
+            Vector3 dir = targetPos - transform.position;
             _rb.velocity = dir * followSpeed;
             _rb.angularVelocity = Vector3.zero;
 

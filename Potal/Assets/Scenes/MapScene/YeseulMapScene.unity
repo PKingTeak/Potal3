@@ -33705,6 +33705,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7083298301371472019}
     m_Modifications:
+    - target: {fileID: 1181550745666956625, guid: 8a8df1c362bd7a34e96c6ad99631f55e, type: 3}
+      propertyPath: m_text
+      value: 'Stage : 3'
+      objectReference: {fileID: 0}
     - target: {fileID: 2414392446363848923, guid: 8a8df1c362bd7a34e96c6ad99631f55e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -33740,6 +33744,10 @@ PrefabInstance:
     - target: {fileID: 6363944053115880146, guid: 8a8df1c362bd7a34e96c6ad99631f55e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 66.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193514986096339335, guid: 8a8df1c362bd7a34e96c6ad99631f55e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330934332507716584, guid: 8a8df1c362bd7a34e96c6ad99631f55e, type: 3}
       propertyPath: m_Pivot.x

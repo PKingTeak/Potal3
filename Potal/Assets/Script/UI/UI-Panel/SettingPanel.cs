@@ -24,13 +24,9 @@ public class SettingPanel : MonoBehaviour
 	//필요 : 배경음악
 	//필요 : 효과음
 
-	private void Awake()
-	{
-		settingData = SettingManager.Instance.Current;
-	}
-
 	private void Start()
 	{
+		settingData = SettingManager.Instance.Current;
 		gameSceneUI = MiddleSceneUI.Instance.GameSceneUI;
 		OnSoundSliderChanged(settingData.soundVolume);
 		OnSFXSliderChanged(settingData.SFXVolume);
@@ -47,8 +43,9 @@ public class SettingPanel : MonoBehaviour
 
 		if (selectSceneButton != null)
 		{
-			Utility.ButtonBind(selectSceneButton, ()=> SceneManager.LoadScene("StartScene"));
+			Utility.ButtonBind(selectSceneButton, () => { SceneManager.LoadScene("StartScene"); gameObject.SetActive(false); });
 		}
+		gameObject.SetActive(false); 
 	}
 
 	private void OnSoundSliderChanged(float value)

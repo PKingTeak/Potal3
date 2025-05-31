@@ -7,8 +7,9 @@ public class PlayerGrabber : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private Transform grabPoint;
     [SerializeField] private float grabRange = 3f;
-    [SerializeField] private LayerMask grabLayer;
+    [SerializeField] private float holdDistance = 1.5f;
     [SerializeField] private float maxGrabDistance = 3.5f;
+    [SerializeField] private LayerMask grabLayer;
 
     private InteractableGrabbable _held;
 
@@ -49,7 +50,7 @@ public class PlayerGrabber : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out InteractableGrabbable grabbable))
             {
-                grabbable.StartGrab(grabPoint);
+                grabbable.StartGrab(grabPoint, holdDistance); // 거리 전달
                 _held = grabbable;
             }
         }

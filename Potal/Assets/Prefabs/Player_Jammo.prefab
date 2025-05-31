@@ -1012,11 +1012,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 6837033907632254826}
   grabPoint: {fileID: 2545508901533810398}
-  grabRange: 3
+  grabRange: 1.5
   grabLayer:
     serializedVersion: 2
     m_Bits: 64
-  maxGrabDistance: 1.5
+  maxGrabDistance: 4
 --- !u!114 &5252991741911000833
 MonoBehaviour:
   m_ObjectHideFlags: 0
