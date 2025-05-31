@@ -9607,6 +9607,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3724548981827725351, guid: 99c8ff34fdaa847e68be4ee742aa3f66, type: 3}
+      propertyPath: grabRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724548981827725351, guid: 99c8ff34fdaa847e68be4ee742aa3f66, type: 3}
+      propertyPath: maxGrabDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5252991741911000833, guid: 99c8ff34fdaa847e68be4ee742aa3f66, type: 3}
       propertyPath: gameSceneUI
       value: 
@@ -50669,7 +50677,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 20
   releasePushStrength: 0.5
-  grabDistance: 1
   heldLayer: 10
 --- !u!54 &1223014066
 Rigidbody:
@@ -89454,7 +89461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 20
   releasePushStrength: 0.5
-  grabDistance: 1
   heldLayer: 10
 --- !u!1 &103139979428545494
 GameObject:
@@ -101509,7 +101515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 20
   releasePushStrength: 0.5
-  grabDistance: 1
   heldLayer: 10
 --- !u!1 &3432770848561336257
 GameObject:
@@ -117004,7 +117009,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 20
   releasePushStrength: 0.5
-  grabDistance: 1
   heldLayer: 10
 --- !u!114 &5706076105065897712
 MonoBehaviour:
@@ -119858,7 +119862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5595115715798419480, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595115715798419480, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -119882,7 +119886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6219890409301258621, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6219890409301258621, guid: 0c25b0df457c2594f9f9f8230f252976, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -120013,7 +120017,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 20
   releasePushStrength: 0.5
-  grabDistance: 1
   heldLayer: 10
 --- !u!114 &8121106270683559763
 MonoBehaviour:
@@ -120655,7 +120658,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 20
   releasePushStrength: 0.5
-  grabDistance: 1
   heldLayer: 10
 --- !u!114 &9185356782019931966
 MonoBehaviour:
