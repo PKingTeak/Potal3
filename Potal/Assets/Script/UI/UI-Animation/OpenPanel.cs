@@ -21,8 +21,8 @@ public class OpenPanel : MonoBehaviour
     {
         while (time < 1.0f)
         {
-            time = time + Time.deltaTime;
-            float clampedTime = Mathf.Clamp(time, 0, 1);
+            time = time + Time.unscaledDeltaTime;
+			float clampedTime = Mathf.Clamp(time, 0, 1);
             transform.localScale = new Vector3(curve.Evaluate(clampedTime), 1, 1);
             yield return null;
         }
