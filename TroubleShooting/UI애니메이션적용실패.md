@@ -8,7 +8,7 @@ UI Panel을 오픈할 때 `AnimationCurve`를 사용하여 **애니메이션 효
 
 ## 🧪 본래 시도
 - `OnEnable()` 시점에 스케일 값을 `AnimationCurve`로 점진적으로 증가시키는 방식 사용.
-- `Invoke()`와 `StartCoroutine()`을 동시에 호출.
+- `Invoke()`로 메서드 호출.
 - 애니메이션은 `OpenAnimation()` 함수 내 `while` 루프에서 처리.
 
 ```csharp
@@ -29,15 +29,9 @@ private void OpenAnimation()
 
 ---
 
-## ❗ 문제 원인
+## ❗ 문제
 - `OpenAnimation()` 함수에서 **`while` 루프가 한 프레임 안에 모두 실행**됨.
 - 결과적으로 시간 누적과 스케일 변화가 한 번에 처리되어, **애니메이션이 생략된 것처럼 동작**.
-
----
-
-## 🔍 추론 및 분석
-- `while`문이 코루틴이 아닌 일반 메서드 내부에서 실행될 경우 **프레임 단위 처리 불가**.
-- 에디터나 스크립트 오류가 아닌 **로직 설계의 문제**.
 
 ---
 
