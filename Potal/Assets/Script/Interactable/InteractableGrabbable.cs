@@ -74,7 +74,7 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
 
     public bool IsHeld => _isHeld;
 
-    public void Interact() { }
+    public void Interact() { } // 기본 Interact는 비워둠
 
     public bool CanShowUI() => !_isHeld;
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _mouseDelta;
     [SerializeField] private bool canLook = true;
 
+    private PlayerCrouch _playerCrouch;
     private Rigidbody _rigidbody;
     private GroundChecker _groundChecker;
     private Animator _animator;
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponent<GroundChecker>();
         _animator = GetComponent<Animator>();
+        _playerCrouch = GetComponent<PlayerCrouch>();
     }
 
     private void FixedUpdate()
@@ -63,11 +64,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDir = (camForward * _curMovementInput.y + camRight * _curMovementInput.x).normalized;
 
         float crouchMultiplier = 1f;
-        var crouch = GetComponent<PlayerCrouch>();
-        if (crouch != null)
-            crouchMultiplier = crouch.SpeedMultiplier;
+        
+        if (_playerCrouch != null)
+            crouchMultiplier = _playerCrouch.SpeedMultiplier;
 
-        Vector3 desiredVelocity = moveDir * maxSpeed * crouchMultiplier;
+        Vector3 desiredVelocity = moveDir * (maxSpeed * crouchMultiplier);
         Vector3 currentHorizontalVelocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
         Vector3 velocityChange = desiredVelocity - currentHorizontalVelocity;
 
