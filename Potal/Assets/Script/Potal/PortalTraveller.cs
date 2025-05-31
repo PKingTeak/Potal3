@@ -37,13 +37,6 @@ public class PortalTraveller : MonoBehaviour
         // 기울어져 있을 경우
         if (Mathf.Abs(euler.x) > 1f || Mathf.Abs(euler.z) > 1f)
         {
-            Vector3 forward = Vector3
-                .ProjectOnPlane(newRot * Vector3.forward, Vector3.up)
-                .normalized;
-
-            if (forward == Vector3.zero)
-                forward = linkedPortal.forward;
-                
             float y = newRot.eulerAngles.y;
 
             newRot = Quaternion.Euler(0f, y, 0f);
