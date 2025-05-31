@@ -9165,7 +9165,7 @@ PrefabInstance:
     - target: {fileID: 2787490130255960004, guid: 20a59321cd927ce4fa9ef75d8c37edcb, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: 290b3c5752e26c942a170e3cd6ab19c2, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4602044895302078857, guid: 20a59321cd927ce4fa9ef75d8c37edcb, type: 3}
       propertyPath: m_Name
       value: Button
@@ -19626,16 +19626,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5121963285276878656, guid: ee508b0a0b9cdd34d9e44d0a737c8ab4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1137975784110884104, guid: ee508b0a0b9cdd34d9e44d0a737c8ab4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 528213767}
   m_SourcePrefab: {fileID: 100100000, guid: ee508b0a0b9cdd34d9e44d0a737c8ab4, type: 3}
 --- !u!4 &528213765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3304350321442106523, guid: ee508b0a0b9cdd34d9e44d0a737c8ab4, type: 3}
   m_PrefabInstance: {fileID: 528213764}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &528213766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1137975784110884104, guid: ee508b0a0b9cdd34d9e44d0a737c8ab4, type: 3}
+  m_PrefabInstance: {fileID: 528213764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &528213767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528213766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd3229541a39b5478d001c90a722bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &530419008
 GameObject:
   m_ObjectHideFlags: 0
