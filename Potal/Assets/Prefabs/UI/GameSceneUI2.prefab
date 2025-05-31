@@ -854,9 +854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a98a01aa5f8bd846a4b5c4a6469c661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerData: {fileID: 0}
-  timeText: {fileID: 0}
-  goToMainButton: {fileID: 0}
+  timerData: {fileID: 6440705453602947976}
+  timeText: {fileID: 5548724676612469540}
+  goToMainButton: {fileID: 6451404038561745334}
 --- !u!1 &1998354647134734183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,7 +3021,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC7A1\uAE30"
+  m_text: "\uC0C1\uD638\uC791\uC6A9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39c3b027fa94759438087306a4700e73, type: 2}
   m_sharedMaterial: {fileID: 6594185635273122315, guid: 39c3b027fa94759438087306a4700e73, type: 2}
@@ -3255,7 +3255,6 @@ MonoBehaviour:
   actionNameText: {fileID: 4616937558506937806}
   diePanel: {fileID: 8081508766947565896}
   clearPanel: {fileID: 1842586070856699611}
-  settingPanel: {fileID: 0}
   timerData: {fileID: 6440705453602947976}
 --- !u!114 &2431048992200817794
 MonoBehaviour:

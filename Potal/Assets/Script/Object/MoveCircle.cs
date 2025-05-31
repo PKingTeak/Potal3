@@ -7,22 +7,26 @@ public class MoveCircle : MonoBehaviour
 {
 	// Start is called before the first frame update
 	[SerializeField] private Vector3 startPos;
-    [SerializeField] private float moveSpeed = 5f;
+	[SerializeField] private Vector3 startRot;
+	[SerializeField] private float moveSpeed = 5f;
 	[SerializeField] private Rigidbody rb;
 	void Start()
     {
 		rb = GetComponent<Rigidbody>();
 		startPos = transform.position;
+		startRot = transform.rotation.eulerAngles;
 		Init();
 	}
 
 	public void OnCollisionEnter(Collision collision)
 	{
-		Quaternion flip = Quaternion.AngleAxis(180f, transform.up);
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
+		Quaternion flip = Quaternion.LookRotation(-rb.transform.forward, rb.transform.up);
 		//Quaternion flip = Quaternion.Euler(Vector3.forward * 180f);
-		rb.rotation = flip * rb.rotation;
+		rb.rotation = flip;
 
-		rb.velocity = rb.rotation * Vector3.forward * moveSpeed;
+		rb.velocity = -rb.transform.forward * moveSpeed;
 
 		if (collision.gameObject.TryGetComponent(out CapsuleCollider player))
 		{
@@ -36,7 +40,7 @@ public class MoveCircle : MonoBehaviour
 		transform.position = startPos;
 		rb.isKinematic = false;
 		rb.velocity = Vector3.zero;
-		rb.rotation = Quaternion.Euler(Vector3.zero);
-		rb.velocity = Vector3.forward * moveSpeed;
+		rb.rotation = Quaternion.Euler(startRot);
+		rb.velocity = rb.rotation * Vector3.forward * moveSpeed;
 	}
 }
