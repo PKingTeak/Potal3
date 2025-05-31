@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MapEditor/MapSelectScene.unity
     guid: ffa4e66cf31b94d48932ba886b8cce67
   - enabled: 1
-    path: Assets/Scenes/StageGGM.unity
+    path: Assets/Scenes/MapScene/StageGGM.unity
     guid: ca372bde2c2ebfd4982800ae3a73c239
   - enabled: 1
     path: Assets/Scenes/MapScene/Tutorial.unity
