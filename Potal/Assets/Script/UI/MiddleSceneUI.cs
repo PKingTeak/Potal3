@@ -26,14 +26,15 @@ public class MiddleSceneUI : MonoSingleton<MiddleSceneUI>
 
 	public void SettingPanelOpen()
 	{
+		settingPanel.SetActive(!settingPanel.activeSelf);
+		var data = SettingManager.Instance.Current;
+		SettingManager.Instance.SaveSettings(data.soundVolume, data.SFXVolume, data.lookSensitivity);
+
 		if (gameSceneUI != null)
 		{
-			settingPanel.SetActive(!settingPanel.activeSelf);
 			if (!settingPanel.activeSelf)
 			{
-				var data = SettingManager.Instance.Current;
-				SettingManager.Instance.SaveSettings(data.soundVolume, data.SFXVolume, data.lookSensitivity);
-				
+
 				gameSceneUI.TimerData.TimeStart();
 				Time.timeScale = 1f;
 			}
