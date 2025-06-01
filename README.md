@@ -39,10 +39,7 @@
 - 포탈을 통한 창의적인 퍼즐 구성
 
 > 🎞️ **[GIF: 포탈 생성, 플레이어 이동]**
-> ![Portal 1](docs/gif/portal_1.gif)
-> 
-> 🎞️ **[GIF: 포탈로 오브젝트 이동]**
-> ![Portal 2](docs/gif/portal_2.gif)
+> ![Portal 1](docs/gif/portal.gif)
 
 ---
 
@@ -71,7 +68,7 @@
 
 - **방향 점프대**  
   → 설정된 방향으로 포물선 점프 (각도·높이 조절 가능)
-  > ![Diagonal Jump Pad](docs/gif/diagonal_jump_ad.gif)
+  > ![Diagonal Jump Pad](docs/gif/diagonal_jump_pad.gif)
 
 - **이동하는 플랫폼**  
   → 지정된 경로를 따라 움직이는 플랫폼
