@@ -35,7 +35,7 @@ private void OpenAnimation()
 
 ---
 
-## ✅ 최종 해결 방법
+## ✅ 해결 방법
 - `OpenAnimation()`을 **`IEnumerator`로 변경**하여 **`yield return null`을 통해 매 프레임 처리**.
 - 시간 누적을 `Mathf.Clamp()`로 보정하여 **예외 상황 방지**.
 
