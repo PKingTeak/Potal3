@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InspectorUI : MonoBehaviour
 {
