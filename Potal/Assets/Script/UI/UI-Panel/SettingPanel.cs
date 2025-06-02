@@ -47,6 +47,11 @@ public class SettingPanel : MonoBehaviour
 		gameObject.SetActive(false); 
 	}
 
+	private void OnEnable()
+	{
+		gameSceneUI = MiddleSceneUI.Instance?.GameSceneUI;
+	}
+
 	private void OnSoundSliderChanged(float value)
 	{
 		// 필요 : 배경음악.볼륨
@@ -75,7 +80,7 @@ public class SettingPanel : MonoBehaviour
 
 		var data = settingData;
 		SettingManager.Instance.SaveSettings(data.soundVolume, data.SFXVolume, data.lookSensitivity); // esc 닫을 때 저장
-		gameSceneUI = MiddleSceneUI.Instance.GameSceneUI;
+		//gameSceneUI = MiddleSceneUI.Instance.GameSceneUI;
 		
 		if (gameSceneUI != null)
 		{

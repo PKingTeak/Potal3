@@ -29,13 +29,13 @@ public class GameSceneUI : MonoBehaviour
 
 	private void Start()
     {
-        playerInput = FindObjectOfType<PlayerCrouch>().gameObject.GetComponent<PlayerInput>();
+        //playerInput = FindObjectOfType<PlayerCrouch>().gameObject.GetComponent<PlayerInput>();
         MiddleSceneUI.Instance.GameSceneUI = this;
-        if (playerInput == null)
-        {
-        playerInput = FindObjectOfType<PlayerCrouch>()?.gameObject.GetComponent<PlayerInput>();
+        //if (playerInput == null)
+        //{
+        //playerInput = FindObjectOfType<PlayerCrouch>()?.gameObject.GetComponent<PlayerInput>();
             
-        }
+        //}
 
     }
 
@@ -79,7 +79,12 @@ public class GameSceneUI : MonoBehaviour
 
     public void OpenUI(bool isOpen)
     {
-        Cursor.lockState = isOpen == true ? CursorLockMode.Locked : CursorLockMode.None;
+		if (playerInput == null)
+		{
+			playerInput = FindObjectOfType<PlayerCrouch>()?.gameObject.GetComponent<PlayerInput>();
+
+		}
+		Cursor.lockState = isOpen == true ? CursorLockMode.Locked : CursorLockMode.None;
         playerInput.enabled = isOpen; // 플레이어 입력 비활성화
 	}
     

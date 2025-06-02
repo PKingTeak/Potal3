@@ -97,7 +97,9 @@ public class StageManager : MonoBehaviour
     private IEnumerator RespawnDelay()
     {
         //죽음 이벤트 호출
-        yield return new WaitForSeconds(respawnTime);
+        Time.timeScale = 0.0f;
+        yield return new WaitForSecondsRealtime(respawnTime);
+        Time.timeScale = 1.0f;
         SettingPos();
     }
 

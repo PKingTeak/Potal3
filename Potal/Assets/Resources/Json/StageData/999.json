@@ -1,0 +1,99 @@
+{
+    "PrefabEntries": [
+        {
+            "prefabPath": "BoxSpawner",
+            "connectID": -1,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "prefabPath": "DiagonalJumpPad",
+            "connectID": -1,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "prefabPath": "Floor1",
+            "connectID": -1,
+            "position": {
+                "x": -4.8380507933210029e-11,
+                "y": -0.9882758259773254,
+                "z": 0.7500014305114746
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.000002384185791,
+                "y": 1.0000033378601075,
+                "z": 1.0000017881393433
+            }
+        },
+        {
+            "prefabPath": "JumpPad",
+            "connectID": -1,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "prefabPath": "MovingPad",
+            "connectID": -1,
+            "position": {
+                "x": 5.0,
+                "y": 1.0,
+                "z": 3.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        }
+    ]
+}
