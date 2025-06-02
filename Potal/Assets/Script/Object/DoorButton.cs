@@ -6,32 +6,33 @@ using UnityEngine;
 
 public class DoorButton : MonoBehaviour, IIdentifiable
 {
-    [SerializeField] private string id;
-    public string Id => id;
+    [SerializeField] private int id;
+    public int Id => id;
     public event Action OnPressed;
     public event Action OnReleased;
 
     private Rigidbody current;
 
-    private void Awake()
+    private MeshRenderer meshRenderer;
+
+    private void Start()
     {
-        id = ExtractInstanceIndex(gameObject.name);
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
-    private string ExtractInstanceIndex(string id)
+    public void SetId(int id)
     {
-        Match match = Regex.Match(name, @"\((\d+)\)");
-        if (match.Success)
-            return match.Groups[1].Value;
-        return "0";
+        this.id = id;
     }
     
     private void OnCollisionEnter(Collision other)
     {
         if (current == null && other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
+            AudioManager.Instance.SFXSourceButtonDown.Play();
             current = rb;
             OnPressed?.Invoke();
+            meshRenderer.material.color = Color.red;
         }
     }
     
@@ -41,6 +42,7 @@ public class DoorButton : MonoBehaviour, IIdentifiable
         {
             OnReleased?.Invoke();
             current = null;
+            meshRenderer.material.color = Color.white;
         }
     }
 }

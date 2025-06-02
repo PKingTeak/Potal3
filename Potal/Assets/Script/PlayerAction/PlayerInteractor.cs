@@ -10,6 +10,13 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private GameSceneUI gameSceneUI;
 
     private IInteractable _currentTarget;
+    private PlayerGrabber _grabber;
+    private string _lastLayerName = null;
+
+    private void Awake()
+    {
+        _grabber = GetComponent<PlayerGrabber>();
+    }
 
     private void Update()
     {
@@ -18,31 +25,39 @@ public class PlayerInteractor : MonoBehaviour
 
     private void UpdateUI()
     {
+        if (_grabber != null && _grabber.IsHolding)
+        {
+            if (_lastLayerName != null)
+            {
+                _lastLayerName = null;
+                gameSceneUI.GetInteractData();
+            }
+            _currentTarget = null;
+            return;
+        }
+
         if (TryGetInteractable(out IInteractable interactable, out RaycastHit hit))
         {
-            if (!interactable.CanShowUI())
+            if (interactable.CanShowUI())
             {
-                ClearUI();
+                string layerName = LayerMask.LayerToName(hit.collider.gameObject.layer);
+                if (_lastLayerName != layerName)
+                {
+                    _lastLayerName = layerName;
+                    gameSceneUI.GetInteractData(layerName);
+                }
+                _currentTarget = interactable;
                 return;
             }
-
-            _currentTarget = interactable;
-            string layerName = LayerMask.LayerToName(hit.collider.gameObject.layer);
-            gameSceneUI.GetInteractData(layerName);
         }
-        else
-        {
-            ClearUI();
-        }
-    }
 
-    private void ClearUI()
-    {
-        if (_currentTarget != null)
+        if (_lastLayerName != null)
         {
-            _currentTarget = null;
+            _lastLayerName = null;
             gameSceneUI.GetInteractData();
         }
+
+        _currentTarget = null;
     }
 
     public void OnUse(InputAction.CallbackContext context)
@@ -64,5 +79,12 @@ public class PlayerInteractor : MonoBehaviour
 
         interactable = null;
         return false;
+    }
+
+    public void ForceUIRefresh()
+    {
+        _lastLayerName = null;
+        _currentTarget = null;
+        UpdateUI();
     }
 }

@@ -7,37 +7,43 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float airControlMultiplier = 0.3f; // 공중 제어력 감소 비율
     private Vector2 _curMovementInput;
 
     [Header("Look")]
     [SerializeField] private Transform cameraContainer;
     [SerializeField] private float minXLook = -80f;
     [SerializeField] private float maxXLook = 80f;
-    //[SerializeField] private float lookSensitivity = 1f;
     [SerializeField] private SettingData settingData;
-	private float _camCurXRot;
+    private float _camCurXRot;
     private Vector2 _mouseDelta;
     [SerializeField] private bool canLook = true;
 
+    private PlayerCrouch _playerCrouch;
     private Rigidbody _rigidbody;
     private GroundChecker _groundChecker;
+    private Animator _animator;
 
     [SerializeField] private bool isJumping = false;
-    
+
     private void Start()
     {
         settingData = SettingManager.Instance.Current;
         Cursor.lockState = CursorLockMode.Locked;
+
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponent<GroundChecker>();
+        _animator = GetComponent<Animator>();
+        _playerCrouch = GetComponent<PlayerCrouch>();
     }
 
     private void FixedUpdate()
     {
         if (isJumping)
             return;
+
         Move();
+        SmoothLanding();
+        UpdateAnimatorBlend();
     }
 
     private void LateUpdate()
@@ -57,20 +63,29 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDir = (camForward * _curMovementInput.y + camRight * _curMovementInput.x).normalized;
 
-        float jumpMultiplier = _groundChecker != null && _groundChecker.IsGrounded ? 1f : airControlMultiplier;
-
         float crouchMultiplier = 1f;
-        var crouch = GetComponent<PlayerCrouch>();
-        if (crouch != null)
-            crouchMultiplier = crouch.SpeedMultiplier;
+        
+        if (_playerCrouch != null)
+            crouchMultiplier = _playerCrouch.SpeedMultiplier;
 
-        Vector3 desiredVelocity = moveDir * maxSpeed * jumpMultiplier * crouchMultiplier;
-        Vector3 velocityChange = desiredVelocity - new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
+        Vector3 desiredVelocity = moveDir * (maxSpeed * crouchMultiplier);
+        Vector3 currentHorizontalVelocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
+        Vector3 velocityChange = desiredVelocity - currentHorizontalVelocity;
 
         _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
-
+    private void SmoothLanding()
+    {
+        if (_groundChecker != null && _groundChecker.IsGrounded)
+        {
+            Vector3 velocity = _rigidbody.velocity;
+            if (velocity.y < -2f)
+            {
+                _rigidbody.velocity = new Vector3(velocity.x, -1f, velocity.z);
+            }
+        }
+    }
 
     private void CameraLook()
     {
@@ -104,5 +119,16 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         yield return new WaitForSeconds(duration);
         isJumping = false;
+    }
+
+    private void UpdateAnimatorBlend()
+    {
+        if (_animator == null) return;
+
+        Vector3 horizontalVelocity = _rigidbody.velocity;
+        horizontalVelocity.y = 0f;
+
+        float speed = horizontalVelocity.magnitude / maxSpeed;
+        _animator.SetFloat("Blend", speed, 0.1f, Time.deltaTime);
     }
 }

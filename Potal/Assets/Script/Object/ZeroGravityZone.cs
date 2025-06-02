@@ -5,11 +5,30 @@ using UnityEngine;
 
 public class ZeroGravityZone : MonoBehaviour
 {
+    [SerializeField] private float power;
+
+    private Collider zoneCollider;
+    private float maxY;
+    
+    private MeshRenderer meshRenderer;
+
+    private void Awake()
+    {
+        zoneCollider = GetComponent<Collider>();
+        maxY = zoneCollider.bounds.max.y;
+
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+    }
+
+    private void Start()
+    {
+        meshRenderer.material.color = Color.gray;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
-            Debug.Log($"{rb.name} entered zero gravity zone");
             rb.useGravity = false;
             rb.drag = 3f;
             rb.angularDrag = 1f;
@@ -29,9 +48,14 @@ public class ZeroGravityZone : MonoBehaviour
     
     void AddRandomForce(Rigidbody rb)
     {
+        float currentY = rb.position.y;
+        float remainHeight = maxY - currentY;
+
+        float clampedPower = Mathf.Clamp(power, 0f, remainHeight * 2f);
+        
         Vector3 randomForce = new Vector3(
             UnityEngine.Random.Range(-2f, 2f),
-            UnityEngine.Random.Range(10f, 15f),
+            clampedPower,
             UnityEngine.Random.Range(-2f, 2f)
         );
         rb.AddForce(randomForce, ForceMode.VelocityChange);

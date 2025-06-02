@@ -18,24 +18,24 @@ TagManager:
   - Player
   - 
   - 
-  - 
+  - heldLayer
   - 
   - wall
+  - PlayerBody
+  - PortalClone
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - GizmoHandle
   - Portal
   - 
   - 
   - 
   - 
   - Cube
-  - 
+  - GlassWall
   - 
   - 
   - 

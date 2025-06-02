@@ -16,7 +16,14 @@ public class Zone : MonoBehaviour
     [Header("ZoneType")]
     [SerializeField] private ZoneType type;
 
-        private void OnTriggerEnter(Collider other)
+    private StageManager stageManager;
+
+    private void Start()
+    {
+        stageManager = FindObjectOfType<StageManager>();
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -24,11 +31,13 @@ public class Zone : MonoBehaviour
             {
 
                 case ZoneType.EndZone:
-                    StageManager.Instance.OnClearStage();
+                    stageManager.ClearStage();
+                    Debug.Log("Clear Stage");
                     break;
 
                 case ZoneType.DeadZone:
-                    StageManager.Instance.OnPlayerDead();
+                    stageManager.OnPlayerDead();
+                    Debug.Log("player Dead");
                     break;
                 default:
                     break;

@@ -13,17 +13,27 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     [Header("게임 내 효과음")]
     [SerializeField] public AudioSource SFXSourceJump;
-    [SerializeField] public AudioSource SFXSourceCoin;
-    [SerializeField] public AudioSource SFXSourcePortalShoot;
     [SerializeField] public AudioSource SFXSourcePortalHit;
-	[SerializeField] public AudioSource SFXSourceButton;
+    [SerializeField] public AudioSource SFXSourceOpenDoor;
+    [SerializeField] public AudioSource SFXSourceButtonDown;
+    [SerializeField] public AudioSource SFXSourceFallBlock;
 
-	private void Start()
+	[SerializeField] public AudioSource SFXSourceUIButton;
+    [SerializeField] public AudioSource SFXSourceUIButtonHover;
+    [SerializeField] public AudioSource SFXSourceUIGameClear;
+    [SerializeField] public AudioSource SFXSourceUIOpenPanel;
+
+	protected override void Awake()
     {
-		BGMSourceMain.Play();
-        SetBGMVolume(SettingManager.Instance.Current.soundVolume);
-		SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
-        DontDestroyOnLoad(gameObject);
+        base.Awake();
+
+        if (instance == this)
+        {
+		    BGMSourceMain.Play();
+            SetBGMVolume(SettingManager.Instance.Current.soundVolume);
+		    SetSFXVolume(SettingManager.Instance.Current.SFXVolume);
+            DontDestroyOnLoad(gameObject);
+        }
 	}
 
     public void SetBGMVolume(float volume)
@@ -31,7 +41,6 @@ public class AudioManager : MonoSingleton<AudioManager>
         foreach(var BGMSource in BGMSourceArray)
 		{
 			BGMSource.volume = volume;
-            Debug.Log("볼륨 조절 완료");
 		}
 	}
 
@@ -40,7 +49,6 @@ public class AudioManager : MonoSingleton<AudioManager>
 		foreach (var SFXSource in SFXSourceArray)
 		{
 			SFXSource.volume = volume;
-			Debug.Log("볼륨 조절 완료");
 		}
 	}
 

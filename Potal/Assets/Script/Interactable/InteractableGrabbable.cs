@@ -11,23 +11,30 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
     [SerializeField] private float followSpeed = 20f;
     [SerializeField] private float releasePushStrength = 0.5f;
 
-    
-    private Vector3 _positionOffset;
+    [Header("Layer Change Settings")]
+    [SerializeField] private int heldLayer;
+
+    private int _originalLayer;
     private Quaternion _rotationOffset;
+    private float _holdDistance; // 유지 거리
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _rb.freezeRotation = true;
+        _rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
 
-    public void StartGrab(Transform holder)
+    public void StartGrab(Transform holder, float holdDistance)
     {
         _holder = holder;
         _isHeld = true;
-        
-        _positionOffset = Quaternion.Inverse(_holder.rotation) * (transform.position - _holder.position);
+        _holdDistance = holdDistance;
+
+        _originalLayer = gameObject.layer;
+        gameObject.layer = heldLayer;
+
         _rotationOffset = Quaternion.Inverse(_holder.rotation) * transform.rotation;
 
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -38,6 +45,8 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
     {
         _isHeld = false;
         _rb.constraints = RigidbodyConstraints.None;
+
+        gameObject.layer = _originalLayer;
 
         if (_holder != null)
         {
@@ -52,14 +61,11 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
     {
         if (_isHeld && _holder != null)
         {
-            // 목표 위치 및 회전 계산
-            Vector3 targetPos = _holder.position + _holder.rotation * _positionOffset;
+            Vector3 targetPos = _holder.position + _holder.forward * _holdDistance;
             Quaternion targetRot = _holder.rotation * _rotationOffset;
 
-            // 부드럽게 이동
-            Vector3 dir = (targetPos - transform.position);
+            Vector3 dir = targetPos - transform.position;
             _rb.velocity = dir * followSpeed;
-
             _rb.angularVelocity = Vector3.zero;
 
             Quaternion smoothedRot = Quaternion.Lerp(_rb.rotation, targetRot, Time.fixedDeltaTime * followSpeed);
@@ -69,13 +75,7 @@ public class InteractableGrabbable : MonoBehaviour, IInteractable
 
     public bool IsHeld => _isHeld;
 
-    public void Interact()
-    {
-        Debug.Log("잡을 수 있는 오브젝트와 상호작용 시도됨");
-    }
+    public void Interact() { } // 기본 Interact는 비워둠
 
-    public bool CanShowUI()
-    {
-        return !_isHeld;
-    }
+    public bool CanShowUI() => !_isHeld;
 }

@@ -1,35 +1,25 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StageManager : MonoBehaviour
 {
-    public static StageManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new GameObject("StageManager").AddComponent<StageManager>();
 
-            }
-            
-                return instance;
-        }
-    }
+    public static event Action OnClearStage; //클리어시
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
+        StageSettingHelper.onCompleted += GetPlayer;
     }
+
+    
+
+
+    public const string curStageKey = "curstage";
+    public int curStage;
+
+
     public Vector3 RespawnPos { get { return respawnPos; } }
 
     private static StageManager instance;
@@ -37,44 +27,80 @@ public class StageManager : MonoBehaviour
     private Vector3 respawnPos;
     [SerializeField]
     private float respawnTime = 1f;
-    GameObject player;
-    [Header("ClearUI")]
-    public GameObject clearPanel;
+    [SerializeField] GameObject player;
 
-    [Header("Player")]
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameSceneUI gameSceneUI;
 
-    private GameObject playerObject;
+
+
+
+    [SerializeField]
+    private GameObject DoorConnecter;
 
     public void Start()
     {
-        SpawnPlayer();
+
+        
+        Invoke("FindPlayer",1f);
+        curStage = PlayerPrefs.GetInt(curStageKey, 0);
+        
+
     }
+
+    public void GetPlayer()
+    {
+        if (player == null)
+        {
+            Debug.Log("플레이어가 없습니다");
+            //맵에서 로드 되어야함
+            return;
+        }
+        player = FindObjectOfType<PlayerMovement>().gameObject;
+        gameSceneUI = FindObjectOfType<GameSceneUI>();
+        gameSceneUI.GetComponent<GameSceneUI>().SettingPlayerInput(player.GetComponent<PlayerInput>());
+        SettingSpawnPos();
+
+    }
+
+
+    private void FindPlayer()
+    {
+        player = FindObjectOfType<PlayerMovement>().gameObject;
+        SettingPos();
+        GetPlayer();
+
+    }
+
+  
     public void InitRespawnPos(Vector3 pos)
     {
         respawnPos = pos;
     }
 
-    private void SpawnPlayer()
+    public void SettingSpawnPos()
+    {
+        respawnPos = player.transform.position;
+
+    }
+
+    private void SettingPos()
     {
         if (player != null)
         {
-            Destroy(player);
+            player.transform.position = respawnPos;
             
         }
-        playerObject = Instantiate(playerPrefab, respawnPos, Quaternion.identity);
-
-        playerObject.tag = "Player";
-
-
 
     }
+
 
     private IEnumerator RespawnDelay()
     {
         //죽음 이벤트 호출
-        yield return new WaitForSeconds(respawnTime);
-        SpawnPlayer();
+        Time.timeScale = 0.0f;
+        yield return new WaitForSecondsRealtime(respawnTime);
+        Time.timeScale = 1.0f;
+        SettingPos();
     }
 
     public void OnPlayerDead()
@@ -82,12 +108,30 @@ public class StageManager : MonoBehaviour
         StartCoroutine(RespawnDelay());
     }
 
-    public void OnClearStage()
+
+
+    public void ClearStage()
     {
-        clearPanel.GetComponent<ClearPanel>().Show(); //유민님이 만드신 클리어 UI와 연동
-        Debug.Log("클리어");
+
+        gameSceneUI.ClearPanelOpen();
+                    
+
+        if (MainStageSelecter.stageNum <= curStage)
+        {
+            return;
+        }
+        else
+        {
+            curStage += 1;
+            PlayerPrefs.SetInt(curStageKey, curStage);
+        }
+
+
+            Debug.Log("클리어");
        
     }
 
 
+   
+    
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,19 +17,14 @@ public class SettingPanel : MonoBehaviour
 	[SerializeField] private Slider mouseSensitivitySlider;
 	[SerializeField] private TextMeshProUGUI mouseSensitivityValueText;
 
-
 	[SerializeField] private Button closeButton;
 	[SerializeField] private Button selectSceneButton;
 	//필요 : 배경음악
 	//필요 : 효과음
 
-	private void Awake()
-	{
-		settingData = SettingManager.Instance.Current;
-	}
-
 	private void Start()
 	{
+		settingData = SettingManager.Instance.Current;
 		OnSoundSliderChanged(settingData.soundVolume);
 		OnSFXSliderChanged(settingData.SFXVolume);
 		OnMouseSensitivitySliderChanged(settingData.lookSensitivity);
@@ -43,18 +36,23 @@ public class SettingPanel : MonoBehaviour
 		SFXSlider.onValueChanged.AddListener(OnSFXSliderChanged);
 		mouseSensitivitySlider.onValueChanged.AddListener(OnMouseSensitivitySliderChanged);
 
-		closeButton.onClick.AddListener(() => ExitButton());
+		Utility.ButtonBind(closeButton ,ExitButton);
 
 		if (selectSceneButton != null)
 		{
-			selectSceneButton.onClick.AddListener(() => SceneManager.LoadScene("StartScene"));
+			Utility.ButtonBind(selectSceneButton, () => { SceneManager.LoadScene("StartScene"); gameObject.SetActive(false); });
 		}
+		gameObject.SetActive(false); 
+	}
+
+	private void OnEnable()
+	{
+		gameSceneUI = MiddleSceneUI.Instance?.GameSceneUI;
 	}
 
 	private void OnSoundSliderChanged(float value)
 	{
 		// 필요 : 배경음악.볼륨
-		Debug.Log($"Sound volume changed to: {value}");
 		AudioManager.Instance.SetBGMVolume(value);
 		settingData.soundVolume = value;
 		soundValueText.text = $"음악 볼륨: {value*100:F0}%"; 
@@ -62,7 +60,6 @@ public class SettingPanel : MonoBehaviour
 	private void OnSFXSliderChanged(float value)
 	{
 		// 필요 : 효과음. 볼륨
-		Debug.Log($"SFX volume changed to: {value}");
 		AudioManager.Instance.SetSFXVolume(value);
 		settingData.SFXVolume = value;
 		SFXValueText.text = $"효과음 볼륨: {value*100:F0}%";
@@ -71,7 +68,6 @@ public class SettingPanel : MonoBehaviour
 	private void OnMouseSensitivitySliderChanged(float value)
 	{
 		// 필요 : 효과음. 볼륨
-		Debug.Log($"마우스 감도 mouse changed to: {value}");
 		settingData.lookSensitivity = value;
 		mouseSensitivityValueText.text = $"마우스 감도: {value*100:F0}"; // 소수점 둘째 자리까지 표시
 	}
@@ -82,11 +78,24 @@ public class SettingPanel : MonoBehaviour
 
 		var data = settingData;
 		SettingManager.Instance.SaveSettings(data.soundVolume, data.SFXVolume, data.lookSensitivity); // esc 닫을 때 저장
-
-		gameObject.SetActive(false);
+		//gameSceneUI = MiddleSceneUI.Instance.GameSceneUI;
+		
 		if (gameSceneUI != null)
 		{
-			gameSceneUI.OpenUI(!gameObject.activeSelf);
+			Debug.Log("뭐징");
+			if (gameObject.activeSelf)
+			{
+				gameSceneUI.TimerData.TimeStart();
+				Time.timeScale = 1f;
+				Debug.Log("시작");
+			}
+			else
+			{
+				gameSceneUI.TimerData.TimeStop();
+				Time.timeScale = 0f;
+			}
+			gameSceneUI.OpenUI(gameObject.activeSelf);
 		}
+		gameObject.SetActive(false);
 	}
 }
