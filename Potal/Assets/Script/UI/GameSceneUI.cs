@@ -68,13 +68,6 @@ public class GameSceneUI : MonoBehaviour
         clearPanel.SetActive(true);
         OpenUI(!clearPanel.activeSelf);
     }
-  //  public void OnSetting(InputAction.CallbackContext context)
-  //  {
-  //      if (context.started)
-  //      {
-  //          OpenUI(!settingPanel.activeSelf);
-		//}
-  //  }
 
     public void OpenUI(bool isOpen)
     {
